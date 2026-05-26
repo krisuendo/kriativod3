@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+  
   </head>
   <body>
   <!-- ====== TITLE BAR ====== -->
@@ -200,39 +202,134 @@
         <h2 class="section-title">Tech <span class="accent">Stack</span></h2>
         <div class="skills-categories">
 
-          <div class="skill-category">
-            <h3 class="skill-cat-title"><span class="accent">// </span>Frontend</h3>
-            <div class="skill-cards">
-              <div class="skill-card"><span class="skill-icon">🌐</span><span>HTML5</span><div class="skill-bar"><div class="skill-fill" style="--pct:95%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🎨</span><span>CSS3</span><div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">⚡</span><span>JavaScript</span><div class="skill-bar"><div class="skill-fill" style="--pct:88%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">⚛</span><span>React</span><div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🔷</span><span>TypeScript</span><div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">▲</span><span>Next.js</span><div class="skill-bar"><div class="skill-fill" style="--pct:78%"></div></div></div>
-            </div>
-          </div>
+          <!-- FRONTEND DEVELOPMENT -->
+          <div class="skills-stack">
 
-          <div class="skill-category">
-            <h3 class="skill-cat-title"><span class="accent">// </span>Backend</h3>
-            <div class="skill-cards">
-              <div class="skill-card"><span class="skill-icon">🟢</span><span>Node.js</span><div class="skill-bar"><div class="skill-fill" style="--pct:82%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🚂</span><span>Express</span><div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🐍</span><span>Python</span><div class="skill-bar"><div class="skill-fill" style="--pct:72%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🗃</span><span>PostgreSQL</span><div class="skill-bar"><div class="skill-fill" style="--pct:75%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🍃</span><span>MongoDB</span><div class="skill-bar"><div class="skill-fill" style="--pct:70%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🔴</span><span>Redis</span><div class="skill-bar"><div class="skill-fill" style="--pct:65%"></div></div></div>
-            </div>
-          </div>
+  <!-- FRONTEND -->
+  <div class="skills-group">
+    <h3 class="skill-group-title">Frontend Development</h3>
 
-          <div class="skill-category">
-            <h3 class="skill-cat-title"><span class="accent">// </span>Tools & DevOps</h3>
-            <div class="skill-cards">
-              <div class="skill-card"><span class="skill-icon">🐙</span><span>Git/GitHub</span><div class="skill-bar"><div class="skill-fill" style="--pct:92%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🐳</span><span>Docker</span><div class="skill-bar"><div class="skill-fill" style="--pct:68%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">☁</span><span>Vercel/Netlify</span><div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div></div>
-              <div class="skill-card"><span class="skill-icon">🔧</span><span>Vite</span><div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div></div>
-            </div>
-          </div>
+    <div class="skills-tags">
+      <span class="skill-pill"><span class="skill-text">HTML</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/html5" alt="HTML Logo"></span>
+      <span class="skill-pill"><span class="skill-text">CSS</span>
+      <img class="skill-logo" src="icons/skill-css.png" alt="CSS Logo"></span>
+      <span class="skill-pill"><span class="skill-text">JavaScript</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/javascript" alt="JavaScript Logo"></span>
+      <span class="skill-pill"><span class="skill-text">React</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/react" alt="React Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Java</span>
+      <img class="skill-logo" src="icons/skill-java.png" alt="Java Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Kotlin</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/kotlin" alt="Kotlin Logo"></span>
+    </div>
+  </div>
+
+  <!-- BACKEND -->
+  <div class="skills-group">
+    <h3 class="skill-group-title">Backend & Database</h3>
+
+    <div class="skills-tags">
+      <span class="skill-pill"><span class="skill-text">Supabase</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/supabase" alt="Supabase Logo"></span>
+      <span class="skill-pill"><span class="skill-text">SQL</span>
+      <img class="skill-logo" src="icons/skill-sql.png" alt="MySQL Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Firebase</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/firebase" alt="Firebase Logo"></span>
+    </div>
+  </div>
+
+  <!-- DEV TOOLS -->
+  <div class="skills-group">
+    <h3 class="skill-group-title">Development Tools & IDEs</h3>
+
+    <div class="skills-tags">
+      <span class="skill-pill"><span class="skill-text">VS Code</span>
+      <img class="skill-logo" src="icons/skill-vscode.png" alt="VS Code Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Android Studio</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/androidstudio" alt="Android Studio Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Apache NetBeans</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/apachenetbeanside" alt="NetBeans Logo"></span>
+      <span class="skill-pill"><span class="skill-text">IntelliJ IDEA</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/intellijidea" alt="IntelliJ IDEA Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Eclipse IDE</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/eclipseide" alt="Eclipse IDE Logo"></span>
+    </div>
+  </div>
+
+  <!-- ANALYTICS -->
+  <div class="skills-group">
+    <h3 class="skill-group-title">Database & Analytics Tools</h3>
+
+    <div class="skills-tags">
+      <span class="skill-pill"><span class="skill-text">MySQL Workbench</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/mysql" alt="MySQL Workbench Logo"></span>
+      <span class="skill-pill"><span class="skill-text">SQLite</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/sqlite" alt="SQLite Logo"></span>
+      <span class="skill-pill"><span class="skill-text">phpMyAdmin</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/phpmyadmin" alt="phpMyAdmin Logo"></span>
+      <span class="skill-pill"><span class="skill-text">DBeaver</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/dbeaver" alt="DBeaver Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Tableau Public</span>
+      <img class="skill-logo" src="icons/skill-tableau.png" alt="Tableau Public Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Microsoft Excel</span>
+      <img class="skill-logo" src="icons/skill-excel.png" alt="Microsoft Excel Logo"></span>
+    </div>
+  </div>
+
+  <!-- DESIGN -->
+  <div class="skills-group">
+    <h3 class="skill-group-title">Design & Creative Tools</h3>
+
+    <div class="skills-tags">
+      <span class="skill-pill"><span class="skill-text">Figma</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/figma" alt="Figma Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Adobe Photoshop</span>
+      <img class="skill-logo" src="icons/skill-photoshop.png" alt="Adobe Photoshop Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Adobe InDesign</span>
+      <img class="skill-logo" src="icons/skill-indesign.png" alt="Adobe InDesign Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Canva</span>
+      <img class="skill-logo" src="icons/skill-canva.png" alt="Canva Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Lightroom</span>
+      <img class="skill-logo" src="icons/skill-lightroom.png" alt="Lightroom Logo"></span>
+    </div>
+  </div>
+
+  <!-- DEPLOYMENT -->
+  <div class="skills-group">
+    <h3 class="skill-group-title">Deployment & Version Control</h3>
+
+    <div class="skills-tags">
+      <span class="skill-pill"><span class="skill-text">Git</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/git" alt="Git Logo"></span>
+      <span class="skill-pill"><span class="skill-text">GitHub</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/github" alt="GitHub Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Vercel</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/vercel" alt="Vercel Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Netlify</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/netlify" alt="Netlify Logo"></span>
+    </div>
+  </div>
+
+  <!-- AI and Productivity -->
+  <div class="skills-group">
+    <h3 class="skill-group-title">AI & Productivity Tools</h3>
+
+    <div class="skills-tags">
+      <span class="skill-pill"><span class="skill-text">Google Gemini</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/googlegemini" alt="Gemini Logo"></span>
+      <span class="skill-pill"><span class="skill-text">OpenAI</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/openaigym" alt="OpenAI Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Anthropic</span>
+      <img class="skill-logo" src="https://cdn.simpleicons.org/anthropic" alt="Anthropic Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Groq</span>
+      <img class="skill-logo" src="icons/skill-groq.png" alt="Groq Logo"></span>
+      <span class="skill-pill"><span class="skill-text">Microsoft 365</span>
+      <img class="skill-logo" src="icons/skill-ms365.png" alt="Microsoft 365 Logo"></span>
+    </div>
+  </div>
+
+</div>
 
         </div>
       </section>
@@ -241,262 +338,285 @@
 <section class="editor-section" id="section-experience">
   <p class="code-comment">// Experience Timeline</p>
 
-  <h2 class="section-title">
-    Experience <span class="accent">Timeline</span>
-  </h2>
+ <h2 class="section-title experience-title">
+  Experience <br>
+  <span class="accent">Timeline</span>
+</h2>
 
   <div class="timeline-modern">
 
-    <!-- 1 -->
-    <div class="timeline-row left">
-      <div class="timeline-card">
-        <span class="timeline-date">2022 – Present</span>
+   <!-- 1 -->
+<div class="timeline-row right">
 
-        <h3>Freelance Graphic Designer</h3>
+  <div class="timeline-empty"></div>
 
-        <h4>Independent Projects & Client Work</h4>
+  <div class="timeline-center">
+    <div class="timeline-dot"></div>
+  </div>
 
-        <p>
-          Designed publication materials and digital content for organizations
-          and clients. Produced brochures, tabloids, posters, social media
-          graphics, and other creative layouts using industry-standard design
-          tools.
-        </p>
+  <div class="timeline-card">
+    <span class="timeline-date">2022 – Present</span>
 
-        <div class="timeline-tags">
-          <span class="tag">Photoshop</span>
-          <span class="tag">InDesign</span>
-          <span class="tag">Lightroom</span>
-          <span class="tag">Canva</span>
-          <span class="tag">Layout Design</span>
-        </div>
-      </div>
+    <h3>Freelance Graphic Designer</h3>
 
-      <div class="timeline-center">
-        <div class="timeline-dot"></div>
-      </div>
+    <h4>Independent Projects & Client Work</h4>
 
-      <div class="timeline-empty"></div>
+    <p>
+      Designed publication materials and digital content for organizations
+      and clients. Produced brochures, tabloids, posters, social media
+      graphics, and other creative layouts using industry-standard design
+      tools.
+    </p>
+
+    <div class="timeline-tags">
+      <span class="tag">Photoshop</span>
+      <span class="tag">InDesign</span>
+      <span class="tag">Lightroom</span>
+      <span class="tag">Canva</span>
+      <span class="tag">Layout Design</span>
     </div>
+  </div>
+
+</div>
 
     <!-- 2 -->
-    <div class="timeline-row right">
-      <div class="timeline-empty"></div>
+<div class="timeline-row left">
 
-      <div class="timeline-center">
-        <div class="timeline-dot"></div>
-      </div>
+  <div class="timeline-card">
+    <span class="timeline-date">2025 – Present</span>
 
-      <div class="timeline-card">
-        <span class="timeline-date">2025 – Present</span>
+    <h3>Professional Certifications</h3>
 
-        <h3>Professional Certifications</h3>
+    <h4>Industry Certifications</h4>
 
-        <h4>Industry Certifications</h4>
+    <p>
+      Currently earning industry-recognized certifications that strengthen
+      technical knowledge in information technology, databases, and
+      productivity software.
+    </p>
 
-        <p>
-          Currently earning industry-recognized certifications that strengthen
-          technical knowledge in information technology, databases, and
-          productivity software.
-        </p>
-
-        <div class="timeline-tags">
-          <span class="tag">CompTIA ITF+</span>
-          <span class="tag">Databases</span>
-          <span class="tag">Excel Associate</span>
-        </div>
-      </div>
+    <div class="timeline-tags">
+      <span class="tag">CompTIA ITF+</span>
+      <span class="tag">Databases</span>
+      <span class="tag">Excel Associate</span>
     </div>
+  </div>
+
+  <div class="timeline-center">
+    <div class="timeline-dot"></div>
+  </div>
+
+  <div class="timeline-empty"></div>
+
+</div>
 
     <!-- 3 -->
-    <div class="timeline-row left">
-      <div class="timeline-card">
-        <span class="timeline-date">2024 – Present</span>
+<div class="timeline-row right">
 
-        <h3>Hello World! 👋</h3>
+  <div class="timeline-empty"></div>
 
-        <h4>
-          BS Information Technology Student
-        </h4>
+  <div class="timeline-center">
+    <div class="timeline-dot"></div>
+  </div>
 
-        <p class="timeline-school">
-          Major in Web and Mobile Applications<br>
-          National University – Clark
-        </p>
+  <div class="timeline-card">
+    <span class="timeline-date">2024 – Present</span>
 
-        <p>
-          Pursuing a Bachelor of Science in Information Technology with a focus
-          on Web and Mobile Applications. Developing skills in frontend
-          development, database management, UI/UX design, and digital product
-          creation through academic and personal projects.
-        </p>
+    <h3>Hello World! 👋</h3>
 
-        <div class="timeline-tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">Java</span>
-          <span class="tag">Kotlin</span>
-          <span class="tag">MySQL</span>
-        </div>
-      </div>
+    <h4>
+      BS Information Technology Student
+    </h4>
 
-      <div class="timeline-center">
-        <div class="timeline-dot"></div>
-      </div>
+    <p class="timeline-school">
+      Major in Web and Mobile Applications<br>
+      National University – Clark
+    </p>
 
-      <div class="timeline-empty"></div>
+    <p>
+      Pursuing a Bachelor of Science in Information Technology with a focus
+      on Web and Mobile Applications. Developing skills in frontend
+      development, database management, UI/UX design, and digital product
+      creation through academic and personal projects.
+    </p>
+
+    <div class="timeline-tags">
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">Java</span>
+      <span class="tag">Kotlin</span>
+      <span class="tag">MySQL</span>
     </div>
+  </div>
 
-    <!-- 4 -->
-    <div class="timeline-row right">
-      <div class="timeline-empty"></div>
+</div>
 
-      <div class="timeline-center">
-        <div class="timeline-dot"></div>
-      </div>
+  <!-- 4 -->
+<div class="timeline-row left">
 
-      <div class="timeline-card">
-        <span class="timeline-date">2025 – 2026</span>
+  <div class="timeline-card">
+    <span class="timeline-date">2025 – 2026</span>
 
-        <h3>
-          Press Committee Member — CODE
-        </h3>
+    <h3>
+      Press Committee Member — CODE
+    </h3>
 
-        <h4>
-          Consortium of Data Enthusiasts
-        </h4>
+    <h4>
+      Consortium of Data Enthusiasts
+    </h4>
 
-        <p>
-          Assisted in media coverage and documentation for organizational
-          events and activities. Participated in video shooting, media
-          production, and video editing to support promotional and
-          communication initiatives.
-        </p>
+    <p>
+      Assisted in media coverage and documentation for organizational
+      events and activities. Participated in video shooting, media
+      production, and video editing to support promotional and
+      communication initiatives.
+    </p>
 
-        <div class="timeline-tags">
-          <span class="tag">Video Editing</span>
-          <span class="tag">Media Production</span>
-          <span class="tag">Content Creation</span>
-          <span class="tag">Communication</span>
-        </div>
-      </div>
+    <div class="timeline-tags">
+      <span class="tag">Video Editing</span>
+      <span class="tag">Media Production</span>
+      <span class="tag">Content Creation</span>
+      <span class="tag">Communication</span>
     </div>
+  </div>
+
+  <div class="timeline-center">
+    <div class="timeline-dot"></div>
+  </div>
+
+  <div class="timeline-empty"></div>
+
+</div>
 
     <!-- 5 -->
-    <div class="timeline-row left">
-      <div class="timeline-card">
-        <span class="timeline-date">2024 – 2026</span>
+<div class="timeline-row right">
 
-        <h3>
-          Layout Artist — The Nationalian Clarion
-        </h3>
+  <div class="timeline-empty"></div>
 
-        <h4>
-          Official Student Publication
-        </h4>
+  <div class="timeline-center">
+    <div class="timeline-dot"></div>
+  </div>
 
-        <p>
-          Designed layouts and publication assets for student journalism and
-          organizational content. Collaborated with editors, writers, and
-          creatives to produce visually engaging publication materials and
-          communication assets.
-        </p>
-      </div>
+  <div class="timeline-card">
+    <span class="timeline-date">2024 – 2026</span>
 
-      <div class="timeline-center">
-        <div class="timeline-dot"></div>
-      </div>
+    <h3>
+      Layout Artist — The Nationalian Clarion
+    </h3>
 
-      <div class="timeline-empty"></div>
+    <h4>
+      Official Student Publication
+    </h4>
+
+    <p>
+      Designed layouts and publication assets for student journalism and
+      organizational content. Collaborated with editors, writers, and
+      creatives to produce visually engaging publication materials and
+      communication assets.
+    </p>
+
+    <div class="timeline-tags">
+      <span class="tag">Publication Design</span>
+      <span class="tag">Editorial Layout</span>
+      <span class="tag">Visual Communication</span>
     </div>
+  </div>
+
+</div>
 
     <!-- 6 -->
-    <div class="timeline-row right">
-      <div class="timeline-empty"></div>
+<div class="timeline-row left">
 
-      <div class="timeline-center">
-        <div class="timeline-dot"></div>
-      </div>
+  <div class="timeline-card">
+    <span class="timeline-date">2024</span>
 
-      <div class="timeline-card">
-        <span class="timeline-date">2024</span>
+    <h3>
+      Campus Journalism & Desktop Publishing
+    </h3>
 
-        <h3>
-          Campus Journalism & Desktop Publishing
-        </h3>
+    <h4>
+      Collaborative Desktop Publishing Filipino
+    </h4>
 
-        <h4>
-          Collaborative Desktop Publishing Filipino
-        </h4>
+    <p>
+      2nd Place — District Level<br>
+      Champion — Division Level<br>
+      Qualifier — Regional Level
+    </p>
+  </div>
 
-        <p>
-          2nd Place — District Level<br>
-          Champion — Division Level<br>
-          Qualifier — Regional Level
-        </p>
-      </div>
-    </div>
+  <div class="timeline-center">
+    <div class="timeline-dot"></div>
+  </div>
+
+  <div class="timeline-empty"></div>
+
+</div>
 
     <!-- 7 -->
-    <div class="timeline-row left">
-      <div class="timeline-card">
-        <span class="timeline-date">2024</span>
+<div class="timeline-row right">
 
-        <h3>
-          Academic Achievements
-        </h3>
+  <div class="timeline-empty"></div>
 
-        <p>
-          Graduated within the Upper 10% of the Batch.
-        </p>
+  <div class="timeline-center">
+    <div class="timeline-dot"></div>
+  </div>
 
-        <div class="timeline-tags">
-          <span class="tag">Arts</span>
-          <span class="tag">Communication Arts</span>
-          <span class="tag">Research</span>
-        </div>
-      </div>
+  <div class="timeline-card">
+    <span class="timeline-date">2024</span>
 
-      <div class="timeline-center">
-        <div class="timeline-dot"></div>
-      </div>
+    <h3>
+      Academic Achievements
+    </h3>
 
-      <div class="timeline-empty"></div>
+    <p>
+      Graduated within the Upper 10% of the Batch.
+    </p>
+
+    <div class="timeline-tags">
+      <span class="tag">Arts</span>
+      <span class="tag">Communication Arts</span>
+      <span class="tag">Research</span>
     </div>
+  </div>
+
+</div>
 
     <!-- 8 -->
-    <div class="timeline-row right">
-      <div class="timeline-empty"></div>
+<div class="timeline-row left">
 
-      <div class="timeline-center">
-        <div class="timeline-dot"></div>
-      </div>
+  <div class="timeline-card">
+    <span class="timeline-date">2022 – 2024</span>
 
-      <div class="timeline-card">
-        <span class="timeline-date">2022 – 2024</span>
+    <h3>
+      Editor-In-Chief — Laharnilad
+    </h3>
 
-        <h3>
-          Editor-In-Chief — Laharnilad
-        </h3>
+    <h4>
+      Official School Publication of Pulung Santol National High School
+    </h4>
 
-        <h4>
-          Official School Publication of Pulung Santol National High School
-        </h4>
+    <p>
+      Led the publication team in producing journalistic and creative
+      materials for competitions and school publications while overseeing
+      editorial direction and layouts.
+    </p>
 
-        <p>
-          Led the publication team in producing journalistic and creative
-          materials for competitions and school publications while overseeing
-          editorial direction and layouts.
-        </p>
-
-        <div class="timeline-tags">
-          <span class="tag">Leadership</span>
-          <span class="tag">Editorial</span>
-          <span class="tag">Publication Design</span>
-        </div>
-      </div>
+    <div class="timeline-tags">
+      <span class="tag">Leadership</span>
+      <span class="tag">Editorial</span>
+      <span class="tag">Publication Design</span>
     </div>
+  </div>
 
+  <div class="timeline-center">
+    <div class="timeline-dot"></div>
+  </div>
+
+  <div class="timeline-empty"></div>
+
+</div>
+    
   </div>
 </section>
       <!-- ====== PROJECTS SECTION ====== -->
@@ -719,8 +839,12 @@
           <span class="project-type">Publication</span>
 
           <div class="project-links">
-            <a href="https://drive.google.com/file/d/1eEzek7BW0SSaypZ5LyxUsjAjxu0ubOT4/view?usp=sharing" class="project-link" target="_blank" title="View PDF">
-            </a>
+            <a href="https://drive.google.com/file/d/1eEzek7BW0SSaypZ5LyxUsjAjxu0ubOT4/view?usp=sharing"
+            class="project-link"
+            target="_blank"
+            title="View PDF">
+            🔗
+          </a>
           </div>
         </div>
 

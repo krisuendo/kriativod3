@@ -222,7 +222,7 @@ const timelineObserver = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.35
+  threshold: 0.01
 });
 
 timelineRows.forEach(row => {
