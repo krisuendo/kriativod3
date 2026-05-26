@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kriativo D3</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fira Code for monospace code feel, Syne for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+  <!-- ====== TITLE BAR ====== -->
+    <div class="title-bar">
+
+      <div class="title-bar__traffic-lights">
+        <span class="traffic red"></span>
+        <span class="traffic yellow"></span>
+        <span class="traffic green"></span>
+      </div>
+      <div class="title-bar__title">
+        kriativod3 : portfolio
+      </div>
+    </div>
+
+    <!-- ====== MENU BAR ====== -->
+    <div class="menu-bar">
+
+      <div class="menu-bar__items">
+        <span>File</span>
+        <span>Edit</span>
+        <span>View</span>
+        <span>Go</span>
+        <span>Run</span>
+        <span>Terminal</span>
+        <span>Help</span>
+        <span>Copilot</span>
+      </div>
+
+    </div>
+  
+  <!-- ====== MAIN WORKSPACE ====== -->
+  <div class="workspace">
+
+    <!-- LEFT SIDEBAR ICONS -->
+    <aside class="sidebar-icons">
+      <button class="sidebar-icon active" id="explorerToggle">
+        <img src="icons/sidebar-folder.png" alt="Explorer" class="sidebar-icon" />
+      </button>
+      <button class="sidebar-icon" title="Search">
+        <img src="icons/sidebar-search.png" alt="Search" class="sidebar-icon">
+      </button>
+      <button class="sidebar-icon" title="Copilot Chat">
+        <img src="icons/sidebar-copilot.png" alt="Copilot Chat" class="sidebar-icon">
+      </button>
+      <button class="sidebar-icon" title="Download Resume">
+        <img src="icons/sidebar-download.png" alt="Download Resume" class="sidebar-icon">
+      </button>
+      <div class="sidebar-icon-spacer"></div>
+      <button class="sidebar-icon" title="Settings">
+        <img src="icons/sidebar-settings.png" alt="Settings" class="sidebar-icon">
+      </button>
+    </aside>
+
+    <!-- FILE EXPLORER PANEL -->
+    <nav class="explorer" id="explorer">
+      <div class="explorer__header">PORTFOLIO</div>
+      <ul class="explorer__tree">
+        <li class="tree-item active" data-section="home">
+          <span class="tree-icon"> <img src="icons/section-typescri.png" alt="typescript icon"> </span> home.tsx
+        </li>
+        <li class="tree-item" data-section="about">
+          <span class="tree-icon"> <img src="icons/section-javasc.jpg" alt="javascript icon"> </span> about.js
+        </li>
+        <li class="tree-item" data-section="skills">
+          <span class="tree-icon"> <img src="icons/section-hypertxtml.png" alt="html icon"> </span> skills.html
+        </li>
+        <li class="tree-item" data-section="experience">
+          <span class="tree-icon"> <img src="icons/section-typescri.png" alt="typescript icon"> </span> experience.tsx
+        </li>
+        <li class="tree-item" data-section="projects">
+          <span class="tree-icon"> <img src="icons/section-cascss.png" alt="css icon"> </span> projects.css
+        </li>
+        <li class="tree-item" data-section="contact">
+          <span class="tree-icon"> <img src="icons/section-cascss.png" alt="css icon"> </span> contact.css
+        </li>
+        <li class="tree-divider"></li>
+        <li class="tree-item tree-item--pdf">
+          <span class="tree-icon tree-icon--pdf"> <img src="icons/section-pdf.png" alt="pdf icon"> </span> kristine's resume
+          <span class="tree-download"><img src="icons/sidebar-download.png" alt="Download Resume"></span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- RIGHT SIDE EDITOR LAYOUT -->
+  <div class="editor-layout">
+
+    <!-- ====== EDITOR TABS ====== -->
+  <div class="editor-tabs" id="editorTabs">
+    <button class="tab active" data-section="home">
+      <img src="icons/section-typescri.png" alt="typescript icon" class="tab-icon tab-icon--ts"> home.tsx
+      <span class="tab-close">×</span>
+    </button>
+    <button class="tab" data-section="about">
+      <img src="icons/section-javasc.jpg" alt="javascript icon" class="tab-icon tab-icon--ts"> about.js
+      <span class="tab-close">×</span>
+    </button>
+    <button class="tab" data-section="skills">
+      <img src="icons/section-hypertxtml.png" alt="html icon" class="tab-icon tab-icon--html"> skills.html
+      <span class="tab-close">×</span>
+    </button>
+    <button class="tab" data-section="experience">
+      <img src="icons/section-typescri.png" alt="typescript icon" class="tab-icon tab-icon--ts"> experience.tsx
+      <span class="tab-close">×</span>
+    </button>
+    <button class="tab" data-section="projects">
+      <img src="icons/section-cascss.png" alt="css icon" class="tab-icon tab-icon--css"> projects.css
+      <span class="tab-close">×</span>
+    </button>
+    <button class="tab" data-section="contact">
+      <img src="icons/section-cascss.png" alt="css icon" class="tab-icon tab-icon--css"> contact.css
+      <span class="tab-close">×</span>
+    </button>
+  </div>
+
+    <!-- EDITOR AREA -->
+    <main class="editor" id="editorMain">
+
+      <!-- BREADCRUMB -->
+      <div class="breadcrumb" id="breadcrumb">
+        kriativo &rsaquo; src &rsaquo; <span id="breadcrumbFile">home.tsx</span>
+      </div>
+
+      <!-- ====== HOME SECTION ====== -->
+      <section class="editor-section active" id="section-home">
+        <p class="code-comment">// Welcome to Kriativo</p>
+        <h1 class="hero-heading">
+          3D.<br>
+          <span class="hero-name" id="heroName">Developer.<br> Designer. <br>Data Analyst.<span class="hero-dot"></span></span>
+        </h1>
+        <p class="hero-subtitle">
+          <span id="typingText"></span><span class="cursor-blink">|</span>
+        </p>
+        <p class="hero-intro">
+          <strong>Full Stack Developer</strong> specializing in the development of scalable and
+          maintainable web applications, with a strong focus on performance, clean architecture,
+          and user experience. Experienced in handling both frontend and backend technologies
+          to deliver efficient, reliable, and well-structured solutions that meet modern
+          development standards.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn--primary" onclick="navigateTo('projects')">View Projects</button>
+          <button class="btn btn--ghost" onclick="navigateTo('contact')">Contact Me</button>
+        </div>
+        <!-- Decorative code block -->
+        <div class="code-snippet">
+          <p><span class="kw">const</span> <span class="var">dev</span> = {</p>
+          <p>&nbsp;&nbsp;<span class="prop">name</span>: <span class="str">"Selwyn Tayong"</span>,</p>
+          <p>&nbsp;&nbsp;<span class="prop">alias</span>: <span class="str">"Toyangdev"</span>,</p>
+          <p>&nbsp;&nbsp;<span class="prop">role</span>: <span class="str">"Full Stack Developer"</span>,</p>
+          <p>&nbsp;&nbsp;<span class="prop">location</span>: <span class="str">"Philippines 🇵🇭"</span>,</p>
+          <p>&nbsp;&nbsp;<span class="prop">available</span>: <span class="kw">true</span>,</p>
+          <p>};</p>
+        </div>
+      </section>
+
+      <!-- ====== ABOUT SECTION ====== -->
+      <section class="editor-section" id="section-about">
+        <p class="code-comment">// About Me</p>
+        <h2 class="section-title">About <span class="accent">Me</span></h2>
+        <div class="about-grid">
+          <div class="about-avatar">
+            <div class="avatar-ring">
+              <div class="avatar-inner">
+                <span class="avatar-initials">ST</span>
+              </div>
+            </div>
+            <p class="code-comment">// Selwyn Tayong</p>
+          </div>
+          <div class="about-text">
+            <p>Hey there! I'm <strong class="accent">Selwyn Tayong</strong>, also known online as <strong class="accent">Toyangdev</strong> — a passionate Full Stack Developer from the Philippines.</p>
+            <p>I love crafting elegant, scalable web solutions from pixel-perfect frontends to robust backends. My journey in tech started with curiosity about how things work under the hood, and it grew into a deep passion for building meaningful digital experiences.</p>
+            <p>When I'm not writing code, you'll find me exploring new technologies, contributing to open source, or watching dev YouTube deep dives.</p>
+            <div class="about-tags">
+              <span class="tag">Problem Solver</span>
+              <span class="tag">Open Source Enthusiast</span>
+              <span class="tag">Clean Code Advocate</span>
+              <span class="tag">Lifelong Learner</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SKILLS SECTION ====== -->
+      <section class="editor-section" id="section-skills">
+        <p class="code-comment">// Skills &amp; Technologies</p>
+        <h2 class="section-title">Tech <span class="accent">Stack</span></h2>
+        <div class="skills-categories">
+
+          <div class="skill-category">
+            <h3 class="skill-cat-title"><span class="accent">// </span>Frontend</h3>
+            <div class="skill-cards">
+              <div class="skill-card"><span class="skill-icon">🌐</span><span>HTML5</span><div class="skill-bar"><div class="skill-fill" style="--pct:95%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🎨</span><span>CSS3</span><div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">⚡</span><span>JavaScript</span><div class="skill-bar"><div class="skill-fill" style="--pct:88%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">⚛</span><span>React</span><div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🔷</span><span>TypeScript</span><div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">▲</span><span>Next.js</span><div class="skill-bar"><div class="skill-fill" style="--pct:78%"></div></div></div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="skill-cat-title"><span class="accent">// </span>Backend</h3>
+            <div class="skill-cards">
+              <div class="skill-card"><span class="skill-icon">🟢</span><span>Node.js</span><div class="skill-bar"><div class="skill-fill" style="--pct:82%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🚂</span><span>Express</span><div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🐍</span><span>Python</span><div class="skill-bar"><div class="skill-fill" style="--pct:72%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🗃</span><span>PostgreSQL</span><div class="skill-bar"><div class="skill-fill" style="--pct:75%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🍃</span><span>MongoDB</span><div class="skill-bar"><div class="skill-fill" style="--pct:70%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🔴</span><span>Redis</span><div class="skill-bar"><div class="skill-fill" style="--pct:65%"></div></div></div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="skill-cat-title"><span class="accent">// </span>Tools & DevOps</h3>
+            <div class="skill-cards">
+              <div class="skill-card"><span class="skill-icon">🐙</span><span>Git/GitHub</span><div class="skill-bar"><div class="skill-fill" style="--pct:92%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🐳</span><span>Docker</span><div class="skill-bar"><div class="skill-fill" style="--pct:68%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">☁</span><span>Vercel/Netlify</span><div class="skill-bar"><div class="skill-fill" style="--pct:85%"></div></div></div>
+              <div class="skill-card"><span class="skill-icon">🔧</span><span>Vite</span><div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====== EXPERIENCE SECTION ====== -->
+<section class="editor-section" id="section-experience">
+  <p class="code-comment">// Experience Timeline</p>
+
+  <h2 class="section-title">
+    Experience <span class="accent">Timeline</span>
+  </h2>
+
+  <div class="timeline-modern">
+
+    <!-- 1 -->
+    <div class="timeline-row left">
+      <div class="timeline-card">
+        <span class="timeline-date">2022 – Present</span>
+
+        <h3>Freelance Graphic Designer</h3>
+
+        <h4>Independent Projects & Client Work</h4>
+
+        <p>
+          Designed publication materials and digital content for organizations
+          and clients. Produced brochures, tabloids, posters, social media
+          graphics, and other creative layouts using industry-standard design
+          tools.
+        </p>
+
+        <div class="timeline-tags">
+          <span class="tag">Photoshop</span>
+          <span class="tag">InDesign</span>
+          <span class="tag">Lightroom</span>
+          <span class="tag">Canva</span>
+          <span class="tag">Layout Design</span>
+        </div>
+      </div>
+
+      <div class="timeline-center">
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-empty"></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="timeline-row right">
+      <div class="timeline-empty"></div>
+
+      <div class="timeline-center">
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-card">
+        <span class="timeline-date">2025 – Present</span>
+
+        <h3>Professional Certifications</h3>
+
+        <h4>Industry Certifications</h4>
+
+        <p>
+          Currently earning industry-recognized certifications that strengthen
+          technical knowledge in information technology, databases, and
+          productivity software.
+        </p>
+
+        <div class="timeline-tags">
+          <span class="tag">CompTIA ITF+</span>
+          <span class="tag">Databases</span>
+          <span class="tag">Excel Associate</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="timeline-row left">
+      <div class="timeline-card">
+        <span class="timeline-date">2024 – Present</span>
+
+        <h3>Hello World! 👋</h3>
+
+        <h4>
+          BS Information Technology Student
+        </h4>
+
+        <p class="timeline-school">
+          Major in Web and Mobile Applications<br>
+          National University – Clark
+        </p>
+
+        <p>
+          Pursuing a Bachelor of Science in Information Technology with a focus
+          on Web and Mobile Applications. Developing skills in frontend
+          development, database management, UI/UX design, and digital product
+          creation through academic and personal projects.
+        </p>
+
+        <div class="timeline-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Java</span>
+          <span class="tag">Kotlin</span>
+          <span class="tag">MySQL</span>
+        </div>
+      </div>
+
+      <div class="timeline-center">
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-empty"></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="timeline-row right">
+      <div class="timeline-empty"></div>
+
+      <div class="timeline-center">
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-card">
+        <span class="timeline-date">2025 – 2026</span>
+
+        <h3>
+          Press Committee Member — CODE
+        </h3>
+
+        <h4>
+          Consortium of Data Enthusiasts
+        </h4>
+
+        <p>
+          Assisted in media coverage and documentation for organizational
+          events and activities. Participated in video shooting, media
+          production, and video editing to support promotional and
+          communication initiatives.
+        </p>
+
+        <div class="timeline-tags">
+          <span class="tag">Video Editing</span>
+          <span class="tag">Media Production</span>
+          <span class="tag">Content Creation</span>
+          <span class="tag">Communication</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="timeline-row left">
+      <div class="timeline-card">
+        <span class="timeline-date">2024 – 2026</span>
+
+        <h3>
+          Layout Artist — The Nationalian Clarion
+        </h3>
+
+        <h4>
+          Official Student Publication
+        </h4>
+
+        <p>
+          Designed layouts and publication assets for student journalism and
+          organizational content. Collaborated with editors, writers, and
+          creatives to produce visually engaging publication materials and
+          communication assets.
+        </p>
+      </div>
+
+      <div class="timeline-center">
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-empty"></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="timeline-row right">
+      <div class="timeline-empty"></div>
+
+      <div class="timeline-center">
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-card">
+        <span class="timeline-date">2024</span>
+
+        <h3>
+          Campus Journalism & Desktop Publishing
+        </h3>
+
+        <h4>
+          Collaborative Desktop Publishing Filipino
+        </h4>
+
+        <p>
+          2nd Place — District Level<br>
+          Champion — Division Level<br>
+          Qualifier — Regional Level
+        </p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="timeline-row left">
+      <div class="timeline-card">
+        <span class="timeline-date">2024</span>
+
+        <h3>
+          Academic Achievements
+        </h3>
+
+        <p>
+          Graduated within the Upper 10% of the Batch.
+        </p>
+
+        <div class="timeline-tags">
+          <span class="tag">Arts</span>
+          <span class="tag">Communication Arts</span>
+          <span class="tag">Research</span>
+        </div>
+      </div>
+
+      <div class="timeline-center">
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-empty"></div>
+    </div>
+
+    <!-- 8 -->
+    <div class="timeline-row right">
+      <div class="timeline-empty"></div>
+
+      <div class="timeline-center">
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-card">
+        <span class="timeline-date">2022 – 2024</span>
+
+        <h3>
+          Editor-In-Chief — Laharnilad
+        </h3>
+
+        <h4>
+          Official School Publication of Pulung Santol National High School
+        </h4>
+
+        <p>
+          Led the publication team in producing journalistic and creative
+          materials for competitions and school publications while overseeing
+          editorial direction and layouts.
+        </p>
+
+        <div class="timeline-tags">
+          <span class="tag">Leadership</span>
+          <span class="tag">Editorial</span>
+          <span class="tag">Publication Design</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+      <!-- ====== PROJECTS SECTION ====== -->
+<section class="editor-section" id="section-projects">
+  <p class="code-comment">// Featured Projects</p>
+
+  <h2 class="section-title">
+    My <span class="accent">Projects</span>
+  </h2>
+
+  <!-- ================= FRONTEND ================= -->
+  <div class="project-category">
+    <h3 class="skill-cat-title">
+      <span class="accent">// </span>Frontend Development
+    </h3>
+
+    <div class="projects-grid">
+
+      <!-- NUSign -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Frontend</span>
+
+          <div class="project-links">
+            <a href="projects/feproj-nusign.jpg" class="project-link" target="_blank" title="Preview">
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">NUSign</h3>
+
+        <p class="project-desc">
+          A campus-based document tracking application that monitors document progress,
+          handlers, revisions, and approval remarks in real time.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">UI/UX</span>
+        </div>
+      </article>
+
+      <!-- Kriativo -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Frontend</span>
+
+          <div class="project-links">
+            <a href="#" class="project-link" title="Current Website">
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">Kriativo D3</h3>
+
+        <p class="project-desc">
+          A VS Code-inspired interactive portfolio showcasing development,
+          design, and data analysis projects through a developer-themed interface.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </article>
+
+      <!-- Arai Ko -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Frontend</span>
+
+          <div class="project-links">
+            <a href="#" class="project-link" title="Coming Soon">
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">Arai Ko</h3>
+
+        <p class="project-desc">
+          A minimalist and elegant portfolio crafted for makeup artist
+          Raiza Gloria, focused on visual storytelling and clean presentation.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">Portfolio</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Frontend</span>
+        </div>
+      </article>
+
+      <!-- NU Quest -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Frontend</span>
+
+          <div class="project-links">
+            <a
+              href="https://69f84df52d5c30dd98a15a54--luxury-froyo-e64278.netlify.app/?classId=a5419ccc-dc77-4e5c-b1c0-fbb823e052c2&assignmentId=12825a13-726a-4958-a9b8-8d7b346493a1&submissionId=6aa32fd7-cb0b-bfa6-2cb4-f47fda6e7766"
+              class="project-link"
+              target="_blank"
+              title="Live"
+            >
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">NU Quest</h3>
+
+        <p class="project-desc">
+          A student enrollment interface concept for National University,
+          designed to simplify registration workflows and improve usability.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">Frontend</span>
+          <span class="tag">UX Design</span>
+          <span class="tag">Enrollment System</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ================= DATA ANALYSIS ================= -->
+  <div class="project-category" style="margin-top: 50px;">
+    <h3 class="skill-cat-title">
+      <span class="accent">// </span>Data Analysis
+    </h3>
+
+    <div class="projects-grid">
+
+      <!-- Executive Overview -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Analytics</span>
+        </div>
+
+        <h3 class="project-title">Executive Overview</h3>
+
+        <p class="project-desc">
+          A business intelligence dashboard presenting sales performance,
+          revenue trends, customer insights, and operational summaries.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">Power BI</span>
+          <span class="tag">Excel</span>
+          <span class="tag">Visualization</span>
+        </div>
+      </article>
+
+      <!-- Global DS -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Data Science</span>
+        </div>
+
+        <h3 class="project-title">Global Data Science Analysis</h3>
+
+        <p class="project-desc">
+          An exploratory data analysis project focused on identifying
+          global technology and data science industry trends through datasets
+          and visual reports.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">Python</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Visualization</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ================= GRAPHIC DESIGN ================= -->
+  <div class="project-category" style="margin-top: 50px;">
+    <h3 class="skill-cat-title">
+      <span class="accent">// </span>Graphic Design
+    </h3>
+
+    <div class="projects-grid">
+
+      <!-- Equipped to Excel -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Graphic Design</span>
+
+          <div class="project-links">
+            <a href="projects/gdproj-poster.png" class="project-link" target="_blank" title="View">
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">Equipped to Excel</h3>
+
+        <p class="project-desc">
+          A digital poster highlighting how Microsoft 365 improves
+          productivity, collaboration, and learning for students.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">Photoshop</span>
+          <span class="tag">Poster Design</span>
+        </div>
+      </article>
+
+      <!-- Brochure -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Publication</span>
+
+          <div class="project-links">
+            <a href="projects/gdproj-brochure.pdf" class="project-link" target="_blank" title="View PDF">
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">NatCourse NU Brochure</h3>
+
+        <p class="project-desc">
+          A midterm publication project showcasing National University’s
+          history, values, scholarships, programs, and student culture.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">InDesign</span>
+          <span class="tag">Publication Design</span>
+        </div>
+      </article>
+
+      <!-- Lanyard -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Merch Design</span>
+
+          <div class="project-links">
+            <a href="projects/gdproj-lanyard.png" class="project-link" target="_blank" title="View">
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">BSIT Lanyard & Tote Bag</h3>
+
+        <p class="project-desc">
+          Winning merchandise concept designs created for the BSIT department,
+          featuring modern branding and student-centered visuals.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">Branding</span>
+          <span class="tag">Merchandise</span>
+        </div>
+      </article>
+
+      <!-- Laharnilad -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Editorial</span>
+
+          <div class="project-links">
+            <a href="projects/gdproj-laharnilad.pdf" class="project-link" target="_blank" title="View PDF">
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">Laharnilad Snippet</h3>
+
+        <p class="project-desc">
+          Selected publication works created as Editor-in-Chief of Laharnilad,
+          focusing on editorial layout and campus journalism.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">Editorial</span>
+          <span class="tag">Layout Design</span>
+        </div>
+      </article>
+
+      <!-- Clarion -->
+      <article class="project-card">
+        <div class="project-card__header">
+          <span class="project-type">Layout Design</span>
+
+          <div class="project-links">
+            <a href="projects/gdproj-clarion.pdf" class="project-link" target="_blank" title="View PDF">
+              🔗
+            </a>
+          </div>
+        </div>
+
+        <h3 class="project-title">The Clarion Snippet</h3>
+
+        <p class="project-desc">
+          Layout and publication design works produced for The Clarion,
+          the official student publication of National University Clark.
+        </p>
+
+        <div class="project-tech">
+          <span class="tag">Publication</span>
+          <span class="tag">Layout Artist</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+      <!-- ====== CONTACT SECTION ====== -->
+      <section class="editor-section" id="section-contact">
+        <p class="code-comment">/* Contact Me */</p>
+        <h2 class="section-title">Let's build something <span class="accent">together.</span></h2>
+
+        <div class="contact-grid">
+          <!-- Social links -->
+          <div class="contact-social">
+            <p class="code-comment">// FIND ME ON</p>
+            <div class="social-links">
+              <a href="mailto:selwyntayong12@gmail.com" class="social-link">
+                <span class="social-platform">Email</span>
+                <span class="social-value">selwyntayong12@gmail.com</span>
+              </a>
+              <a href="https://www.linkedin.com/in/toyang01/" target="_blank" class="social-link">
+                <span class="social-platform">LinkedIn</span>
+                <span class="social-value">linkedin.com/in/toyang01/</span>
+              </a>
+              <a href="https://github.com/Toyanghub" target="_blank" class="social-link">
+                <span class="social-platform">GitHub</span>
+                <span class="social-value">github.com/Toyanghub</span>
+              </a>
+              <a href="https://www.facebook.com/selwyn.tayong/" target="_blank" class="social-link">
+                <span class="social-platform">Facebook</span>
+                <span class="social-value">facebook.com/selwyn.tayong/</span>
+              </a>
+              <a href="https://www.instagram.com/toyang_xd/" target="_blank" class="social-link">
+                <span class="social-platform">Instagram</span>
+                <span class="social-value">instagram.com/toyang_xd/</span>
+              </a>
+              <a href="https://x.com/selwyn_018" target="_blank" class="social-link">
+                <span class="social-platform">X</span>
+                <span class="social-value">x.com/selwyn_018</span>
+              </a>
+              <a href="https://www.youtube.com/@selwyntayong7286" target="_blank" class="social-link">
+                <span class="social-platform">YouTube</span>
+                <span class="social-value">youtube.com/@selwyntayong7286</span>
+              </a>
+              <a href="https://www.tiktok.com/@toyangxd" target="_blank" class="social-link">
+                <span class="social-platform">TikTok</span>
+                <span class="social-value">@toyangxd</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="contact-form-wrapper">
+            <p class="code-comment">// SEND A MESSAGE</p>
+            <div class="contact-form">
+              <div class="form-group">
+                <label class="form-label">Full Name <span class="accent">*</span></label>
+                <input type="text" class="form-input" placeholder="John Doe" id="contactName" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address <span class="accent">*</span></label>
+                <input type="email" class="form-input" placeholder="john@example.com" id="contactEmail" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subject <span class="form-optional">(Optional)</span></label>
+                <input type="text" class="form-input" placeholder="Project inquiry..." id="contactSubject" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message <span class="accent">*</span></label>
+                <textarea class="form-input form-textarea" placeholder="Hey Toyang, I'd love to work with you on..." id="contactMessage"></textarea>
+              </div>
+              <button class="btn btn--primary" id="sendBtn" onclick="handleSend()">Send Message</button>
+              <p class="form-note">Your message will be sent directly to my email. I typically respond within 24–48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ====== STATUS BAR ====== -->
+  <footer class="status-bar">
+    <div class="status-bar__left">
+      <span class="status-item status-item--branch">⎇ main</span>
+      <span class="status-item">Kristine's Portfolio</span>
+    </div>
+    <div class="status-bar__right">
+      <span class="status-item" id="statusLang">TypeScript React</span>
+      <span class="status-item">UTF-8</span>
+      <span class="status-item">Prettier</span>
+      <span class="status-item">Dracula</span>
+      <span class="status-item" id="statusTime">00:00</span>
+      <span class="status-item status-item--copilot">✦ Copilot</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
