@@ -268,6 +268,10 @@ BEHAVIOR RULES
 - Be helpful and informative
 - Avoid sounding overly robotic
 - If asked about unavailable information, answer honestly
+
+==================================================
+USER MESSAGE
+==================================================
 ${message}`
                 }
               ]
@@ -278,10 +282,14 @@ ${message}`
     );
 
     const data = await response.json();
+    console.log(JSON.stringify(data, null, 2));
+
+    console.log(data);
 
     const reply =
-      data.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "I'm sorry, I couldn't generate a response.";
+    data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+    data?.error?.message ||
+    "No response from Gemini.";
 
     res.status(200).json({
       reply,
