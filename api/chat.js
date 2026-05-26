@@ -1,21 +1,31 @@
 export default async function handler(req, res) {
-  // Only allow POST requests
+
   if (req.method !== "POST") {
     return res.status(405).json({
-      error: "Method not allowed",
+      error: "Method not allowed"
     });
   }
 
   try {
-    // Get message from frontend
+
     const { message } = req.body;
 
-    // ================================
-    // PORTFOLIO CONTEXT / AI BRAIN
-    // ================================
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: "POST",
 
-    const prompt = `
-You are the AI assistant inside the portfolio website of Kristine Mae M. Madronero.
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text:
+                    `You are the AI assistant inside the portfolio website of Kristine Mae M. Madronero.
 
 Your purpose is to answer questions about Kristine's:
 - frontend development projects
@@ -258,70 +268,31 @@ BEHAVIOR RULES
 - Be helpful and informative
 - Avoid sounding overly robotic
 - If asked about unavailable information, answer honestly
-`;
-
-    // ================================
-    // FINAL PROMPT WITH USER QUESTION
-    // ================================
-
-    const finalPrompt = `
-${prompt}
-
-==================================================
-VISITOR QUESTION
-==================================================
-
-${message}
-`;
-
-    // ================================
-    // GEMINI API REQUEST
-    // ================================
-
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text: finalPrompt,
-                },
-              ],
-            },
-          ],
+${message}`
+                }
+              ]
+            }
+          ]
         }),
       }
     );
-
-    // ================================
-    // PROCESS RESPONSE
-    // ================================
 
     const data = await response.json();
 
     const reply =
       data.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "I'm sorry, I couldn't generate a response right now.";
+      "I'm sorry, I couldn't generate a response.";
 
-    // ================================
-    // RETURN RESPONSE TO FRONTEND
-    // ================================
-
-    return res.status(200).json({
+    res.status(200).json({
       reply,
     });
 
   } catch (error) {
+
     console.error(error);
 
-    return res.status(500).json({
-      error: "Something went wrong.",
+    res.status(500).json({
+      reply: "Something went wrong.",
     });
   }
 }

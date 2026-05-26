@@ -1131,6 +1131,7 @@ height: 520px;
 
 /* MESSAGES */
 .copilot-messages {
+  min-height: 0;
   flex: 1;
   overflow-y: auto;
   padding: 22px;
@@ -1141,6 +1142,7 @@ height: 520px;
 
 /* AI */
 .ai-message {
+  flex-shrink: 0;
   align-self: flex-start;
 
   max-width: 85%;
@@ -1165,6 +1167,7 @@ height: 520px;
 }
 /* USER */
 .user-message {
+  flex-shrink: 0;
   align-self: flex-end;
 
   max-width: 85%;
