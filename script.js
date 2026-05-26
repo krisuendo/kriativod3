@@ -101,6 +101,48 @@ explorerToggle && explorerToggle.addEventListener('click', () => {
   explorerToggle.classList.toggle('active');
 });
 
+/* =========================================
+   COPILOT PANEL TOGGLE
+========================================= */
+
+const copilotPanel =
+  document.getElementById("copilotPanel");
+
+/* SIDEBAR COPILOT BUTTON */
+const sidebarCopilotBtn =
+  document.getElementById("copilotToggle");
+
+/* STATUS BAR COPILOT BUTTON */
+const statusCopilotBtn =
+  document.getElementById("statusCopilot");
+
+function toggleCopilot() {
+  copilotPanel.classList.toggle("collapsed");
+}
+
+/* BOTH BUTTONS OPEN CHAT */
+sidebarCopilotBtn?.addEventListener(
+  "click",
+  toggleCopilot
+);
+
+statusCopilotBtn?.addEventListener(
+  "click",
+  toggleCopilot
+);
+
+/* CLOSE BUTTON */
+const copilotClose =
+  document.getElementById("copilotClose");
+
+copilotClose?.addEventListener(
+  "click",
+  () => {
+    copilotPanel.classList.add(
+      "collapsed"
+    );
+  }
+);
 
 // ======================================================
 // 2. TYPING ANIMATION
@@ -330,3 +372,131 @@ document.addEventListener('keydown', (e) => {
 // ======================================================
 
 navigateTo('home');
+
+//=========API
+async function sendMessage(message) {
+  const response = await fetch("/api/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      message,
+    }),
+  });
+
+  const data = await response.json();
+
+  return data.reply;
+}
+
+
+/* =========================================
+   COPILOT AI CHAT
+========================================= */
+
+const copilotMessages =
+  document.getElementById("copilotMessages");
+
+const copilotInput =
+  document.getElementById("copilotInput");
+
+  function autoResizeCopilotInput() {
+
+  copilotInput.style.height = "auto";
+
+  copilotInput.style.height =
+    copilotInput.scrollHeight + "px";
+}
+
+copilotInput.addEventListener(
+  "input",
+  autoResizeCopilotInput
+);
+
+const copilotSend =
+  document.getElementById("copilotSend");
+
+async function sendCopilotMessage() {
+
+  const message = copilotInput.value.trim();
+
+  if (!message) return;
+
+  // USER MESSAGE
+  const userDiv = document.createElement("div");
+
+  userDiv.className = "user-message";
+
+  userDiv.textContent = message;
+
+  copilotMessages.appendChild(userDiv);
+
+  // CLEAR INPUT
+  copilotInput.value = "";
+  copilotInput.style.height = "42px";
+
+  // AUTO SCROLL
+  copilotMessages.scrollTop =
+    copilotMessages.scrollHeight;
+
+  // AI LOADING
+  const aiDiv = document.createElement("div");
+
+  aiDiv.className = "ai-message";
+
+  aiDiv.textContent = "Thinking...";
+
+  copilotMessages.appendChild(aiDiv);
+
+  try {
+
+    const response = await fetch("/api/chat", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        message,
+      }),
+    });
+
+    const data = await response.json();
+
+    aiDiv.textContent =
+      data.reply || "No response.";
+
+  } catch (error) {
+
+    aiDiv.textContent =
+      "Something went wrong.";
+
+    console.error(error);
+  }
+
+  // AUTO SCROLL
+  copilotMessages.scrollTop =
+    copilotMessages.scrollHeight;
+}
+
+// SEND BUTTON
+copilotSend.addEventListener(
+  "click",
+  sendCopilotMessage
+);
+
+// ENTER KEY
+copilotInput.addEventListener(
+  "keydown",
+  (e) => {
+
+    if (e.key === "Enter" && !e.shiftKey) {
+
+      e.preventDefault();
+
+      sendCopilotMessage();
+    }
+  }
+);

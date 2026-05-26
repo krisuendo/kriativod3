@@ -52,7 +52,7 @@
       <button class="sidebar-icon" title="Search">
         <img src="icons/sidebar-search.png" alt="Search" class="sidebar-icon">
       </button>
-      <button class="sidebar-icon" title="Copilot Chat">
+      <button class="sidebar-icon" title="Copilot Chat" id="copilotToggle">
         <img src="icons/sidebar-copilot.png" alt="Copilot Chat" class="sidebar-icon">
       </button>
       <button class="sidebar-icon" title="Download Resume">
@@ -93,6 +93,7 @@
         </li>
       </ul>
     </nav>
+
 
     <!-- RIGHT SIDE EDITOR LAYOUT -->
   <div class="editor-layout">
@@ -718,8 +719,7 @@
           <span class="project-type">Publication</span>
 
           <div class="project-links">
-            <a href="https://drive.google.com/file/d/1w-2aauwum53KFV8C3Z6b_ren8S53FF0r/view?usp=sharing" class="project-link" target="_blank" title="View PDF">
-              🔗
+            <a href="https://drive.google.com/file/d/1eEzek7BW0SSaypZ5LyxUsjAjxu0ubOT4/view?usp=sharing" class="project-link" target="_blank" title="View PDF">
             </a>
           </div>
         </div>
@@ -902,10 +902,69 @@
       <span class="status-item">Prettier</span>
       <span class="status-item">Dracula</span>
       <span class="status-item" id="statusTime">00:00</span>
-      <span class="status-item status-item--copilot">✦ Copilot</span>
+      <span class="status-item status-item--copilot" id="statusCopilot">✦ Copilot</span>
     </div>
   </footer>
 
+
+
+    <!-- ====== COPILOT PANEL ====== -->
+<aside class="copilot-panel collapsed" id="copilotPanel">
+
+  <!-- HEADER -->
+  <div class="copilot-header">
+
+    <div class="copilot-title">
+      <span class="copilot-dot"></span>
+      Kriativo AI
+    </div>
+
+    <!-- CLOSE BUTTON -->
+    <button
+      class="copilot-close"
+      id="copilotClose"
+      title="Close"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <!-- MESSAGES -->
+  <div class="copilot-messages" id="copilotMessages">
+
+    <div class="ai-message">
+      Hi! I'm Kristine's AI assistant. Ask me anything about her projects,
+      skills, experience, certifications, creative works, or contact details.
+    </div>
+
+  </div>
+
+  <!-- INPUT -->
+  <div class="copilot-input-area">
+
+    <textarea
+      id="copilotInput"
+      class="copilot-input"
+      placeholder="Ask Kriativo AI..."
+      rows="1"
+    ></textarea>
+
+    <button
+  id="copilotSend"
+  class="copilot-send"
+  title="Send"
+>
+  <img
+    src="icons/chatbox-send.png"
+    alt="Send"
+    class="copilot-send-icon"
+  >
+</button>
+
+  </div>
+
+</aside>
   <script src="script.js"></script>
 </body>
 </html>
