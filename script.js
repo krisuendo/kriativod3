@@ -8,6 +8,7 @@ const fileNames = {
   home:       { file: 'home.tsx',       lang: 'TypeScript React' },
   about:      { file: 'project.js',     lang: 'JavaScript'       },
   skills:     { file: 'skills.html',    lang: 'HTML'             },
+  certifications: { file: 'certifications.html', lang: 'HTML'},
   experience: { file: 'experience.ts',  lang: 'TypeScript'       },
   projects:   { file: 'projects.css',   lang: 'CSS'              },
   contact:    { file: 'contact.css',    lang: 'CSS'              },
