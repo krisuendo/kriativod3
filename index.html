@@ -57,9 +57,17 @@
       <button class="sidebar-icon" title="Copilot Chat" id="copilotToggle">
         <img src="icons/sidebar-copilot.png" alt="Copilot Chat" class="sidebar-icon">
       </button>
-      <button class="sidebar-icon" title="Download Resume">
-        <img src="icons/sidebar-download.png" alt="Download Resume" class="sidebar-icon">
-      </button>
+      <button
+  class="sidebar-icon"
+  id="sidebarResumeDownload"
+  title="Download Resume"
+>
+  <img
+    src="icons/sidebar-download.png"
+    alt="Download Resume"
+    class="sidebar-icon"
+  >
+</button>
       <div class="sidebar-icon-spacer"></div>
       <button class="sidebar-icon" title="Settings">
         <img src="icons/sidebar-settings.png" alt="Settings" class="sidebar-icon">
@@ -92,10 +100,15 @@
           <span class="tree-icon"> <img src="icons/section-cascss.png" alt="css icon"> </span> contact.css
         </li>
         <li class="tree-divider"></li>
-        <li class="tree-item tree-item--pdf">
-          <span class="tree-icon tree-icon--pdf"> <img src="icons/section-pdf.png" alt="pdf icon"> </span> kristine's resume
-          <span class="tree-download"><img src="icons/sidebar-download.png" alt="Download Resume"></span>
-        </li>
+        <li class="tree-item tree-item--pdf" id="downloadResume">
+  <span class="tree-icon tree-icon--pdf">
+    <img src="icons/section-pdf.png" alt="pdf icon">
+  </span>
+  kristine's resume
+  <span class="tree-download">
+    <img src="icons/sidebar-download.png" alt="Download Resume">
+  </span>
+</li>
       </ul>
     </nav>
 
@@ -145,41 +158,117 @@
 
       <!-- ====== HOME SECTION ====== -->
       <section class="editor-section active" id="section-home">
-        <p class="code-comment">// Welcome to Kriativo</p>
-        <h1 class="hero-heading">
-          3D.<br>
-          <span class="hero-name" id="heroName">Developer.<br> Designer. <br>Data Analyst.<span class="hero-dot"></span></span>
-        </h1>
-        <p class="hero-subtitle">
-          <span id="typingText"></span><span class="cursor-blink">|</span>
-        </p>
-        <p class="hero-intro">
-          <strong>Full Stack Developer</strong> specializing in the development of scalable and
-          maintainable web applications, with a strong focus on performance, clean architecture,
-          and user experience. Experienced in handling both frontend and backend technologies
-          to deliver efficient, reliable, and well-structured solutions that meet modern
-          development standards.
-        </p>
-        <div class="hero-cta">
-          <button class="btn btn--primary" onclick="navigateTo('projects')">View Projects</button>
-          <button class="btn btn--ghost" onclick="navigateTo('contact')">Contact Me</button>
+
+  <p class="code-comment">// Welcome to my portfolio</p>
+
+  <div class="hero-container">
+
+    <!-- LEFT SIDE -->
+    <div class="hero-left">
+
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Available for Opportunities
+      </div>
+
+      <h1 class="hero-heading">
+        KRISTINE<br>
+        <span class="hero-name">MADRONERO</span>
+      </h1>
+
+      <div class="hero-terminal">
+        <span id="typingText"></span>
+        <span class="cursor-blink">|</span>
+      </div>
+
+      <p class="hero-intro">
+        Information Technology student specializing in
+        <strong>Web & Mobile Applications</strong>,
+        passionate about building modern web experiences,
+        creating intuitive designs, and transforming data
+        into meaningful insights.
+      </p>
+
+      <div class="hero-cta">
+        <button
+          class="btn btn--primary"
+          onclick="navigateTo('projects')"
+        >
+          Open Projects
+        </button>
+
+        <button
+          class="btn btn--ghost"
+          id="downloadResumeHero"
+        >
+          Download Resume
+        </button>
+      </div>
+
+      <div class="hero-stats">
+
+        <div class="stat-card">
+          <h3>15+</h3>
+          <p>Certifications</p>
         </div>
-        <!-- Decorative code block -->
-        <div class="code-snippet">
-          <p><span class="kw">const</span> <span class="var">dev</span> = {</p>
-          <p>&nbsp;&nbsp;<span class="prop">name</span>: <span class="str">"Selwyn Tayong"</span>,</p>
-          <p>&nbsp;&nbsp;<span class="prop">alias</span>: <span class="str">"Toyangdev"</span>,</p>
-          <p>&nbsp;&nbsp;<span class="prop">role</span>: <span class="str">"Full Stack Developer"</span>,</p>
-          <p>&nbsp;&nbsp;<span class="prop">location</span>: <span class="str">"Philippines 🇵🇭"</span>,</p>
-          <p>&nbsp;&nbsp;<span class="prop">available</span>: <span class="kw">true</span>,</p>
-          <p>};</p>
+
+        <div class="stat-card">
+          <h3>20+</h3>
+          <p>Projects</p>
         </div>
-      </section>
+
+        <div class="stat-card">
+          <h3>BSIT</h3>
+          <p>Web & Mobile</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="hero-right">
+
+      <div class="editor-preview">
+
+        <div class="editor-preview-header">
+          <img src="icons/section-typescri.png" alt="">
+          home.tsx
+        </div>
+
+        <pre>
+<span class="kw">const</span> <span class="var">kristine</span> = {
+
+  <span class="prop">role</span>: <span class="str">"Web Developer"</span>,
+
+  <span class="prop">designer</span>: <span class="kw">true</span>,
+
+  <span class="prop">dataAnalyst</span>: <span class="kw">true</span>,
+
+  <span class="prop">education</span>: <span class="str">"BSIT"</span>,
+
+  <span class="prop">specialization</span>: 
+  <span class="str">"Web & Mobile Applications"</span>,
+
+  <span class="prop">location</span>: 
+  <span class="str">"Philippines 🇵🇭"</span>,
+
+  <span class="prop">available</span>: <span class="kw">true</span>
+
+};
+        </pre>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       <!-- ====== ABOUT SECTION ====== -->
       <section class="editor-section" id="section-about">
 
-  <p class="code-comment">// About Me</p>
 
   <div class="about-modern">
 
@@ -187,12 +276,10 @@
     <div class="about-left">
 
       <h2 class="about-heading">
-        Building digital experiences
-        through
-        <span>code, creativity,</span>
-        and
-        <span>data.</span>
-      </h2>
+  Developer.
+  <span>Designer.</span><br>
+  <span>Data Analyst.</span>
+</h2>
 
       <div class="about-divider"></div>
 
@@ -225,18 +312,24 @@
 
       </div>
 
-            <div class="about-divider"></div>
+      <div class="about-action-buttons">
+  <button
+  type="button"
+  class="about-projects-btn"
+  onclick="navigateTo('projects')"
+>
+  View Projects
+</button>
 
-
-      <!-- KEYWORD PILLS -->
-      <div class="about-pills">
-
-        <span class="about-pill">Frontend</span>
-        <span class="about-pill">Graphic Design</span>
-        <span class="about-pill">Analytics</span>
-        <span class="about-pill">Data Visualization</span>
-
-      </div>
+  <button
+    type="button"
+    class="about-chat-btn"
+    id="chatWithKristineBtn"
+  >
+    Chat with Kristine
+  </button>
+</div>
+  
 
     </div>
 
@@ -263,9 +356,7 @@
 
       </div>
 
-      <a href="#section-projects" class="about-projects-btn">
-    View Projects
-  </a>
+     
 
     </div>
     

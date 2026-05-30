@@ -152,11 +152,11 @@ copilotClose?.addEventListener(
 
 const typingEl = document.getElementById('typingText');
 const phrases = [
-  "Crafting code with a smile.",
-  "Let's build something awesome.",
-  "Full Stack Developer.",
-  "React • Node.js • TypeScript.",
-  "Turning ideas into reality.",
+  "> Building modern web applications",
+  "> Designing intuitive user experiences",
+  "> Transforming data into insights",
+  "> Creating impactful digital solutions",
+  "> Web Developer • UI/UX Designer • Data Analyst"
 ];
 
 let phraseIndex = 0;
@@ -366,7 +366,29 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+function downloadResume() {
+  const link = document.createElement("a");
 
+  link.href = "files/Kristine_Madronero_Resume.pdf";
+  link.download = "Kristine_Madronero_Resume.pdf";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Explorer resume item
+document
+  .getElementById("downloadResume")
+  ?.addEventListener("click", downloadResume);
+
+// Left sidebar download button
+document
+  .getElementById("sidebarResumeDownload")
+  ?.addEventListener("click", downloadResume);
+document
+  .getElementById("downloadResumeHero")
+  ?.addEventListener("click", downloadResume);
 
 // ======================================================
 // 8. INIT — make sure Home is active on load
@@ -391,6 +413,13 @@ async function sendMessage(message) {
   return data.reply;
 }
 
+const chatBtn = document.getElementById("chatWithKristineBtn");
+
+if (chatBtn) {
+  chatBtn.addEventListener("click", () => {
+    copilotPanel.classList.remove("collapsed");
+  });
+}
 
 /* =========================================
    COPILOT AI CHAT
