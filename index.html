@@ -156,38 +156,38 @@
         kriativo &rsaquo; src &rsaquo; <span id="breadcrumbFile">home.tsx</span>
       </div>
 
+
+
+      
       <!-- ====== HOME SECTION ====== -->
       <section class="editor-section active" id="section-home">
 
-  <p class="code-comment">// Welcome to my portfolio</p>
 
-  <div class="hero-container">
-
-    <!-- LEFT SIDE -->
+<div class="hero-container editor-open">      <!-- LEFT SIDE -->
     <div class="hero-left">
+
+      
+
+      <h1 class="hero-heading">
+        Kristine<br>
+        <span class="hero-name">Madronero</span>
+      </h1>
 
       <div class="hero-tag">
         <span class="hero-tag-dot"></span>
-        Available for Opportunities
+        Available
       </div>
 
-      <h1 class="hero-heading">
-        KRISTINE<br>
-        <span class="hero-name">MADRONERO</span>
-      </h1>
-
-      <div class="hero-terminal">
-        <span id="typingText"></span>
-        <span class="cursor-blink">|</span>
-      </div>
 
       <p class="hero-intro">
-        Information Technology student specializing in
-        <strong>Web & Mobile Applications</strong>,
-        passionate about building modern web experiences,
-        creating intuitive designs, and transforming data
-        into meaningful insights.
-      </p>
+  <span> Information Technology student</span>
+  specializing in
+  <span class="code-keyword">Web & Mobile Applications</span>,
+  passionate about building
+  <span class="code-function">modern web experiences</span>,
+  creating intuitive designs, and
+  <span class="code-string">transforming data into meaningful insights</span>.
+</p>
 
       <div class="hero-cta">
         <button
@@ -203,26 +203,14 @@
         >
           Download Resume
         </button>
+       
       </div>
 
-      <div class="hero-stats">
+     
 
-        <div class="stat-card">
-          <h3>15+</h3>
-          <p>Certifications</p>
-        </div>
+      
 
-        <div class="stat-card">
-          <h3>20+</h3>
-          <p>Projects</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>BSIT</h3>
-          <p>Web & Mobile</p>
-        </div>
-
-      </div>
+  
 
     </div>
 
@@ -238,29 +226,41 @@
 
         <pre>
 <span class="kw">const</span> <span class="var">kristine</span> = {
-
-  <span class="prop">role</span>: <span class="str">"Web Developer"</span>,
-
-  <span class="prop">designer</span>: <span class="kw">true</span>,
-
-  <span class="prop">dataAnalyst</span>: <span class="kw">true</span>,
-
-  <span class="prop">education</span>: <span class="str">"BSIT"</span>,
-
-  <span class="prop">specialization</span>: 
-  <span class="str">"Web & Mobile Applications"</span>,
-
-  <span class="prop">location</span>: 
-  <span class="str">"Philippines 🇵🇭"</span>,
-
+  <span class="prop">name</span>: <span class="str">"Kristine Madronero"</span>,
+  <span class="prop">roles</span>: [ <span class="str">"Frontend Developer"</span>,
+  <span class="str">"Graphic Designer"</span>,
+  <span class="str">"Data Analyst"</span> ],  
+  <span class="prop">certifications</span>: <span class="str">"5"</span>,
+  <span class="prop">projects</span>: <span class="str">"15+"</span>,
   <span class="prop">available</span>: <span class="kw">true</span>
-
 };
-        </pre>
+</pre>
 
       </div>
+       <div class="hero-links">
+  <a
+    href="https://github.com/yourusername"
+    target="_blank"
+    class="hero-link"
+  >
+    <img src="icons/home-github.png" alt="">
+    GitHub
+  </a>
+
+  <span class="hero-link-divider">/</span>
+
+  <a
+    href="#section-contact"
+    class="hero-link"
+    onclick="navigateTo('contact')"
+  >
+    <img src="icons/home-contact.png" alt="">
+    Contact
+  </a>
+</div>
 
     </div>
+    
 
   </div>
 
@@ -1539,70 +1539,157 @@
 </section>
       <!-- ====== CONTACT SECTION ====== -->
       <section class="editor-section" id="section-contact">
-        <p class="code-comment">/* Contact Me */</p>
-        <h2 class="section-title">Let's build something <span class="accent">together.</span></h2>
+        <div class="contact-header">
 
-        <div class="contact-grid">
-          <!-- Social links -->
-          <div class="contact-social">
-            <p class="code-comment">// FIND ME ON</p>
-            <div class="social-links">
-              <a href="mailto:selwyntayong12@gmail.com" class="social-link">
-                <span class="social-platform">Email</span>
-                <span class="social-value">selwyntayong12@gmail.com</span>
-              </a>
-              <a href="https://www.linkedin.com/in/toyang01/" target="_blank" class="social-link">
-                <span class="social-platform">LinkedIn</span>
-                <span class="social-value">linkedin.com/in/toyang01/</span>
-              </a>
-              <a href="https://github.com/Toyanghub" target="_blank" class="social-link">
-                <span class="social-platform">GitHub</span>
-                <span class="social-value">github.com/Toyanghub</span>
-              </a>
-              <a href="https://www.facebook.com/selwyn.tayong/" target="_blank" class="social-link">
-                <span class="social-platform">Facebook</span>
-                <span class="social-value">facebook.com/selwyn.tayong/</span>
-              </a>
-              <a href="https://www.instagram.com/toyang_xd/" target="_blank" class="social-link">
-                <span class="social-platform">Instagram</span>
-                <span class="social-value">instagram.com/toyang_xd/</span>
-              </a>
-              <a href="https://x.com/selwyn_018" target="_blank" class="social-link">
-                <span class="social-platform">X</span>
-                <span class="social-value">x.com/selwyn_018</span>
-              </a>
-              <a href="https://www.youtube.com/@selwyntayong7286" target="_blank" class="social-link">
-                <span class="social-platform">YouTube</span>
-                <span class="social-value">youtube.com/@selwyntayong7286</span>
-              </a>
-              <a href="https://www.tiktok.com/@toyangxd" target="_blank" class="social-link">
-                <span class="social-platform">TikTok</span>
-                <span class="social-value">@toyangxd</span>
-              </a>
-            </div>
-          </div>
+  <h2 class="contact-title">
+    Get in <span class="accent">touch</span>
+  </h2>
+
+  <div class="contact-socials">
+
+    <!-- EMAIL -->
+    <a href="mailto:your@email.com" class="contact-social">
+
+      <img src="icons/link-email.png" alt="Email">
+
+      <div class="social-tooltip">
+        <span class="social-tooltip-title">Email</span>
+        <small class="social-tooltip-url">
+          your@email.com
+        </small>
+      </div>
+
+    </a>
+
+    <!-- LINKEDIN -->
+    <a
+      href="https://linkedin.com/in/yourusername"
+      target="_blank"
+      class="contact-social"
+    >
+
+      <img src="icons/link-linkedin.png" alt="LinkedIn">
+
+      <div class="social-tooltip">
+        <span class="social-tooltip-title">LinkedIn</span>
+        <small class="social-tooltip-url">
+          linkedin.com/in/yourusername
+        </small>
+      </div>
+
+    </a>
+
+    <!-- GITHUB -->
+    <a
+      href="https://github.com/yourusername"
+      target="_blank"
+      class="contact-social"
+    >
+
+      <img src="icons/home-github.png" alt="GitHub">
+
+      <div class="social-tooltip">
+        <span class="social-tooltip-title">GitHub</span>
+        <small class="social-tooltip-url">
+          github.com/yourusername
+        </small>
+      </div>
+
+    </a>
+
+    <!-- FACEBOOK -->
+    <a
+      href="https://facebook.com/yourusername"
+      target="_blank"
+      class="contact-social"
+    >
+
+      <img src="icons/link-facebook.png" alt="Facebook">
+
+      <div class="social-tooltip">
+        <span class="social-tooltip-title">Facebook</span>
+        <small class="social-tooltip-url">
+          facebook.com/yourusername
+        </small>
+      </div>
+
+    </a>
+
+  </div>
+
+</div>
 
           <!-- Contact form -->
           <div class="contact-form-wrapper">
-            <p class="code-comment">// SEND A MESSAGE</p>
-            <div class="contact-form">
-              <div class="form-group">
-                <label class="form-label">Full Name <span class="accent">*</span></label>
-                <input type="text" class="form-input" placeholder="John Doe" id="contactName" />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Email Address <span class="accent">*</span></label>
-                <input type="email" class="form-input" placeholder="john@example.com" id="contactEmail" />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Subject <span class="form-optional">(Optional)</span></label>
-                <input type="text" class="form-input" placeholder="Project inquiry..." id="contactSubject" />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Message <span class="accent">*</span></label>
-                <textarea class="form-input form-textarea" placeholder="Hey Toyang, I'd love to work with you on..." id="contactMessage"></textarea>
-              </div>
-              <button class="btn btn--primary" id="sendBtn" onclick="handleSend()">Send Message</button>
+            <div class="contact-file-label">
+  <span class="contact-file-icon">&lt;/&gt;</span>
+  <span class="contact-file-name">contact/send-message.tsx</span>
+</div>
+           <div class="contact-form-modern">
+
+  <div class="contact-form-left">
+
+    <div class="form-group">
+      <label class="form-label">
+        Full Name <span class="accent">*</span>
+      </label>
+
+      <input
+        type="text"
+        class="form-input"
+        placeholder="John Doe"
+        id="contactName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">
+        Email Address <span class="accent">*</span>
+      </label>
+
+      <input
+        type="email"
+        class="form-input"
+        placeholder="john@example.com"
+        id="contactEmail"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">
+        Subject
+      </label>
+
+      <input
+        type="text"
+        class="form-input"
+        placeholder="Project inquiry..."
+        id="contactSubject"
+      />
+    </div>
+
+  </div>
+
+  <div class="contact-form-right">
+
+    <div class="form-group">
+      <label class="form-label">
+        Message <span class="accent">*</span>
+      </label>
+
+      <textarea
+        class="form-input form-textarea"
+        id="contactMessage"
+      ></textarea>
+    </div>
+
+    <button
+      id="sendBtn"
+      onclick="handleSend()"
+      class="contact-send-btn"
+    >
+      Send Message
+    </button>
               <p class="form-note">Your message will be sent directly to my email. I typically respond within 24–48 hours.</p>
             </div>
           </div>

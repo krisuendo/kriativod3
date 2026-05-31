@@ -1,17 +1,16 @@
-
 // ======================================================
 // 1. SECTION NAVIGATION
 //    Syncs: tabs, tree items, breadcrumb, section display
 // ======================================================
 
 const fileNames = {
-  home:       { file: 'home.tsx',       lang: 'TypeScript React' },
-  about:      { file: 'project.js',     lang: 'JavaScript'       },
-  skills:     { file: 'skills.html',    lang: 'HTML'             },
-  certifications: { file: 'certifications.html', lang: 'HTML'},
-  experience: { file: 'experience.ts',  lang: 'TypeScript'       },
-  projects:   { file: 'projects.css',   lang: 'CSS'              },
-  contact:    { file: 'contact.css',    lang: 'CSS'              },
+  home: { file: "home.tsx", lang: "TypeScript React" },
+  about: { file: "project.js", lang: "JavaScript" },
+  skills: { file: "skills.html", lang: "HTML" },
+  certifications: { file: "certifications.html", lang: "HTML" },
+  experience: { file: "experience.ts", lang: "TypeScript" },
+  projects: { file: "projects.css", lang: "CSS" },
+  contact: { file: "contact.css", lang: "CSS" },
 };
 
 function navigateTo(section) {
@@ -19,73 +18,70 @@ function navigateTo(section) {
   if (!fileNames[section]) return;
 
   // -- Tabs --
- document.querySelectorAll('.tab').forEach(tab => {
-  // Re-open hidden tab if needed
-  if (tab.dataset.section === section) {
-    tab.style.display = 'flex';
-  }
-  tab.classList.toggle(
-    'active',
-    tab.dataset.section === section
-  );
-});
+  document.querySelectorAll(".tab").forEach((tab) => {
+    // Re-open hidden tab if needed
+    if (tab.dataset.section === section) {
+      tab.style.display = "flex";
+    }
+    tab.classList.toggle("active", tab.dataset.section === section);
+  });
 
   // -- Tree items --
-  document.querySelectorAll('.tree-item[data-section]').forEach(item => {
-    item.classList.toggle('active', item.dataset.section === section);
+  document.querySelectorAll(".tree-item[data-section]").forEach((item) => {
+    item.classList.toggle("active", item.dataset.section === section);
   });
 
   // -- Breadcrumb --
-  const bc = document.getElementById('breadcrumbFile');
+  const bc = document.getElementById("breadcrumbFile");
   if (bc) bc.textContent = fileNames[section].file;
 
   // -- Status bar language --
-  const lang = document.getElementById('statusLang');
+  const lang = document.getElementById("statusLang");
   if (lang) lang.textContent = fileNames[section].lang;
 
   // -- Sections --
-  document.querySelectorAll('.editor-section').forEach(s => {
-    s.classList.toggle('active', s.id === 'section-' + section);
+  document.querySelectorAll(".editor-section").forEach((s) => {
+    s.classList.toggle("active", s.id === "section-" + section);
   });
 
   // Scroll editor to top on switch
-  const editor = document.getElementById('editorMain');
-  if (editor) editor.scrollTo({ top: 0, behavior: 'smooth' });
+  const editor = document.getElementById("editorMain");
+  if (editor) editor.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // Wire up tabs
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => navigateTo(tab.dataset.section));
+document.querySelectorAll(".tab").forEach((tab) => {
+  tab.addEventListener("click", () => navigateTo(tab.dataset.section));
 });
 
 // Wire up tree items
-document.querySelectorAll('.tree-item[data-section]').forEach(item => {
-  item.addEventListener('click', () => navigateTo(item.dataset.section));
+document.querySelectorAll(".tree-item[data-section]").forEach((item) => {
+  item.addEventListener("click", () => navigateTo(item.dataset.section));
 });
 
 // ======================================================
 // TAB CLOSE FUNCTIONALITY
 // ======================================================
 
-document.querySelectorAll('.tab-close').forEach(closeBtn => {
-  closeBtn.addEventListener('click', (e) => {
+document.querySelectorAll(".tab-close").forEach((closeBtn) => {
+  closeBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    const tab = closeBtn.closest('.tab');
+    const tab = closeBtn.closest(".tab");
     if (!tab) return;
     // Prevent permanent tabs from closing
-    if (tab.classList.contains('tab--permanent')) {
+    if (tab.classList.contains("tab--permanent")) {
       return;
     }
-    const wasActive = tab.classList.contains('active');
+    const wasActive = tab.classList.contains("active");
 
     // Hide tab
-    tab.style.display = 'none';
+    tab.style.display = "none";
 
     // If active tab was closed,
     // switch to first visible tab
     if (wasActive) {
       const firstVisibleTab = document.querySelector(
-        '.tab:not([style*="display: none"])'
+        '.tab:not([style*="display: none"])',
       );
       if (firstVisibleTab) {
         navigateTo(firstVisibleTab.dataset.section);
@@ -95,68 +91,54 @@ document.querySelectorAll('.tab-close').forEach(closeBtn => {
 });
 
 // Explorer toggle (sidebar icon)
-const explorerToggle = document.getElementById('explorerToggle');
-const explorer = document.getElementById('explorer');
-explorerToggle && explorerToggle.addEventListener('click', () => {
-  explorer.classList.toggle('collapsed');
-  explorerToggle.classList.toggle('active');
-});
+const explorerToggle = document.getElementById("explorerToggle");
+const explorer = document.getElementById("explorer");
+explorerToggle &&
+  explorerToggle.addEventListener("click", () => {
+    explorer.classList.toggle("collapsed");
+    explorerToggle.classList.toggle("active");
+  });
 
 /* =========================================
    COPILOT PANEL TOGGLE
 ========================================= */
 
-const copilotPanel =
-  document.getElementById("copilotPanel");
+const copilotPanel = document.getElementById("copilotPanel");
 
 /* SIDEBAR COPILOT BUTTON */
-const sidebarCopilotBtn =
-  document.getElementById("copilotToggle");
+const sidebarCopilotBtn = document.getElementById("copilotToggle");
 
 /* STATUS BAR COPILOT BUTTON */
-const statusCopilotBtn =
-  document.getElementById("statusCopilot");
+const statusCopilotBtn = document.getElementById("statusCopilot");
 
 function toggleCopilot() {
   copilotPanel.classList.toggle("collapsed");
 }
 
 /* BOTH BUTTONS OPEN CHAT */
-sidebarCopilotBtn?.addEventListener(
-  "click",
-  toggleCopilot
-);
+sidebarCopilotBtn?.addEventListener("click", toggleCopilot);
 
-statusCopilotBtn?.addEventListener(
-  "click",
-  toggleCopilot
-);
+statusCopilotBtn?.addEventListener("click", toggleCopilot);
 
 /* CLOSE BUTTON */
-const copilotClose =
-  document.getElementById("copilotClose");
+const copilotClose = document.getElementById("copilotClose");
 
-copilotClose?.addEventListener(
-  "click",
-  () => {
-    copilotPanel.classList.add(
-      "collapsed"
-    );
-  }
-);
+copilotClose?.addEventListener("click", () => {
+  copilotPanel.classList.add("collapsed");
+});
 
 // ======================================================
 // 2. TYPING ANIMATION
 //    Cycles through multiple subtitle strings
 // ======================================================
 
-const typingEl = document.getElementById('typingText');
+const typingEl = document.getElementById("typingText");
 const phrases = [
   "> Building modern web applications",
   "> Designing intuitive user experiences",
   "> Transforming data into insights",
   "> Creating impactful digital solutions",
-  "> Web Developer • UI/UX Designer • Data Analyst"
+  "> Web Developer • UI/UX Designer • Data Analyst",
 ];
 
 let phraseIndex = 0;
@@ -193,17 +175,16 @@ function type() {
 // Start typing after a short delay
 setTimeout(type, 800);
 
-
 // ======================================================
 // 3. STATUS BAR CLOCK
 // ======================================================
 
 function updateClock() {
-  const el = document.getElementById('statusTime');
+  const el = document.getElementById("statusTime");
   if (!el) return;
   const now = new Date();
-  const h = String(now.getHours()).padStart(2, '0');
-  const m = String(now.getMinutes()).padStart(2, '0');
+  const h = String(now.getHours()).padStart(2, "0");
+  const m = String(now.getMinutes()).padStart(2, "0");
   el.textContent = `${h}:${m}`;
 }
 
@@ -214,19 +195,22 @@ setInterval(updateClock, 10000);
    TIMELINE SCROLL EFFECT
 ========================= */
 
-const timelineRows = document.querySelectorAll('.timeline-row');
+const timelineRows = document.querySelectorAll(".timeline-row");
 
-const timelineObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active');
-    }
-  });
-}, {
-  threshold: 0.01
-});
+const timelineObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  {
+    threshold: 0.01,
+  },
+);
 
-timelineRows.forEach(row => {
+timelineRows.forEach((row) => {
   timelineObserver.observe(row);
 });
 
@@ -235,65 +219,65 @@ timelineRows.forEach(row => {
 // ======================================================
 
 function handleSend() {
-  const name    = document.getElementById('contactName')?.value.trim();
-  const email   = document.getElementById('contactEmail')?.value.trim();
-  const message = document.getElementById('contactMessage')?.value.trim();
-  const btn     = document.getElementById('sendBtn');
+  const name = document.getElementById("contactName")?.value.trim();
+  const email = document.getElementById("contactEmail")?.value.trim();
+  const message = document.getElementById("contactMessage")?.value.trim();
+  const btn = document.getElementById("sendBtn");
 
   if (!name || !email || !message) {
     // Shake the button for visual feedback
-    btn && btn.classList.add('shake');
-    setTimeout(() => btn && btn.classList.remove('shake'), 600);
-    showToast('Please fill in the required fields.', 'error');
+    btn && btn.classList.add("shake");
+    setTimeout(() => btn && btn.classList.remove("shake"), 600);
+    showToast("Please fill in the required fields.", "error");
     return;
   }
 
   // Simulate sending
-  btn && (btn.textContent = 'Sending...');
+  btn && (btn.textContent = "Sending...");
   btn && (btn.disabled = true);
 
   setTimeout(() => {
-    btn && (btn.textContent = '✓ Message Sent!');
-    showToast('Message sent! I\'ll get back to you soon.', 'success');
+    btn && (btn.textContent = "✓ Message Sent!");
+    showToast("Message sent! I'll get back to you soon.", "success");
 
     // Reset fields after a moment
     setTimeout(() => {
-      document.getElementById('contactName').value = '';
-      document.getElementById('contactEmail').value = '';
-      if (document.getElementById('contactSubject')) document.getElementById('contactSubject').value = '';
-      document.getElementById('contactMessage').value = '';
-      btn && (btn.textContent = 'Send Message');
+      document.getElementById("contactName").value = "";
+      document.getElementById("contactEmail").value = "";
+      if (document.getElementById("contactSubject"))
+        document.getElementById("contactSubject").value = "";
+      document.getElementById("contactMessage").value = "";
+      btn && (btn.textContent = "Send Message");
       btn && (btn.disabled = false);
     }, 2200);
   }, 1400);
 }
 
-
 // ======================================================
 // 5. TOAST NOTIFICATIONS
 // ======================================================
 
-function showToast(message, type = 'info') {
+function showToast(message, type = "info") {
   // Remove any existing toast
-  const existing = document.querySelector('.toast');
+  const existing = document.querySelector(".toast");
   if (existing) existing.remove();
 
-  const toast = document.createElement('div');
+  const toast = document.createElement("div");
   toast.className = `toast toast--${type}`;
   toast.textContent = message;
   document.body.appendChild(toast);
 
   // Trigger animation
-  requestAnimationFrame(() => toast.classList.add('toast--show'));
+  requestAnimationFrame(() => toast.classList.add("toast--show"));
 
   setTimeout(() => {
-    toast.classList.remove('toast--show');
+    toast.classList.remove("toast--show");
     setTimeout(() => toast.remove(), 400);
   }, 3200);
 }
 
 // Inject toast styles dynamically
-const toastStyle = document.createElement('style');
+const toastStyle = document.createElement("style");
 toastStyle.textContent = `
   .toast {
     position: fixed;
@@ -326,38 +310,46 @@ toastStyle.textContent = `
 `;
 document.head.appendChild(toastStyle);
 
-
 // ======================================================
 // 6. SKILL BAR INTERSECTION OBSERVER
 //    Animates bars only when they scroll into view
 // ======================================================
 
-const skillFills = document.querySelectorAll('.skill-fill');
+const skillFills = document.querySelectorAll(".skill-fill");
 
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Reset and replay animation
-      const el = entry.target;
-      el.style.animation = 'none';
-      requestAnimationFrame(() => {
-        el.style.animation = '';
-      });
-      skillObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.2 });
+const skillObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Reset and replay animation
+        const el = entry.target;
+        el.style.animation = "none";
+        requestAnimationFrame(() => {
+          el.style.animation = "";
+        });
+        skillObserver.unobserve(el);
+      }
+    });
+  },
+  { threshold: 0.2 },
+);
 
-skillFills.forEach(fill => skillObserver.observe(fill));
-
+skillFills.forEach((fill) => skillObserver.observe(fill));
 
 // ======================================================
 // 7. KEYBOARD SHORTCUTS (Ctrl+1..6 = switch sections)
 // ======================================================
 
-const sections = ['home','about','skills','experience','projects','contact'];
+const sections = [
+  "home",
+  "about",
+  "skills",
+  "experience",
+  "projects",
+  "contact",
+];
 
-document.addEventListener('keydown', (e) => {
+document.addEventListener("keydown", (e) => {
   if (e.ctrlKey || e.metaKey) {
     const n = parseInt(e.key);
     if (n >= 1 && n <= sections.length) {
@@ -394,7 +386,7 @@ document
 // 8. INIT — make sure Home is active on load
 // ======================================================
 
-navigateTo('home');
+navigateTo("home");
 
 //=========API
 async function sendMessage(message) {
@@ -425,30 +417,21 @@ if (chatBtn) {
    COPILOT AI CHAT
 ========================================= */
 
-const copilotMessages =
-  document.getElementById("copilotMessages");
+const copilotMessages = document.getElementById("copilotMessages");
 
-const copilotInput =
-  document.getElementById("copilotInput");
+const copilotInput = document.getElementById("copilotInput");
 
-  function autoResizeCopilotInput() {
-
+function autoResizeCopilotInput() {
   copilotInput.style.height = "auto";
 
-  copilotInput.style.height =
-    copilotInput.scrollHeight + "px";
+  copilotInput.style.height = copilotInput.scrollHeight + "px";
 }
 
-copilotInput.addEventListener(
-  "input",
-  autoResizeCopilotInput
-);
+copilotInput.addEventListener("input", autoResizeCopilotInput);
 
-const copilotSend =
-  document.getElementById("copilotSend");
+const copilotSend = document.getElementById("copilotSend");
 
 async function sendCopilotMessage() {
-
   const message = copilotInput.value.trim();
 
   if (!message) return;
@@ -467,8 +450,7 @@ async function sendCopilotMessage() {
   copilotInput.style.height = "42px";
 
   // AUTO SCROLL
-  copilotMessages.scrollTop =
-    copilotMessages.scrollHeight;
+  copilotMessages.scrollTop = copilotMessages.scrollHeight;
 
   // AI LOADING
   const aiDiv = document.createElement("div");
@@ -480,7 +462,6 @@ async function sendCopilotMessage() {
   copilotMessages.appendChild(aiDiv);
 
   try {
-
     const response = await fetch("/api/chat", {
       method: "POST",
 
@@ -495,38 +476,25 @@ async function sendCopilotMessage() {
 
     const data = await response.json();
 
-    aiDiv.textContent =
-      data.reply || "No response.";
-
+    aiDiv.textContent = data.reply || "No response.";
   } catch (error) {
-
-    aiDiv.textContent =
-      "Something went wrong.";
+    aiDiv.textContent = "Something went wrong.";
 
     console.error(error);
   }
 
   // AUTO SCROLL
-  copilotMessages.scrollTop =
-    copilotMessages.scrollHeight;
+  copilotMessages.scrollTop = copilotMessages.scrollHeight;
 }
 
 // SEND BUTTON
-copilotSend.addEventListener(
-  "click",
-  sendCopilotMessage
-);
+copilotSend.addEventListener("click", sendCopilotMessage);
 
 // ENTER KEY
-copilotInput.addEventListener(
-  "keydown",
-  (e) => {
+copilotInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
 
-    if (e.key === "Enter" && !e.shiftKey) {
-
-      e.preventDefault();
-
-      sendCopilotMessage();
-    }
+    sendCopilotMessage();
   }
-);
+});
