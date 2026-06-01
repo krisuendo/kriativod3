@@ -218,40 +218,74 @@ timelineRows.forEach((row) => {
 // 4. CONTACT FORM SEND HANDLER
 // ======================================================
 
-function handleSend() {
-  const name = document.getElementById("contactName")?.value.trim();
-  const email = document.getElementById("contactEmail")?.value.trim();
-  const message = document.getElementById("contactMessage")?.value.trim();
-  const btn = document.getElementById("sendBtn");
+async function handleSend() {
+
+  const name = document.getElementById("contactName").value.trim();
+  const email = document.getElementById("contactEmail").value.trim();
+  const subject = document.getElementById("contactSubject").value.trim();
+  const message = document.getElementById("contactMessage").value.trim();
 
   if (!name || !email || !message) {
-    // Shake the button for visual feedback
-    btn && btn.classList.add("shake");
-    setTimeout(() => btn && btn.classList.remove("shake"), 600);
-    showToast("Please fill in the required fields.", "error");
-    return;
+showToast(
+  "Please fill in all required fields.",
+  "error"
+);    return;
   }
 
-  // Simulate sending
-  btn && (btn.textContent = "Sending...");
-  btn && (btn.disabled = true);
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  setTimeout(() => {
-    btn && (btn.textContent = "✓ Message Sent!");
-    showToast("Message sent! I'll get back to you soon.", "success");
+if (!emailPattern.test(email)) {
 
-    // Reset fields after a moment
-    setTimeout(() => {
-      document.getElementById("contactName").value = "";
-      document.getElementById("contactEmail").value = "";
-      if (document.getElementById("contactSubject"))
-        document.getElementById("contactSubject").value = "";
-      document.getElementById("contactMessage").value = "";
-      btn && (btn.textContent = "Send Message");
-      btn && (btn.disabled = false);
-    }, 2200);
-  }, 1400);
+  showToast(
+    "Please enter a valid email address.",
+    "error"
+  );
+
+  return;
 }
+
+  const sendBtn = document.getElementById("sendBtn");
+
+  sendBtn.disabled = true;
+  sendBtn.textContent = "Sending...";
+
+  try {
+
+    await emailjs.send(
+      "service_8bx1n6c",
+      "template_e2pqjb3",
+      {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+      }
+    );
+
+showToast(
+  "Message sent successfully!",
+  "success"
+);
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("contactSubject").value = "";
+    document.getElementById("contactMessage").value = "";
+
+  } catch (error) {
+
+    console.error(error);
+
+showToast(
+  "Failed to send message.",
+  "error"
+);
+  }
+
+  sendBtn.disabled = false;
+  sendBtn.textContent = "Send Message";
+}
+
+
 
 // ======================================================
 // 5. TOAST NOTIFICATIONS
