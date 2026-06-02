@@ -960,6 +960,42 @@ const contentIndex =
 
 let selectedSearchIndex = -1;
 
+//AUTOSCROLL TO MATCHING SEARCH RESULT
+function scrollToSearchMatch(sectionName, searchTerm) {
+
+  const section =
+    document.getElementById(
+      "section-" + sectionName
+    );
+
+  if (!section) return;
+
+  const elements =
+    section.querySelectorAll("*");
+
+ const match =
+  [...elements].find((el) => {
+
+    const text =
+      el.textContent
+        ?.trim()
+        .toLowerCase();
+
+    return (
+      text === searchTerm.toLowerCase()
+    );
+
+  });
+
+  if (!match) return;
+
+  match.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+}
+
 function renderSearchResults(results) {
 
   if (!commandPaletteResults) return;
@@ -1049,13 +1085,26 @@ const currentIndex =
 
 `;
 
-      button.addEventListener("click", () => {
+     button.addEventListener("click", () => {
 
-        navigateTo(item.section);
+  navigateTo(item.section);
 
-        closeCommandPalette();
+  closeCommandPalette();
 
-      });
+  if (item.searchTerm) {
+
+    setTimeout(() => {
+
+      scrollToSearchMatch(
+        item.section,
+        item.searchTerm
+      );
+
+    }, 300);
+
+  }
+
+});
 
       group.appendChild(button);
 
@@ -1149,7 +1198,9 @@ const contentMatches =
       description:
         `Found "${query}" in ${section.section}`,
 
-      section: section.section
+      section: section.section,
+
+      searchTerm: query
 
     }));
 
