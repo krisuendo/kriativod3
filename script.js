@@ -521,8 +521,8 @@ document.addEventListener("keydown", (e) => {
 function downloadResume() {
   const link = document.createElement("a");
 
-  link.href = "files/Kristine_Madronero_Resume.pdf";
-  link.download = "Kristine_Madronero_Resume.pdf";
+  link.href = "files/Madronero_Kristine_Resume.pdf";
+  link.download = "Madronero_Kristine_Resume.pdf";
 
   document.body.appendChild(link);
   link.click();
