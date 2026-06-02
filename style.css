@@ -3048,17 +3048,7 @@ box-shadow:
   .contact-grid {
     gap: 24px;
   }
-  .copilot-panel {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    right: 0;
-    bottom: 34px;
-    left: 0;
-    border-radius: 0;
-    margin: 0 auto;
-    max-width: calc(100% - 20px);
-  }
+
   /* MOBILE TIMELINE CLEAN FIX */
   .timeline-modern::before {
     left: 18px;
@@ -3347,9 +3337,7 @@ box-shadow:
     gap: 8px;
   }
 
-  .copilot-panel {
-    display: none !important;
-  }
+
 }
 
 /* Extra Small Mobile */
@@ -3722,14 +3710,25 @@ box-shadow:
 /* Copilot Panel Mobile Adjustments */
 @media (max-width: 768px) {
   .copilot-panel {
-    width: calc(100% - 20px);
-    height: 350px;
-    min-height: 300px;
-    max-height: 350px;
-    right: 10px;
-    left: 10px;
-    bottom: 50px;
-    margin: 0 auto;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: auto;
+    height: auto;
+
+    min-height: unset;
+    max-height: unset;
+
+    margin: 0;
+
+    border-radius: 0;
+    border: none;
+
+    z-index: 999999;
   }
 
   .copilot-header {
@@ -3780,11 +3779,6 @@ box-shadow:
   }
 }
 
-@media (max-width: 640px) {
-  .copilot-panel {
-    display: none !important;
-  }
-}
 
 /* =========================================
    FINAL MOBILE RESPONSIVENESS FIX
