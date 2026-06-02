@@ -542,6 +542,27 @@ document
   .getElementById("downloadResumeHero")
   ?.addEventListener("click", downloadResume);
 
+  /*CONTENT INDEX FOR COMMAND PALETTE SEARCH*/
+  function buildContentIndex() {
+
+  const sections =
+    document.querySelectorAll(".editor-section");
+
+  return [...sections].map(section => ({
+
+    id: section.id,
+
+    section: section.id.replace("section-", ""),
+
+    text: section.innerText.toLowerCase()
+
+  }));
+
+}
+
+const contentIndex =
+  buildContentIndex();
+
 
   /*SEARCH DATA*/
   const searchData = [
@@ -1093,7 +1114,7 @@ commandPaletteInput?.addEventListener(
 
     }
 
-    const filtered =
+    const searchDataMatches =
   searchData.filter((item) => {
 
     const titleMatch =
@@ -1111,6 +1132,34 @@ commandPaletteInput?.addEventListener(
     return titleMatch || keywordMatch;
 
   });
+
+const contentMatches =
+  contentIndex
+    .filter((section) =>
+      section.text.includes(query)
+    )
+    .map((section) => ({
+
+      category: "CONTENT",
+
+      title:
+        section.section.charAt(0).toUpperCase() +
+        section.section.slice(1),
+
+      description:
+        `Found "${query}" in ${section.section}`,
+
+      section: section.section
+
+    }));
+
+    const filtered = [
+
+  ...searchDataMatches,
+
+  ...contentMatches
+
+];
 
     renderSearchResults(filtered);
 
