@@ -122,7 +122,15 @@ const sidebarCopilotBtn = document.getElementById("copilotToggle");
 /* STATUS BAR COPILOT BUTTON */
 const statusCopilotBtn = document.getElementById("statusCopilot");
 
+const mobileCopilotBtn =
+  document.getElementById("mobileCopilotBtn");
+
 function toggleCopilot() {
+
+  document
+    .getElementById("mobileFileSheet")
+    ?.classList.remove("open");
+
   copilotPanel.classList.toggle("collapsed");
 }
 
@@ -130,6 +138,10 @@ function toggleCopilot() {
 sidebarCopilotBtn?.addEventListener("click", toggleCopilot);
 
 statusCopilotBtn?.addEventListener("click", toggleCopilot);
+mobileCopilotBtn?.addEventListener(
+  "click",
+  toggleCopilot
+);
 
 /* CLOSE BUTTON */
 const copilotClose = document.getElementById("copilotClose");
