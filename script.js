@@ -89,6 +89,22 @@ document.querySelectorAll(".tab-close").forEach((closeBtn) => {
     }
   });
 });
+// CLOSE WHEN CLICKING OUTSIDE (MOBILE)
+const mobileSheetBackdrop =
+  document.getElementById("mobileSheetBackdrop");
+
+mobileSheetBackdrop?.addEventListener(
+  "click",
+  () => {
+
+    document
+      .getElementById("mobileFileSheet")
+      ?.classList.remove("open");
+
+    mobileSheetBackdrop.classList.remove("open");
+
+  }
+);
 
 // Explorer toggle (sidebar icon)
 const explorerToggle =
@@ -103,11 +119,88 @@ const mobileExplorerBtn =
 const mobileDownloadBtn =
   document.getElementById("mobileDownloadBtn");
 
-  mobileDownloadBtn?.addEventListener(
+const mobileSearchBtn =
+  document.getElementById("mobileSearchBtn");
+
+const commandPaletteBackdrop =
+  document.getElementById("commandPaletteBackdrop");
+
+const commandPaletteClose =
+  document.getElementById("commandPaletteClose");
+
+  const commandPaletteInput =
+  document.getElementById("commandPaletteInput");
+
+const commandPaletteResults =
+  document.getElementById("commandPaletteResults");
+
+  const sidebarSearchBtn =
+  document.getElementById("sidebarSearchBtn");
+
+
+function openCommandPalette(){
+
+  commandPaletteBackdrop?.classList.add("open");
+  selectedSearchIndex = -1;
+
+  commandPaletteInput.value = "";
+
+  renderSearchResults(searchData);
+
+  commandPaletteInput?.focus();
+  
+
+}
+function closeCommandPalette(){
+
+  commandPaletteBackdrop?.classList.remove("open");
+
+}
+
+
+/* SEARCH BUTTON */
+mobileSearchBtn?.addEventListener(
+  "click",
+  openCommandPalette
+);
+
+sidebarSearchBtn?.addEventListener(
+  "click",
+  openCommandPalette
+);
+
+/* ESC BUTTON */
+commandPaletteClose?.addEventListener(
+  "click",
+  closeCommandPalette
+);
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (
+      event.ctrlKey &&
+      event.key.toLowerCase() === "k"
+    ) {
+
+      event.preventDefault();
+
+      openCommandPalette();
+
+    }
+
+  }
+);
+
+
+/* DOWNLOAD BUTTON */
+mobileDownloadBtn?.addEventListener(
   "click",
   downloadResume
 );
 
+/* EXPLORER BUTTON */
 mobileExplorerBtn?.addEventListener(
   "click",
   () => {
@@ -120,7 +213,6 @@ explorerToggle &&
     explorer.classList.toggle("collapsed");
     explorerToggle.classList.toggle("active");
   });
-
 /* =========================================
    COPILOT PANEL TOGGLE
 ========================================= */
@@ -450,6 +542,647 @@ document
   .getElementById("downloadResumeHero")
   ?.addEventListener("click", downloadResume);
 
+
+  /*SEARCH DATA*/
+  const searchData = [
+
+  /* FILES */
+
+  {
+    category: "FILES",
+    title: "home.tsx",
+    section: "home",
+      icon: "icons/section-typescri.png"
+
+  },
+
+  {
+    category: "FILES",
+    title: "about.js",
+    section: "about",
+      icon: "icons/section-javasc.jpg"
+
+  },
+
+  {
+    category: "FILES",
+    title: "skills.html",
+    section: "skills",
+    icon: "icons/section-hypertxtml.png"
+
+  },
+
+  {
+    category: "FILES",
+    title: "certifications.html",
+    section: "certifications",
+      icon: "icons/section-hypertxtml.png"
+
+  },
+
+  {
+    category: "FILES",
+    title: "experience.tsx",
+    section: "experience",
+      icon: "icons/section-typescri.png"
+
+  },
+
+  {
+    category: "FILES",
+    title: "projects.css",
+    section: "projects",
+    icon: "icons/section-cascss.png"
+
+  },
+
+  {
+    category: "FILES",
+    title: "contact.css",
+    section: "contact",
+    icon: "icons/section-cascss.png"
+
+  },
+
+  /* SKILLS */
+
+  {
+    category: "SKILLS",
+    title: "HTML",
+    section: "skills"
+  },
+
+  {
+    category: "SKILLS",
+    title: "CSS",
+    section: "skills"
+  },
+
+  {
+    category: "SKILLS",
+    title: "JavaScript",
+    section: "skills"
+  },
+
+  {
+    category: "SKILLS",
+    title: "React",
+    section: "skills"
+  },
+
+  /* PROJECTS */
+
+  {
+    category: "PROJECTS",
+    title: "Portfolio Website",
+    section: "projects"
+  },
+
+  {
+  category: "HOME",
+  title: "Web Development",
+  description: "Frontend and Mobile Development",
+  section: "home",
+  keywords: [
+    "frontend",
+    "developer",
+    "web",
+    "mobile",
+    "react"
+  ]
+},
+
+{
+  category: "HOME",
+  title: "Data Analytics",
+  description: "Transforming Data Into Insights",
+  section: "home",
+  keywords: [
+    "data",
+    "analytics",
+    "insights",
+    "visualization"
+  ]
+},
+
+{
+  category: "PROJECTS",
+  title: "Portfolio Website",
+  description: "Personal Portfolio Project",
+  section: "projects",
+  keywords: [
+    "portfolio",
+    "website",
+    "frontend",
+    "react"
+  ]
+},
+
+{
+  category: "SKILLS",
+  title: "React",
+  description: "Frontend Development Skill",
+  section: "skills",
+  keywords: [
+    "react",
+    "frontend",
+    "javascript",
+    "web development"
+  ]
+}
+
+/* =========================================
+   EXPERIENCE
+========================================= */
+
+,{
+  category: "EXPERIENCE",
+  title: "Frontend Development",
+  description: "Building Responsive Web Applications",
+  section: "experience",
+  keywords: [
+    "frontend",
+    "react",
+    "javascript",
+    "web development",
+    "responsive",
+    "ui"
+  ]
+},
+
+{
+  category: "EXPERIENCE",
+  title: "UI/UX Design",
+  description: "Designing User-Centered Interfaces",
+  section: "experience",
+  keywords: [
+    "ui",
+    "ux",
+    "figma",
+    "wireframe",
+    "prototype",
+    "design"
+  ]
+},
+
+{
+  category: "EXPERIENCE",
+  title: "Data Analytics",
+  description: "Transforming Data Into Insights",
+  section: "experience",
+  keywords: [
+    "data",
+    "analytics",
+    "dashboard",
+    "visualization",
+    "reporting",
+    "insights"
+  ]
+},
+
+/* =========================================
+   CERTIFICATIONS
+========================================= */
+
+{
+  category: "CERTIFICATIONS",
+  title: "Professional Certifications",
+  description: "Industry-Recognized Credentials",
+  section: "certifications",
+  keywords: [
+    "certificate",
+    "certification",
+    "credential",
+    "achievement",
+    "course"
+  ]
+},
+
+{
+  category: "CERTIFICATIONS",
+  title: "Data Analytics Certifications",
+  description: "Data Analysis and Visualization",
+  section: "certifications",
+  keywords: [
+    "analytics",
+    "data",
+    "tableau",
+    "dashboard",
+    "visualization"
+  ]
+},
+
+{
+  category: "CERTIFICATIONS",
+  title: "Web Development Certifications",
+  description: "Frontend and Web Technologies",
+  section: "certifications",
+  keywords: [
+    "frontend",
+    "html",
+    "css",
+    "javascript",
+    "web development"
+  ]
+},
+
+/* =========================================
+   PROJECTS
+========================================= */
+
+{
+  category: "PROJECTS",
+  title: "Portfolio Website",
+  description: "VS Code Inspired Portfolio",
+  section: "projects",
+  keywords: [
+    "portfolio",
+    "website",
+    "frontend",
+    "react",
+    "design"
+  ]
+},
+
+{
+  category: "PROJECTS",
+  title: "Data Analytics Projects",
+  description: "Dashboards and Reports",
+  section: "projects",
+  keywords: [
+    "data",
+    "dashboard",
+    "analytics",
+    "visualization",
+    "tableau"
+  ]
+},
+
+{
+  category: "PROJECTS",
+  title: "Web Development Projects",
+  description: "Interactive Applications",
+  section: "projects",
+  keywords: [
+    "web",
+    "frontend",
+    "html",
+    "css",
+    "javascript"
+  ]
+},
+
+/* =========================================
+   CONTACT
+========================================= */
+
+{
+  category: "CONTACT",
+  title: "Get In Touch",
+  description: "Send a Message",
+  section: "contact",
+  keywords: [
+    "contact",
+    "email",
+    "message",
+    "reach out",
+    "hire"
+  ]
+},
+
+{
+  category: "CONTACT",
+  title: "LinkedIn",
+  description: "Professional Networking",
+  section: "contact",
+  keywords: [
+    "linkedin",
+    "profile",
+    "network",
+    "professional"
+  ]
+},
+
+{
+  category: "CONTACT",
+  title: "GitHub",
+  description: "Source Code and Projects",
+  section: "contact",
+  keywords: [
+    "github",
+    "repository",
+    "code",
+    "projects"
+  ]
+},
+
+/* =========================================
+   ADDITIONAL SKILLS
+========================================= */
+
+{
+  category: "SKILLS",
+  title: "Python",
+  description: "Programming Language",
+  section: "skills",
+  keywords: [
+    "python",
+    "programming",
+    "data analysis",
+    "automation"
+  ]
+},
+
+{
+  category: "SKILLS",
+  title: "SQL",
+  description: "Database Query Language",
+  section: "skills",
+  keywords: [
+    "sql",
+    "database",
+    "queries",
+    "mysql"
+  ]
+},
+
+{
+  category: "SKILLS",
+  title: "Figma",
+  description: "UI/UX Design Tool",
+  section: "skills",
+  keywords: [
+    "figma",
+    "design",
+    "prototype",
+    "wireframe",
+    "ui",
+    "ux"
+  ]
+},
+
+{
+  category: "SKILLS",
+  title: "Data Analytics",
+  description: "Analysis and Visualization",
+  section: "skills",
+  keywords: [
+    "data",
+    "analytics",
+    "dashboard",
+    "visualization",
+    "insights"
+  ]
+}
+
+];
+
+let selectedSearchIndex = -1;
+
+function renderSearchResults(results) {
+
+  if (!commandPaletteResults) return;
+
+  commandPaletteResults.innerHTML = "";
+
+  if (results.length === 0) {
+
+    commandPaletteResults.innerHTML = `
+      <div class="command-group">
+        <div class="command-group-title">
+          NO RESULTS
+        </div>
+      </div>
+    `;
+
+    return;
+  }
+
+  const grouped = {};
+
+  results.forEach((item) => {
+
+    if (!grouped[item.category]) {
+      grouped[item.category] = [];
+    }
+
+    grouped[item.category].push(item);
+
+  });
+
+  Object.keys(grouped).forEach((category) => {
+
+    const group = document.createElement("div");
+
+    group.className = "command-group";
+
+    group.innerHTML = `
+      <div class="command-group-title">
+        ${category}
+      </div>
+    `;
+
+    grouped[category].forEach((item) => {
+const currentIndex =
+  document.querySelectorAll(
+    ".command-result"
+  ).length;
+      const button =
+        document.createElement("button");
+
+      button.className = "command-result";
+      button.dataset.index =
+        document.querySelectorAll(".command-result").length;
+        
+     button.innerHTML = `
+
+  ${
+    item.icon
+      ? `
+        <img
+          src="${item.icon}"
+          class="command-result-icon"
+          alt=""
+        >
+      `
+      : ""
+  }
+
+  <div class="command-result-content">
+
+    <div class="command-result-title">
+      ${item.title}
+    </div>
+
+    ${
+      item.description
+        ? `
+          <div class="command-result-description">
+            ${item.description}
+          </div>
+        `
+        : ""
+    }
+
+  </div>
+
+`;
+
+      button.addEventListener("click", () => {
+
+        navigateTo(item.section);
+
+        closeCommandPalette();
+
+      });
+
+      group.appendChild(button);
+
+    });
+
+    commandPaletteResults.appendChild(group);
+
+  });
+
+}
+
+function updateSearchSelection() {
+
+  const results =
+    document.querySelectorAll(
+      ".command-result"
+    );
+
+  results.forEach((result) => {
+    result.classList.remove("active");
+  });
+
+  if (
+    selectedSearchIndex >= 0 &&
+    selectedSearchIndex < results.length
+  ) {
+
+    results[
+      selectedSearchIndex
+    ].classList.add("active");
+
+    results[
+      selectedSearchIndex
+    ].scrollIntoView({
+      block: "nearest"
+    });
+
+  }
+
+}
+
+commandPaletteInput?.addEventListener(
+  "input",
+  () => {
+
+    const query =
+      commandPaletteInput.value
+        .trim()
+        .toLowerCase();
+
+    if (!query) {
+
+      renderSearchResults(searchData);
+
+      return;
+
+    }
+
+    const filtered =
+  searchData.filter((item) => {
+
+    const titleMatch =
+      item.title
+        .toLowerCase()
+        .includes(query);
+
+    const keywordMatch =
+      item.keywords?.some((keyword) =>
+        keyword
+          .toLowerCase()
+          .includes(query)
+      );
+
+    return titleMatch || keywordMatch;
+
+  });
+
+    renderSearchResults(filtered);
+
+  }
+);
+
+commandPaletteInput?.addEventListener(
+  "keydown",
+  (event) => {
+
+    const results =
+      document.querySelectorAll(
+        ".command-result"
+      );
+
+    if (!results.length) return;
+
+    if (event.key === "ArrowDown") {
+
+      event.preventDefault();
+
+      selectedSearchIndex++;
+
+      if (
+        selectedSearchIndex >= results.length
+      ) {
+        selectedSearchIndex = 0;
+      }
+
+      updateSearchSelection();
+    }
+
+    if (event.key === "ArrowUp") {
+
+      event.preventDefault();
+
+      selectedSearchIndex--;
+
+      if (
+        selectedSearchIndex < 0
+      ) {
+        selectedSearchIndex =
+          results.length - 1;
+      }
+
+      updateSearchSelection();
+    }
+
+    if (event.key === "Enter") {
+
+      event.preventDefault();
+
+      if (
+        selectedSearchIndex >= 0
+      ) {
+
+        results[
+          selectedSearchIndex
+        ].click();
+
+      }
+
+    }
+
+    if (event.key === "Escape") {
+
+      closeCommandPalette();
+
+    }
+
+  }
+);
 /* =========================================
    MOBILE FILE SHEET
 ========================================= */
@@ -469,6 +1202,10 @@ mobileFileItems.forEach((item) => {
     navigateTo(section);
 
     mobileFileSheet?.classList.remove("open");
+
+    document
+  .getElementById("mobileSheetBackdrop")
+  ?.classList.remove("open");
 
   });
 

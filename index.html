@@ -51,9 +51,17 @@
       <button class="sidebar-icon active" id="explorerToggle">
         <img src="icons/sidebar-folder.png" alt="Explorer" class="sidebar-icon" />
       </button>
-      <button class="sidebar-icon" title="Search">
-        <img src="icons/sidebar-search.png" alt="Search" class="sidebar-icon">
-      </button>
+      <button
+  class="sidebar-icon"
+  id="sidebarSearchBtn"
+  title="Search"
+>
+  <img
+    src="icons/sidebar-search.png"
+    alt="Search"
+    class="sidebar-icon"
+  >
+</button>
       <button class="sidebar-icon" title="Copilot Chat" id="copilotToggle">
         <img src="icons/sidebar-copilot.png" alt="Copilot Chat" class="sidebar-icon">
       </button>
@@ -1793,6 +1801,7 @@
     </main>
   </div>
 
+  <div class="mobile-sheet-backdrop" id="mobileSheetBackdrop"></div>
   <!-- MOBILE FILE SHEET -->
 <div class="mobile-file-sheet" id="mobileFileSheet">
 
@@ -1843,7 +1852,10 @@
   class="mobile-activity-btn"
   id="mobileExplorerBtn"
   title="Explorer"
-  onclick="document.getElementById('mobileFileSheet').classList.toggle('open')"
+  onclick="
+document.getElementById('mobileFileSheet').classList.toggle('open');
+document.getElementById('mobileSheetBackdrop').classList.toggle('open');
+"
 >
   <img src="icons/sidebar-folder.png" alt="Explorer">
 </button>
@@ -1890,7 +1902,60 @@
     </div>
   </footer>
 
+<!-- COMMAND PALETTE -->
+<div class="command-palette-backdrop" id="commandPaletteBackdrop">
 
+  <div class="command-palette" id="commandPalette">
+
+    <div class="command-palette-header">
+
+      <input
+        type="text"
+        id="commandPaletteInput"
+        class="command-palette-input"
+        placeholder="Go to file, section, skill, project..."
+      >
+
+      <button
+        id="commandPaletteClose"
+        class="command-palette-close"
+      >
+        Esc
+      </button>
+
+    </div>
+
+    <div
+      class="command-palette-results"
+      id="commandPaletteResults"
+    >
+    <div class="command-group">
+
+  <div class="command-group-title">
+    FILES
+  </div>
+
+  <button class="command-result">
+    <img src="icons/section-typescri.png">
+    <span>home.tsx</span>
+  </button>
+
+  <button class="command-result">
+    <img src="icons/section-javasc.jpg">
+    <span>about.js</span>
+  </button>
+
+  <button class="command-result">
+    <img src="icons/section-hypertxtml.png">
+    <span>skills.html</span>
+  </button>
+
+</div>
+    </div>
+
+  </div>
+
+</div>
 
     <!-- ====== COPILOT PANEL ====== -->
 <aside class="copilot-panel collapsed" id="copilotPanel">
