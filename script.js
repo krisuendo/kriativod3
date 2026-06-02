@@ -93,6 +93,17 @@ document.querySelectorAll(".tab-close").forEach((closeBtn) => {
 // Explorer toggle (sidebar icon)
 const explorerToggle = document.getElementById("explorerToggle");
 const explorer = document.getElementById("explorer");
+
+const mobileExplorerBtn =
+  document.getElementById("mobileExplorerBtn");
+
+mobileExplorerBtn?.addEventListener(
+  "click",
+  () => {
+    explorerToggle?.click();
+  }
+);
+
 explorerToggle &&
   explorerToggle.addEventListener("click", () => {
     explorer.classList.toggle("collapsed");
@@ -416,9 +427,30 @@ document
   .getElementById("downloadResumeHero")
   ?.addEventListener("click", downloadResume);
 
-// ======================================================
-// 8. INIT — make sure Home is active on load
-// ======================================================
+/* =========================================
+   MOBILE FILE SHEET
+========================================= */
+
+const mobileFileItems =
+  document.querySelectorAll(".mobile-file-item");
+
+const mobileFileSheet =
+  document.getElementById("mobileFileSheet");
+
+mobileFileItems.forEach((item) => {
+
+  item.addEventListener("click", () => {
+
+    const section = item.dataset.section;
+
+    navigateTo(section);
+
+    mobileFileSheet?.classList.remove("open");
+
+  });
+
+});
+
 
 navigateTo("home");
 
