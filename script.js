@@ -91,11 +91,22 @@ document.querySelectorAll(".tab-close").forEach((closeBtn) => {
 });
 
 // Explorer toggle (sidebar icon)
-const explorerToggle = document.getElementById("explorerToggle");
-const explorer = document.getElementById("explorer");
+const explorerToggle =
+  document.getElementById("explorerToggle");
+
+const explorer =
+  document.getElementById("explorer");
 
 const mobileExplorerBtn =
   document.getElementById("mobileExplorerBtn");
+
+const mobileDownloadBtn =
+  document.getElementById("mobileDownloadBtn");
+
+  mobileDownloadBtn?.addEventListener(
+  "click",
+  downloadResume
+);
 
 mobileExplorerBtn?.addEventListener(
   "click",
