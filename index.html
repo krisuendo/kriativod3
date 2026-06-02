@@ -1,35 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kriativo D3</title>
+    <title>Kristine</title>
     <link rel="stylesheet" href="style.css" />
 
     <!-- Fira Code for monospace code feel, Syne for headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
-  
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Syne:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-  <!-- ====== TITLE BAR ====== -->
+    <!-- ====== TITLE BAR ====== -->
     <div class="title-bar">
-
       <div class="title-bar__traffic-lights">
         <span class="traffic red"></span>
         <span class="traffic yellow"></span>
         <span class="traffic green"></span>
       </div>
-      <div class="title-bar__title">
-        kriativod3 : portfolio
-      </div>
+      <div class="title-bar__title">kristine : portfolio</div>
     </div>
 
     <!-- ====== MENU BAR ====== -->
     <div class="menu-bar">
-
       <div class="menu-bar__items">
         <span>File</span>
         <span>Edit</span>
@@ -40,1624 +41,1825 @@
         <span>Help</span>
         <span>Copilot</span>
       </div>
-
     </div>
-  
-  <!-- ====== MAIN WORKSPACE ====== -->
-  <div class="workspace">
 
-    <!-- LEFT SIDEBAR ICONS -->
-    <aside class="sidebar-icons">
-      <button class="sidebar-icon active" id="explorerToggle">
-        <img src="icons/sidebar-folder.png" alt="Explorer" class="sidebar-icon" />
-      </button>
-      <button
-  class="sidebar-icon"
-  id="sidebarSearchBtn"
-  title="Search"
->
-  <img
-    src="icons/sidebar-search.png"
-    alt="Search"
-    class="sidebar-icon"
-  >
-</button>
-      <button class="sidebar-icon" title="Copilot Chat" id="copilotToggle">
-        <img src="icons/sidebar-copilot.png" alt="Copilot Chat" class="sidebar-icon">
-      </button>
-      <button
-  class="sidebar-icon"
-  id="sidebarResumeDownload"
-  title="Download Resume"
->
-  <img
-    src="icons/sidebar-download.png"
-    alt="Download Resume"
-    class="sidebar-icon"
-  >
-</button>
-      <div class="sidebar-icon-spacer"></div>
-      <button class="sidebar-icon" title="Settings">
-        <img src="icons/sidebar-settings.png" alt="Settings" class="sidebar-icon">
-      </button>
-    </aside>
-
-    <!-- FILE EXPLORER PANEL -->
-    <nav class="explorer" id="explorer">
-      <div class="explorer__header">PORTFOLIO</div>
-      <ul class="explorer__tree">
-        <li class="tree-item active" data-section="home">
-          <span class="tree-icon"> <img src="icons/section-typescri.png" alt="typescript icon"> </span> home.tsx
-        </li>
-        <li class="tree-item" data-section="about">
-          <span class="tree-icon"> <img src="icons/section-javasc.jpg" alt="javascript icon"> </span> about.js
-        </li>
-        <li class="tree-item" data-section="skills">
-          <span class="tree-icon"> <img src="icons/section-hypertxtml.png" alt="html icon"> </span> skills.html
-        </li>
-         <li class="tree-item" data-section="certifications">
-          <span class="tree-icon"> <img src="icons/section-hypertxtml.png" alt="html icon"> </span> certifications.html
-        </li>
-        <li class="tree-item" data-section="experience">
-          <span class="tree-icon"> <img src="icons/section-typescri.png" alt="typescript icon"> </span> experience.tsx
-        </li>
-        <li class="tree-item" data-section="projects">
-          <span class="tree-icon"> <img src="icons/section-cascss.png" alt="css icon"> </span> projects.css
-        </li>
-        <li class="tree-item" data-section="contact">
-          <span class="tree-icon"> <img src="icons/section-cascss.png" alt="css icon"> </span> contact.css
-        </li>
-        <li class="tree-divider"></li>
-        <li class="tree-item tree-item--pdf" id="downloadResume">
-  <span class="tree-icon tree-icon--pdf">
-    <img src="icons/section-pdf.png" alt="pdf icon">
-  </span>
-  kristine's resume
-  <span class="tree-download">
-    <img src="icons/sidebar-download.png" alt="Download Resume">
-  </span>
-</li>
-      </ul>
-    </nav>
-
-
-    <!-- RIGHT SIDE EDITOR LAYOUT -->
-  <div class="editor-layout">
-
-    <!-- ====== EDITOR TABS ====== -->
-  <div class="editor-tabs" id="editorTabs">
-    <button class="tab active" data-section="home">
-      <img src="icons/section-typescri.png" alt="typescript icon" class="tab-icon tab-icon--ts"> home.tsx
-      <span class="tab-close">×</span>
-    </button>
-    <button class="tab" data-section="about">
-      <img src="icons/section-javasc.jpg" alt="javascript icon" class="tab-icon tab-icon--ts"> about.js
-      <span class="tab-close">×</span>
-    </button>
-    <button class="tab" data-section="skills">
-      <img src="icons/section-hypertxtml.png" alt="html icon" class="tab-icon tab-icon--html"> skills.html
-      <span class="tab-close">×</span>
-    </button>
-    <button class="tab" data-section="certifications">
-  <img src="icons/section-hypertxtml.png"
-       alt="html icon" class="tab-icon tab-icon--html"> certifications.html <span class="tab-close">×</span>
-</button>
-    <button class="tab" data-section="experience">
-      <img src="icons/section-typescri.png" alt="typescript icon" class="tab-icon tab-icon--ts"> experience.tsx
-      <span class="tab-close">×</span>
-    </button>
-    <button class="tab" data-section="projects">
-      <img src="icons/section-cascss.png" alt="css icon" class="tab-icon tab-icon--css"> projects.css
-      <span class="tab-close">×</span>
-    </button>
-    <button class="tab" data-section="contact">
-      <img src="icons/section-cascss.png" alt="css icon" class="tab-icon tab-icon--css"> contact.css
-      <span class="tab-close">×</span>
-    </button>
-  </div>
-
-    <!-- EDITOR AREA -->
-    <main class="editor" id="editorMain">
-
-      <!-- BREADCRUMB -->
-      <div class="breadcrumb" id="breadcrumb">
-        kriativo &rsaquo; src &rsaquo; <span id="breadcrumbFile">home.tsx</span>
-      </div>
-
-
-
-      
-      <!-- ====== HOME SECTION ====== -->
-      <section class="editor-section active" id="section-home">
-
-
-<div class="hero-container editor-open">      <!-- LEFT SIDE -->
-    <div class="hero-left">
-
-      
-
-      <h1 class="hero-heading">
-        Kristine<br>
-        <span class="hero-name">Madronero</span>
-      </h1>
-
-      <div class="hero-tag">
-        <span class="hero-tag-dot"></span>
-        Available
-      </div>
-
-
-      <p class="hero-intro">
-  <span> Information Technology student</span>
-  specializing in
-  <span class="code-keyword">Web & Mobile Applications</span>,
-  passionate about building
-  <span class="code-function">modern web experiences</span>,
-  creating intuitive designs, and
-  <span class="code-string">transforming data into meaningful insights</span>.
-</p>
-
-      <div class="hero-cta">
+    <!-- ====== MAIN WORKSPACE ====== -->
+    <div class="workspace">
+      <!-- LEFT SIDEBAR ICONS -->
+      <aside class="sidebar-icons">
+        <button class="sidebar-icon active" id="explorerToggle">
+          <img
+            src="icons/sidebar-folder.png"
+            alt="Explorer"
+            class="sidebar-icon"
+          />
+        </button>
+        <button class="sidebar-icon" id="sidebarSearchBtn" title="Search">
+          <img
+            src="icons/sidebar-search.png"
+            alt="Search"
+            class="sidebar-icon"
+          />
+        </button>
+        <button class="sidebar-icon" title="Copilot Chat" id="copilotToggle">
+          <img
+            src="icons/sidebar-copilot.png"
+            alt="Copilot Chat"
+            class="sidebar-icon"
+          />
+        </button>
         <button
-            class="btn btn--primary"
-            onclick="navigateTo('projects')"
-          >
+          class="sidebar-icon"
+          id="sidebarResumeDownload"
+          title="Download Resume"
+        >
+          <img
+            src="icons/sidebar-download.png"
+            alt="Download Resume"
+            class="sidebar-icon"
+          />
+        </button>
+        <div class="sidebar-icon-spacer"></div>
+        <button class="sidebar-icon" title="Settings">
+          <img
+            src="icons/sidebar-settings.png"
+            alt="Settings"
+            class="sidebar-icon"
+          />
+        </button>
+      </aside>
+
+      <!-- FILE EXPLORER PANEL -->
+      <nav class="explorer" id="explorer">
+        <div class="explorer__header">PORTFOLIO</div>
+        <ul class="explorer__tree">
+          <li class="tree-item active" data-section="home">
+            <span class="tree-icon">
+              <img src="icons/section-typescri.png" alt="typescript icon" />
+            </span>
+            home.tsx
+          </li>
+          <li class="tree-item" data-section="about">
+            <span class="tree-icon">
+              <img src="icons/section-javasc.jpg" alt="javascript icon" />
+            </span>
+            about.js
+          </li>
+          <li class="tree-item" data-section="skills">
+            <span class="tree-icon">
+              <img src="icons/section-hypertxtml.png" alt="html icon" />
+            </span>
+            skills.html
+          </li>
+          <li class="tree-item" data-section="certifications">
+            <span class="tree-icon">
+              <img src="icons/section-hypertxtml.png" alt="html icon" />
+            </span>
+            certifications.html
+          </li>
+          <li class="tree-item" data-section="experience">
+            <span class="tree-icon">
+              <img src="icons/section-typescri.png" alt="typescript icon" />
+            </span>
+            experience.tsx
+          </li>
+          <li class="tree-item" data-section="projects">
+            <span class="tree-icon">
+              <img src="icons/section-cascss.png" alt="css icon" />
+            </span>
+            projects.css
+          </li>
+          <li class="tree-item" data-section="contact">
+            <span class="tree-icon">
+              <img src="icons/section-cascss.png" alt="css icon" />
+            </span>
+            contact.css
+          </li>
+          <li class="tree-divider"></li>
+          <li class="tree-item tree-item--pdf" id="downloadResume">
+            <span class="tree-icon tree-icon--pdf">
+              <img src="icons/section-pdf.png" alt="pdf icon" />
+            </span>
+            kristine's resume
+            <span class="tree-download">
+              <img src="icons/sidebar-download.png" alt="Download Resume" />
+            </span>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- RIGHT SIDE EDITOR LAYOUT -->
+      <div class="editor-layout">
+        <!-- ====== EDITOR TABS ====== -->
+        <div class="editor-tabs" id="editorTabs">
+          <button class="tab active" data-section="home">
             <img
-              src="icons/gen-external.png"
-              alt=""
-              class="btn-icon"
-            >
-            Open Projects
+              src="icons/section-typescri.png"
+              alt="typescript icon"
+              class="tab-icon tab-icon--ts"
+            />
+            home.tsx
+            <span class="tab-close">×</span>
           </button>
+          <button class="tab" data-section="about">
+            <img
+              src="icons/section-javasc.jpg"
+              alt="javascript icon"
+              class="tab-icon tab-icon--ts"
+            />
+            about.js
+            <span class="tab-close">×</span>
+          </button>
+          <button class="tab" data-section="skills">
+            <img
+              src="icons/section-hypertxtml.png"
+              alt="html icon"
+              class="tab-icon tab-icon--html"
+            />
+            skills.html
+            <span class="tab-close">×</span>
+          </button>
+          <button class="tab" data-section="certifications">
+            <img
+              src="icons/section-hypertxtml.png"
+              alt="html icon"
+              class="tab-icon tab-icon--html"
+            />
+            certifications.html <span class="tab-close">×</span>
+          </button>
+          <button class="tab" data-section="experience">
+            <img
+              src="icons/section-typescri.png"
+              alt="typescript icon"
+              class="tab-icon tab-icon--ts"
+            />
+            experience.tsx
+            <span class="tab-close">×</span>
+          </button>
+          <button class="tab" data-section="projects">
+            <img
+              src="icons/section-cascss.png"
+              alt="css icon"
+              class="tab-icon tab-icon--css"
+            />
+            projects.css
+            <span class="tab-close">×</span>
+          </button>
+          <button class="tab" data-section="contact">
+            <img
+              src="icons/section-cascss.png"
+              alt="css icon"
+              class="tab-icon tab-icon--css"
+            />
+            contact.css
+            <span class="tab-close">×</span>
+          </button>
+        </div>
+
+        <!-- EDITOR AREA -->
+        <main class="editor" id="editorMain">
+          <!-- BREADCRUMB -->
+          <div class="breadcrumb" id="breadcrumb">
+            kristine &rsaquo; src &rsaquo;
+            <span id="breadcrumbFile">home.tsx</span>
+          </div>
+
+          <!-- ====== HOME SECTION ====== -->
+          <section class="editor-section active" id="section-home">
+            <div class="hero-container editor-open">
+              <!-- LEFT SIDE -->
+              <div class="hero-left">
+                <h1 class="hero-heading">
+                  Kristine<br />
+                  <span class="hero-name">Madronero</span>
+                </h1>
+
+                <div class="hero-tag">
+                  <span class="hero-tag-dot"></span>
+                  Available
+                </div>
+
+                <p class="hero-intro">
+                  <span> Information Technology student</span>
+                  specializing in
+                  <span class="code-keyword">Web & Mobile Applications</span>,
+                  passionate about building
+                  <span class="code-function">modern web experiences</span>,
+                  creating intuitive designs, and
+                  <span class="code-string"
+                    >transforming data into meaningful insights</span
+                  >.
+                </p>
+
+                <div class="hero-cta">
+                  <button
+                    class="btn btn--primary"
+                    onclick="navigateTo('projects')"
+                  >
+                    <img src="icons/gen-external.png" alt="" class="btn-icon" />
+                    Open Projects
+                  </button>
+
+                  <button class="btn btn--ghost" id="downloadResumeHero">
+                    <img
+                      src="icons/sidebar-download.png"
+                      alt=""
+                      class="btn-icon"
+                    />
+                    Download Resume
+                  </button>
+                </div>
+              </div>
+
+              <!-- RIGHT SIDE -->
+              <div class="hero-right">
+                <div class="editor-preview">
+                  <div class="editor-preview-header">
+                    <img src="icons/section-typescri.png" alt="" />
+                    home.tsx
+                  </div>
+
+<!--Intentional Indentation break for <pre> tag-->
+ <pre>
+    <span class="kw">const</span> <span class="var">kristine</span> = {
+    <span class="prop">name</span>: <span class="str">"Kristine Madronero"</span>,
+    <span class="prop">roles</span>: [ <span class="str">"Frontend Developer"</span>,
+    <span class="str">"Graphic Designer"</span>,
+    <span class="str">"Data Analyst"</span> ],  
+    <span class="prop">certifications</span>: <span class="str">"5"</span>,
+    <span class="prop">projects</span>: <span class="str">"15+"</span>,
+    <span class="prop">available</span>: <span class="kw">true</span>    
+    };
+  </pre>
+                </div>
+                <div class="hero-links">
+                  <a
+                    href="https://github.com/krisuendo"
+                    target="_blank"
+                    class="hero-link"
+                  >
+                    <img src="icons/home-github.png" alt="" />
+                    GitHub
+                  </a>
+
+                  <span class="hero-link-divider">/</span>
+
+                  <a
+                    href="#section-contact"
+                    class="hero-link"
+                    onclick="navigateTo('contact')"
+                  >
+                    <img src="icons/home-contact.png" alt="" />
+                    Contact
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====== ABOUT SECTION ====== -->
+          <section class="editor-section" id="section-about">
+            <div class="about-modern">
+              <!-- LEFT CONTENT -->
+              <div class="about-left">
+                <h2 class="about-heading">
+                  Developer.
+                  <span>Designer.</span><br />
+                  <span>Data Analyst.</span>
+                </h2>
+
+                <div class="about-divider"></div>
+
+                <div class="about-paragraphs">
+                  <p>
+                    I’m <strong>Kristine Madronero</strong>, a multidisciplinary
+                    creative passionate about building impactful digital
+                    experiences through frontend development, graphic design,
+                    and data-driven thinking.
+                  </p>
+
+                  <p>
+                    I specialize in creating clean, engaging, and user-focused
+                    projects that combine creativity with functionality.
+                  </p>
+
+                  <p>
+                    Currently pursuing a Bachelor of Science in Information
+                    Technology majoring in Web and Mobile Applications, I’m
+                    continuously sharpening my skills to become a versatile
+                    professional across multiple creative and technical fields.
+                  </p>
+                </div>
+
+                <div class="about-action-buttons">
+                  <button
+                    type="button"
+                    class="about-projects-btn"
+                    onclick="navigateTo('projects')"
+                  >
+                    View Projects
+                  </button>
 
                   <button
-            class="btn btn--ghost"
-            id="downloadResumeHero"
-          >
-            <img
-              src="icons/sidebar-download.png"
-              alt=""
-              class="btn-icon"
-            >
-            Download Resume
-          </button>
-       
-      </div>
-
-    </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="hero-right">
-
-      <div class="editor-preview">
-
-        <div class="editor-preview-header">
-          <img src="icons/section-typescri.png" alt="">
-          home.tsx
-        </div>
-
-        <pre>
-<span class="kw">const</span> <span class="var">kristine</span> = {
-  <span class="prop">name</span>: <span class="str">"Kristine Madronero"</span>,
-  <span class="prop">roles</span>: [ <span class="str">"Frontend Developer"</span>,
-  <span class="str">"Graphic Designer"</span>,
-  <span class="str">"Data Analyst"</span> ],  
-  <span class="prop">certifications</span>: <span class="str">"5"</span>,
-  <span class="prop">projects</span>: <span class="str">"15+"</span>,
-  <span class="prop">available</span>: <span class="kw">true</span>
-};
-</pre>
-
-      </div>
-       <div class="hero-links">
-  <a
-    href="https://github.com/krisuendo"
-    target="_blank"
-    class="hero-link"
-  >
-    <img src="icons/home-github.png" alt="">
-    GitHub
-  </a>
-
-  <span class="hero-link-divider">/</span>
-
-  <a
-    href="#section-contact"
-    class="hero-link"
-    onclick="navigateTo('contact')"
-  >
-    <img src="icons/home-contact.png" alt="">
-    Contact
-  </a>
-</div>
-
-    </div>
-    
-
-  </div>
-
-</section>
-
-      <!-- ====== ABOUT SECTION ====== -->
-      <section class="editor-section" id="section-about">
-
-
-  <div class="about-modern">
-
-    <!-- LEFT CONTENT -->
-    <div class="about-left">
-
-      <h2 class="about-heading">
-  Developer.
-  <span>Designer.</span><br>
-  <span>Data Analyst.</span>
-</h2>
-
-      <div class="about-divider"></div>
-
-      
-
-      <div class="about-paragraphs">
-
-        <p>
-          I’m <strong>Kristine Madronero</strong>, a
-          multidisciplinary creative passionate about
-          building impactful digital experiences through
-          frontend development, graphic design,
-          and data-driven thinking.
-        </p>
-
-        <p>
-          I specialize in creating clean, engaging,
-          and user-focused projects that combine
-          creativity with functionality.
-        </p>
-
-        <p>
-          Currently pursuing a Bachelor of Science
-          in Information Technology majoring in
-          Web and Mobile Applications, I’m continuously
-          sharpening my skills to become a versatile
-          professional across multiple creative and
-          technical fields.
-        </p>
-
-      </div>
-
-      <div class="about-action-buttons">
-  <button
-  type="button"
-  class="about-projects-btn"
-  onclick="navigateTo('projects')"
->
-  View Projects
-</button>
-
-  <button
-    type="button"
-    class="about-chat-btn"
-    id="chatWithKristineBtn"
-  >
-    Chat with Kristine
-  </button>
-</div>
-  
-
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="about-right">
-
-      <div class="about-photo-wrapper">
-
-        <div class="photo-glow"></div>
-
-        <div class="photo-tab">
-            <span class="photo-tab-icon">&lt;/&gt;</span>
-            <span class="photo-tab-text">
-              images/my-hero-photo
-            </span>
-          </div>
-        <img
-          src="images/myphoto.jpg"
-          alt="Kristine Madronero"
-          class="about-photo"
-        />
-
-        <div class="photo-frame"></div>
-
-      </div>
-
-     
-
-    </div>
-    
-   
-
-  </div>
-
-</section>
-
-      <!-- ====== SKILLS SECTION ====== -->
-      <section class="editor-section" id="section-skills">
-        <h2 class="section-title">Hard <span class="accent">Skills</span></h2>
-                <p class="code-comment">// Skills &amp; Technologies</p>
-
-        <div class="skills-categories">
-
-          <!-- FRONTEND DEVELOPMENT -->
-          <div class="skills-stack">
-
-  <!-- FRONTEND -->
-  <div class="skills-group">
-    <h3 class="skill-group-title">Frontend Development</h3>
-
-    <div class="skills-tags">
-      <span class="skill-pill"><span class="skill-text">HTML</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/html5" alt="HTML Logo"></span>
-      <span class="skill-pill"><span class="skill-text">CSS</span>
-      <img class="skill-logo" src="icons/skill-css.png" alt="CSS Logo"></span>
-      <span class="skill-pill"><span class="skill-text">JavaScript</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/javascript" alt="JavaScript Logo"></span>
-      <span class="skill-pill"><span class="skill-text">React</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/react" alt="React Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Java</span>
-      <img class="skill-logo" src="icons/skill-java.png" alt="Java Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Kotlin</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/kotlin" alt="Kotlin Logo"></span>
-    </div>
-  </div>
-
-  <!-- BACKEND -->
-  <div class="skills-group">
-    <h3 class="skill-group-title">Backend & Database</h3>
-
-    <div class="skills-tags">
-      <span class="skill-pill"><span class="skill-text">Supabase</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/supabase" alt="Supabase Logo"></span>
-      <span class="skill-pill"><span class="skill-text">SQL</span>
-      <img class="skill-logo" src="icons/skill-sql.png" alt="MySQL Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Firebase</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/firebase" alt="Firebase Logo"></span>
-    </div>
-  </div>
-
-  <!-- DEV TOOLS -->
-  <div class="skills-group">
-    <h3 class="skill-group-title">Development Tools & IDEs</h3>
-
-    <div class="skills-tags">
-      <span class="skill-pill"><span class="skill-text">VS Code</span>
-      <img class="skill-logo" src="icons/skill-vscode.png" alt="VS Code Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Android Studio</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/androidstudio" alt="Android Studio Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Apache NetBeans</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/apachenetbeanside" alt="NetBeans Logo"></span>
-      <span class="skill-pill"><span class="skill-text">IntelliJ IDEA</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/intellijidea" alt="IntelliJ IDEA Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Eclipse IDE</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/eclipseide" alt="Eclipse IDE Logo"></span>
-    </div>
-  </div>
-
-  <!-- ANALYTICS -->
-  <div class="skills-group">
-    <h3 class="skill-group-title">Database & Analytics Tools</h3>
-
-    <div class="skills-tags">
-      <span class="skill-pill"><span class="skill-text">MySQL Workbench</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/mysql" alt="MySQL Workbench Logo"></span>
-      <span class="skill-pill"><span class="skill-text">SQLite</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/sqlite" alt="SQLite Logo"></span>
-      <span class="skill-pill"><span class="skill-text">phpMyAdmin</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/phpmyadmin" alt="phpMyAdmin Logo"></span>
-      <span class="skill-pill"><span class="skill-text">DBeaver</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/dbeaver" alt="DBeaver Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Tableau Public</span>
-      <img class="skill-logo" src="icons/skill-tableau.png" alt="Tableau Public Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Microsoft Excel</span>
-      <img class="skill-logo" src="icons/skill-excel.png" alt="Microsoft Excel Logo"></span>
-    </div>
-  </div>
-
-  <!-- DESIGN -->
-  <div class="skills-group">
-    <h3 class="skill-group-title">Design & Creative Tools</h3>
-
-    <div class="skills-tags">
-      <span class="skill-pill"><span class="skill-text">Figma</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/figma" alt="Figma Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Adobe Photoshop</span>
-      <img class="skill-logo" src="icons/skill-photoshop.png" alt="Adobe Photoshop Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Adobe InDesign</span>
-      <img class="skill-logo" src="icons/skill-indesign.png" alt="Adobe InDesign Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Canva</span>
-      <img class="skill-logo" src="icons/skill-canva.png" alt="Canva Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Lightroom</span>
-      <img class="skill-logo" src="icons/skill-lightroom.png" alt="Lightroom Logo"></span>
-    </div>
-  </div>
-
-  <!-- DEPLOYMENT -->
-  <div class="skills-group">
-    <h3 class="skill-group-title">Deployment & Version Control</h3>
-
-    <div class="skills-tags">
-      <span class="skill-pill"><span class="skill-text">Git</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/git" alt="Git Logo"></span>
-      <span class="skill-pill"><span class="skill-text">GitHub</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/github" alt="GitHub Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Vercel</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/vercel" alt="Vercel Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Netlify</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/netlify" alt="Netlify Logo"></span>
-    </div>
-  </div>
-
-  <!-- AI and Productivity -->
-  <div class="skills-group">
-    <h3 class="skill-group-title">AI & Productivity Tools</h3>
-
-    <div class="skills-tags">
-      <span class="skill-pill"><span class="skill-text">Google Gemini</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/googlegemini" alt="Gemini Logo"></span>
-      <span class="skill-pill"><span class="skill-text">OpenAI</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/openaigym" alt="OpenAI Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Anthropic</span>
-      <img class="skill-logo" src="https://cdn.simpleicons.org/anthropic" alt="Anthropic Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Groq</span>
-      <img class="skill-logo" src="icons/skill-groq.png" alt="Groq Logo"></span>
-      <span class="skill-pill"><span class="skill-text">Microsoft 365</span>
-      <img class="skill-logo" src="icons/skill-ms365.png" alt="Microsoft 365 Logo"></span>
-    </div>
-  </div>
-  </div>
-
-</div>
-<h2 class="section-title soft-skills-title">
-  Soft <span class="accent">Skills</span>
-</h2>
-
-<p class="code-comment-soft">
-  // Personal & Professional Strengths
-</p>
-     <div class="soft-skills-grid">
-
-  <div class="soft-skill-card">
-    <div class="soft-skill-header">
-      <div class="soft-skill-title-wrap">
-        <div class="soft-skill-icon-box">
-          <img src="icons/soft-leadership.png" alt="Leadership">
-        </div>
-        <h3 class="soft-skill-title-card">Leadership</h3>
-      </div>
-      <span class="soft-skill-status"></span>
-    </div>
-    <p class="soft-skill-desc">
-      Able to guide teams, coordinate tasks, and maintain accountability during collaborative projects.
-    </p>
-  </div>
-
-  <div class="soft-skill-card">
-    <div class="soft-skill-header">
-      <div class="soft-skill-title-wrap">
-        <div class="soft-skill-icon-box">
-          <img src="icons/soft-communication.png" alt="Communication">
-        </div>
-        <h3 class="soft-skill-title-card">Communication</h3>
-      </div>
-      <span class="soft-skill-status"></span>
-    </div>
-    <p class="soft-skill-desc">
-      Strong verbal and written communication skills for presenting ideas clearly and collaborating effectively.
-    </p>
-  </div>
-
-  <div class="soft-skill-card">
-    <div class="soft-skill-header">
-      <div class="soft-skill-title-wrap">
-        <div class="soft-skill-icon-box">
-          <img src="icons/soft-probsolving.png" alt="Problem Solving">
-        </div>
-        <h3 class="soft-skill-title-card">Problem Solving</h3>
-      </div>
-      <span class="soft-skill-status"></span>
-    </div>
-    <p class="soft-skill-desc">
-      Capable of analyzing challenges, identifying root causes, and creating practical solutions efficiently.
-    </p>
-  </div>
-
-  <div class="soft-skill-card">
-    <div class="soft-skill-header">
-      <div class="soft-skill-title-wrap">
-        <div class="soft-skill-icon-box">
-          <img src="icons/soft-adaptability.png" alt="Adaptability">
-        </div>
-        <h3 class="soft-skill-title-card">Adaptability</h3>
-      </div>
-      <span class="soft-skill-status"></span>
-    </div>
-    <p class="soft-skill-desc">
-      Quick to learn new technologies and adjust to changing project requirements and environments.
-    </p>
-  </div>
-
-  <div class="soft-skill-card">
-    <div class="soft-skill-header">
-      <div class="soft-skill-title-wrap">
-        <div class="soft-skill-icon-box">
-          <img src="icons/soft-timeman.png" alt="Time Management">
-        </div>
-        <h3 class="soft-skill-title-card">Time Management</h3>
-      </div>
-      <span class="soft-skill-status"></span>
-    </div>
-    <p class="soft-skill-desc">
-      Effectively prioritizes tasks, manages workloads, and consistently meets deadlines.
-    </p>
-  </div>
-
-  <div class="soft-skill-card">
-    <div class="soft-skill-header">
-      <div class="soft-skill-title-wrap">
-        <div class="soft-skill-icon-box">
-          <img src="icons/soft-teamwork.png" alt="Teamwork">
-        </div>
-        <h3 class="soft-skill-title-card">Teamwork</h3>
-      </div>
-      <span class="soft-skill-status"></span>
-    </div>
-    <p class="soft-skill-desc">
-      Works effectively with diverse teams while contributing positively toward shared goals and outcomes.
-    </p>
-  </div>
-
-
-        </div>
-      </section>
-
-      <!-- CERTIFICATIONS -->
-<section id="section-certifications" class="editor-section">
-
-  <p class="code-comment">// Verified Certifications</p>
-
-  <h2 class="section-title">
-    My <span class="accent">Certifications</span>
-  </h2>
-
-  <div class="certifications-grid">
-
-  <!-- =========================
+                    type="button"
+                    class="about-chat-btn"
+                    id="chatWithKristineBtn"
+                  >
+                    Chat with Kristine
+                  </button>
+                </div>
+              </div>
+
+              <!-- RIGHT IMAGE -->
+              <div class="about-right">
+                <div class="about-photo-wrapper">
+                  <div class="photo-glow"></div>
+
+                  <div class="photo-tab">
+                    <span class="photo-tab-icon">&lt;/&gt;</span>
+                    <span class="photo-tab-text"> images/my-hero-photo </span>
+                  </div>
+                  <img
+                    src="images/myphoto.jpg"
+                    alt="Kristine Madronero"
+                    class="about-photo"
+                  />
+
+                  <div class="photo-frame"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====== SKILLS SECTION ====== -->
+          <section class="editor-section" id="section-skills">
+            <h2 class="section-title">
+              Hard <span class="accent">Skills</span>
+            </h2>
+            <p class="code-comment">// Skills &amp; Technologies</p>
+
+            <div class="skills-categories">
+              <!-- FRONTEND DEVELOPMENT -->
+              <div class="skills-stack">
+                <!-- FRONTEND -->
+                <div class="skills-group">
+                  <h3 class="skill-group-title">Frontend Development</h3>
+
+                  <div class="skills-tags">
+                    <span class="skill-pill"
+                      ><span class="skill-text">HTML</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/html5"
+                        alt="HTML Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">CSS</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-css.png"
+                        alt="CSS Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">JavaScript</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/javascript"
+                        alt="JavaScript Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">React</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/react"
+                        alt="React Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Java</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-java.png"
+                        alt="Java Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Kotlin</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/kotlin"
+                        alt="Kotlin Logo"
+                    /></span>
+                  </div>
+                </div>
+
+                <!-- BACKEND -->
+                <div class="skills-group">
+                  <h3 class="skill-group-title">Backend & Database</h3>
+
+                  <div class="skills-tags">
+                    <span class="skill-pill"
+                      ><span class="skill-text">Supabase</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/supabase"
+                        alt="Supabase Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">SQL</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-sql.png"
+                        alt="MySQL Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Firebase</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/firebase"
+                        alt="Firebase Logo"
+                    /></span>
+                  </div>
+                </div>
+
+                <!-- DEV TOOLS -->
+                <div class="skills-group">
+                  <h3 class="skill-group-title">Development Tools & IDEs</h3>
+
+                  <div class="skills-tags">
+                    <span class="skill-pill"
+                      ><span class="skill-text">VS Code</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-vscode.png"
+                        alt="VS Code Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Android Studio</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/androidstudio"
+                        alt="Android Studio Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Apache NetBeans</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/apachenetbeanside"
+                        alt="NetBeans Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">IntelliJ IDEA</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/intellijidea"
+                        alt="IntelliJ IDEA Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Eclipse IDE</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/eclipseide"
+                        alt="Eclipse IDE Logo"
+                    /></span>
+                  </div>
+                </div>
+
+                <!-- ANALYTICS -->
+                <div class="skills-group">
+                  <h3 class="skill-group-title">Database & Analytics Tools</h3>
+
+                  <div class="skills-tags">
+                    <span class="skill-pill"
+                      ><span class="skill-text">MySQL Workbench</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/mysql"
+                        alt="MySQL Workbench Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">SQLite</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/sqlite"
+                        alt="SQLite Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">phpMyAdmin</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/phpmyadmin"
+                        alt="phpMyAdmin Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">DBeaver</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/dbeaver"
+                        alt="DBeaver Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Tableau Public</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-tableau.png"
+                        alt="Tableau Public Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Microsoft Excel</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-excel.png"
+                        alt="Microsoft Excel Logo"
+                    /></span>
+                  </div>
+                </div>
+
+                <!-- DESIGN -->
+                <div class="skills-group">
+                  <h3 class="skill-group-title">Design & Creative Tools</h3>
+
+                  <div class="skills-tags">
+                    <span class="skill-pill"
+                      ><span class="skill-text">Figma</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/figma"
+                        alt="Figma Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Adobe Photoshop</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-photoshop.png"
+                        alt="Adobe Photoshop Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Adobe InDesign</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-indesign.png"
+                        alt="Adobe InDesign Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Canva</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-canva.png"
+                        alt="Canva Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Lightroom</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-lightroom.png"
+                        alt="Lightroom Logo"
+                    /></span>
+                  </div>
+                </div>
+
+                <!-- DEPLOYMENT -->
+                <div class="skills-group">
+                  <h3 class="skill-group-title">
+                    Deployment & Version Control
+                  </h3>
+
+                  <div class="skills-tags">
+                    <span class="skill-pill"
+                      ><span class="skill-text">Git</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/git"
+                        alt="Git Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">GitHub</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/github"
+                        alt="GitHub Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Vercel</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/vercel"
+                        alt="Vercel Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Netlify</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/netlify"
+                        alt="Netlify Logo"
+                    /></span>
+                  </div>
+                </div>
+
+                <!-- AI and Productivity -->
+                <div class="skills-group">
+                  <h3 class="skill-group-title">AI & Productivity Tools</h3>
+
+                  <div class="skills-tags">
+                    <span class="skill-pill"
+                      ><span class="skill-text">Google Gemini</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/googlegemini"
+                        alt="Gemini Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">OpenAI</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/openaigym"
+                        alt="OpenAI Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Anthropic</span>
+                      <img
+                        class="skill-logo"
+                        src="https://cdn.simpleicons.org/anthropic"
+                        alt="Anthropic Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Groq</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-groq.png"
+                        alt="Groq Logo"
+                    /></span>
+                    <span class="skill-pill"
+                      ><span class="skill-text">Microsoft 365</span>
+                      <img
+                        class="skill-logo"
+                        src="icons/skill-ms365.png"
+                        alt="Microsoft 365 Logo"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="section-title soft-skills-title">
+              Soft <span class="accent">Skills</span>
+            </h2>
+
+            <p class="code-comment-soft">
+              // Personal & Professional Strengths
+            </p>
+            <div class="soft-skills-grid">
+              <div class="soft-skill-card">
+                <div class="soft-skill-header">
+                  <div class="soft-skill-title-wrap">
+                    <div class="soft-skill-icon-box">
+                      <img src="icons/soft-leadership.png" alt="Leadership" />
+                    </div>
+                    <h3 class="soft-skill-title-card">Leadership</h3>
+                  </div>
+                  <span class="soft-skill-status"></span>
+                </div>
+                <p class="soft-skill-desc">
+                  Able to guide teams, coordinate tasks, and maintain
+                  accountability during collaborative projects.
+                </p>
+              </div>
+
+              <div class="soft-skill-card">
+                <div class="soft-skill-header">
+                  <div class="soft-skill-title-wrap">
+                    <div class="soft-skill-icon-box">
+                      <img
+                        src="icons/soft-communication.png"
+                        alt="Communication"
+                      />
+                    </div>
+                    <h3 class="soft-skill-title-card">Communication</h3>
+                  </div>
+                  <span class="soft-skill-status"></span>
+                </div>
+                <p class="soft-skill-desc">
+                  Strong verbal and written communication skills for presenting
+                  ideas clearly and collaborating effectively.
+                </p>
+              </div>
+
+              <div class="soft-skill-card">
+                <div class="soft-skill-header">
+                  <div class="soft-skill-title-wrap">
+                    <div class="soft-skill-icon-box">
+                      <img
+                        src="icons/soft-probsolving.png"
+                        alt="Problem Solving"
+                      />
+                    </div>
+                    <h3 class="soft-skill-title-card">Problem Solving</h3>
+                  </div>
+                  <span class="soft-skill-status"></span>
+                </div>
+                <p class="soft-skill-desc">
+                  Capable of analyzing challenges, identifying root causes, and
+                  creating practical solutions efficiently.
+                </p>
+              </div>
+
+              <div class="soft-skill-card">
+                <div class="soft-skill-header">
+                  <div class="soft-skill-title-wrap">
+                    <div class="soft-skill-icon-box">
+                      <img
+                        src="icons/soft-adaptability.png"
+                        alt="Adaptability"
+                      />
+                    </div>
+                    <h3 class="soft-skill-title-card">Adaptability</h3>
+                  </div>
+                  <span class="soft-skill-status"></span>
+                </div>
+                <p class="soft-skill-desc">
+                  Quick to learn new technologies and adjust to changing project
+                  requirements and environments.
+                </p>
+              </div>
+
+              <div class="soft-skill-card">
+                <div class="soft-skill-header">
+                  <div class="soft-skill-title-wrap">
+                    <div class="soft-skill-icon-box">
+                      <img src="icons/soft-timeman.png" alt="Time Management" />
+                    </div>
+                    <h3 class="soft-skill-title-card">Time Management</h3>
+                  </div>
+                  <span class="soft-skill-status"></span>
+                </div>
+                <p class="soft-skill-desc">
+                  Effectively prioritizes tasks, manages workloads, and
+                  consistently meets deadlines.
+                </p>
+              </div>
+
+              <div class="soft-skill-card">
+                <div class="soft-skill-header">
+                  <div class="soft-skill-title-wrap">
+                    <div class="soft-skill-icon-box">
+                      <img src="icons/soft-teamwork.png" alt="Teamwork" />
+                    </div>
+                    <h3 class="soft-skill-title-card">Teamwork</h3>
+                  </div>
+                  <span class="soft-skill-status"></span>
+                </div>
+                <p class="soft-skill-desc">
+                  Works effectively with diverse teams while contributing
+                  positively toward shared goals and outcomes.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- CERTIFICATIONS -->
+          <section id="section-certifications" class="editor-section">
+            <p class="code-comment">// Verified Certifications</p>
+
+            <h2 class="section-title">
+              My <span class="accent">Certifications</span>
+            </h2>
+
+            <div class="certifications-grid">
+              <!-- =========================
        COMPTIA ITF+
   ========================== -->
-  <div class="cert-card">
+              <div class="cert-card">
+                <div class="cert-provider-side">
+                  <img
+                    src="images/certs-comptia.jpg"
+                    alt="CompTIA IT Fundamentals"
+                    class="cert-provider-logo"
+                  />
+                </div>
 
-    <div class="cert-provider-side">
-      <img
-        src="images/certs-comptia.jpg"
-        alt="CompTIA IT Fundamentals"
-        class="cert-provider-logo"
-      />
-    </div>
+                <div class="cert-content">
+                  <div class="cert-top-row">
+                    <div class="cert-heading-group">
+                      <span class="cert-provider-pill"> CompTIA </span>
 
-    <div class="cert-content">
+                      <h3 class="cert-title">CompTIA IT Fundamentals (ITF+)</h3>
+                    </div>
 
-      <div class="cert-top-row">
+                    <a
+                      href="https://drive.google.com/file/d/1EurN2yJ0n12cIwzNq_Lir2RgnsfM3ufI/view?usp=sharing"
+                      target="_blank"
+                      class="cert-link"
+                    >
+                      🔗
+                    </a>
+                  </div>
 
-        <div class="cert-heading-group">
+                  <p class="cert-desc">
+                    Industry-recognized foundational certification covering IT
+                    concepts, software development, databases, networking,
+                    cybersecurity, and infrastructure fundamentals.
+                  </p>
 
-          <span class="cert-provider-pill">
-            CompTIA
-          </span>
+                  <div class="cert-tags">
+                    <span class="tag">IT Fundamentals</span>
+                    <span class="tag">Networking</span>
+                  </div>
 
-          <h3 class="cert-title">
-            CompTIA IT Fundamentals (ITF+)
-          </h3>
+                  <span class="cert-date"> Professional Certification </span>
+                </div>
+              </div>
 
-        </div>
-
-        <a
-          href="https://drive.google.com/file/d/1EurN2yJ0n12cIwzNq_Lir2RgnsfM3ufI/view?usp=sharing"
-          target="_blank"
-          class="cert-link"
-        >
-          🔗
-        </a>
-
-      </div>
-
-      <p class="cert-desc">
-        Industry-recognized foundational certification
-        covering IT concepts, software development,
-        databases, networking, cybersecurity,
-        and infrastructure fundamentals.
-      </p>
-
-      <div class="cert-tags">
-        <span class="tag">IT Fundamentals</span>
-        <span class="tag">Networking</span>
-      </div>
-
-      <span class="cert-date">
-        Professional Certification
-      </span>
-
-    </div>
-
-  </div>
-
-  <!-- =========================
+              <!-- =========================
        DATABASES
   ========================== -->
-  <div class="cert-card">
+              <div class="cert-card">
+                <div class="cert-provider-side">
+                  <img
+                    src="images/certs-database.png"
+                    alt="Database Certification"
+                    class="cert-provider-logo"
+                  />
+                </div>
 
-    <div class="cert-provider-side">
-      <img
-        src="images/certs-database.png"
-        alt="Database Certification"
-        class="cert-provider-logo"
-      />
-    </div>
+                <div class="cert-content">
+                  <div class="cert-top-row">
+                    <div class="cert-heading-group">
+                      <span class="cert-provider-pill"> Certiport </span>
 
-    <div class="cert-content">
+                      <h3 class="cert-title">IT Specialist in Databases</h3>
+                    </div>
 
-      <div class="cert-top-row">
+                    <a
+                      href="https://drive.google.com/file/d/1bpJ2t87QTM76t1HhorimWdgWa5y7akpW/view?usp=sharing"
+                      target="_blank"
+                      class="cert-link"
+                    >
+                      🔗
+                    </a>
+                  </div>
 
-        <div class="cert-heading-group">
+                  <p class="cert-desc">
+                    Certification validating foundational database knowledge,
+                    relational database concepts, SQL querying, and data
+                    management.
+                  </p>
 
-          <span class="cert-provider-pill">
-            Certiport
-          </span>
+                  <div class="cert-tags">
+                    <span class="tag">SQL</span>
+                    <span class="tag">Databases</span>
+                  </div>
 
-          <h3 class="cert-title">
-            IT Specialist in Databases
-          </h3>
+                  <span class="cert-date"> Professional Certification </span>
+                </div>
+              </div>
 
-        </div>
-
-        <a
-          href="https://drive.google.com/file/d/1bpJ2t87QTM76t1HhorimWdgWa5y7akpW/view?usp=sharing"
-          target="_blank"
-          class="cert-link"
-        >
-          🔗
-        </a>
-
-      </div>
-
-      <p class="cert-desc">
-        Certification validating foundational
-        database knowledge, relational database
-        concepts, SQL querying, and data management.
-      </p>
-
-      <div class="cert-tags">
-        <span class="tag">SQL</span>
-        <span class="tag">Databases</span>
-      </div>
-
-      <span class="cert-date">
-        Professional Certification
-      </span>
-
-    </div>
-
-  </div>
-
-  <!-- =========================
+              <!-- =========================
        SQL
   ========================== -->
-  <div class="cert-card">
+              <div class="cert-card">
+                <div class="cert-provider-side">
+                  <img
+                    src="images/certs-testdome.png"
+                    alt="TestDome SQL"
+                    class="cert-provider-logo"
+                  />
+                </div>
 
-    <div class="cert-provider-side">
-      <img
-        src="images/certs-testdome.png"
-        alt="TestDome SQL"
-        class="cert-provider-logo"
-      />
-    </div>
+                <div class="cert-content">
+                  <div class="cert-top-row">
+                    <div class="cert-heading-group">
+                      <span class="cert-provider-pill"> TestDome </span>
 
-    <div class="cert-content">
+                      <h3 class="cert-title">SQL Certification</h3>
+                    </div>
 
-      <div class="cert-top-row">
+                    <a
+                      href="https://www.testdome.com/certificates/ac30349f973847acacdc34dfdfec7c91"
+                      target="_blank"
+                      class="cert-link"
+                    >
+                      🔗
+                    </a>
+                  </div>
 
-        <div class="cert-heading-group">
+                  <p class="cert-desc">
+                    Assessed practical SQL knowledge including database
+                    querying, joins, filtering, aggregation, and relational
+                    concepts.
+                  </p>
 
-          <span class="cert-provider-pill">
-            TestDome
-          </span>
+                  <div class="cert-tags">
+                    <span class="tag">SQL</span>
+                    <span class="tag">Queries</span>
+                  </div>
 
-          <h3 class="cert-title">
-            SQL Certification
-          </h3>
+                  <span class="cert-date"> Skills Assessment </span>
+                </div>
+              </div>
 
-        </div>
-
-        <a
-          href="https://www.testdome.com/certificates/ac30349f973847acacdc34dfdfec7c91"
-          target="_blank"
-          class="cert-link"
-        >
-          🔗
-        </a>
-
-      </div>
-
-      <p class="cert-desc">
-        Assessed practical SQL knowledge including
-        database querying, joins, filtering,
-        aggregation, and relational concepts.
-      </p>
-
-      <div class="cert-tags">
-        <span class="tag">SQL</span>
-        <span class="tag">Queries</span>
-      </div>
-
-      <span class="cert-date">
-        Skills Assessment
-      </span>
-
-    </div>
-
-  </div>
-
-  <!-- =========================
+              <!-- =========================
        DATA ANALYSIS
   ========================== -->
-  <div class="cert-card">
+              <div class="cert-card">
+                <div class="cert-provider-side">
+                  <img
+                    src="images/certs-testdome.png"
+                    alt="Data Analysis"
+                    class="cert-provider-logo"
+                  />
+                </div>
 
-    <div class="cert-provider-side">
-      <img
-        src="images/certs-testdome.png"
-        alt="Data Analysis"
-        class="cert-provider-logo"
-      />
-    </div>
+                <div class="cert-content">
+                  <div class="cert-top-row">
+                    <div class="cert-heading-group">
+                      <span class="cert-provider-pill"> TestDome </span>
 
-    <div class="cert-content">
+                      <h3 class="cert-title">Data Analysis Certification</h3>
+                    </div>
 
-      <div class="cert-top-row">
+                    <a
+                      href="https://www.testdome.com/certificates/921278491a65492fb2dc6a85adce2c98"
+                      target="_blank"
+                      class="cert-link"
+                    >
+                      🔗
+                    </a>
+                  </div>
 
-        <div class="cert-heading-group">
+                  <p class="cert-desc">
+                    Demonstrated analytical thinking and data interpretation
+                    skills involving datasets, spreadsheets, and data-driven
+                    insights.
+                  </p>
 
-          <span class="cert-provider-pill">
-            TestDome
-          </span>
+                  <div class="cert-tags">
+                    <span class="tag">Analytics</span>
+                    <span class="tag">Insights</span>
+                  </div>
 
-          <h3 class="cert-title">
-            Data Analysis Certification
-          </h3>
+                  <span class="cert-date"> Skills Assessment </span>
+                </div>
+              </div>
 
-        </div>
-
-        <a
-          href="https://www.testdome.com/certificates/921278491a65492fb2dc6a85adce2c98"
-          target="_blank"
-          class="cert-link"
-        >
-          🔗
-        </a>
-
-      </div>
-
-      <p class="cert-desc">
-        Demonstrated analytical thinking and
-        data interpretation skills involving
-        datasets, spreadsheets, and data-driven insights.
-      </p>
-
-      <div class="cert-tags">
-        <span class="tag">Analytics</span>
-        <span class="tag">Insights</span>
-      </div>
-
-      <span class="cert-date">
-        Skills Assessment
-      </span>
-
-    </div>
-
-  </div>
-
-  <!-- =========================
+              <!-- =========================
        HTML CSS
   ========================== -->
-  <div class="cert-card">
+              <div class="cert-card">
+                <div class="cert-provider-side">
+                  <img
+                    src="images/certs-testdome.png"
+                    alt="HTML CSS"
+                    class="cert-provider-logo"
+                  />
+                </div>
 
-    <div class="cert-provider-side">
-      <img
-        src="images/certs-testdome.png"
-        alt="HTML CSS"
-        class="cert-provider-logo"
-      />
-    </div>
+                <div class="cert-content">
+                  <div class="cert-top-row">
+                    <div class="cert-heading-group">
+                      <span class="cert-provider-pill"> TestDome </span>
 
-    <div class="cert-content">
+                      <h3 class="cert-title">HTML/CSS Certification</h3>
+                    </div>
 
-      <div class="cert-top-row">
+                    <a
+                      href="https://www.testdome.com/certificates/56bdfbbe0e414295b4e7bbd2a2b03363"
+                      target="_blank"
+                      class="cert-link"
+                    >
+                      🔗
+                    </a>
+                  </div>
 
-        <div class="cert-heading-group">
+                  <p class="cert-desc">
+                    Assessed frontend development skills involving semantic
+                    HTML, responsive CSS, layouts, and UI structure.
+                  </p>
 
-          <span class="cert-provider-pill">
-            TestDome
-          </span>
+                  <div class="cert-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Frontend</span>
+                  </div>
 
-          <h3 class="cert-title">
-            HTML/CSS Certification
-          </h3>
+                  <span class="cert-date"> Skills Assessment </span>
+                </div>
+              </div>
 
-        </div>
-
-        <a
-          href="https://www.testdome.com/certificates/56bdfbbe0e414295b4e7bbd2a2b03363"
-          target="_blank"
-          class="cert-link"
-        >
-          🔗
-        </a>
-
-      </div>
-
-      <p class="cert-desc">
-        Assessed frontend development skills
-        involving semantic HTML, responsive CSS,
-        layouts, and UI structure.
-      </p>
-
-      <div class="cert-tags">
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">Frontend</span>
-      </div>
-
-      <span class="cert-date">
-        Skills Assessment
-      </span>
-
-    </div>
-
-  </div>
-
-  <!-- =========================
+              <!-- =========================
        CISCO DATA SCIENCE
   ========================== -->
-  <div class="cert-card">
+              <div class="cert-card">
+                <div class="cert-provider-side">
+                  <img
+                    src="images/certs-ciscods.png"
+                    alt="Cisco Data Science"
+                    class="cert-provider-logo"
+                  />
+                </div>
 
-    <div class="cert-provider-side">
-      <img
-        src="images/certs-ciscods.png"
-        alt="Cisco Data Science"
-        class="cert-provider-logo"
-      />
-    </div>
+                <div class="cert-content">
+                  <div class="cert-top-row">
+                    <div class="cert-heading-group">
+                      <span class="cert-provider-pill"> Cisco </span>
 
-    <div class="cert-content">
+                      <h3 class="cert-title">Introduction to Data Science</h3>
+                    </div>
 
-      <div class="cert-top-row">
+                    <a
+                      href="https://www.credly.com/badges/75e79860-009f-4e1a-aedf-5c3846656e78/linked_in_profile"
+                      target="_blank"
+                      class="cert-link"
+                    >
+                      🔗
+                    </a>
+                  </div>
 
-        <div class="cert-heading-group">
+                  <p class="cert-desc">
+                    Badge certification introducing data science concepts,
+                    analytics workflows, and data-driven methodologies.
+                  </p>
 
-          <span class="cert-provider-pill">
-            Cisco
-          </span>
+                  <div class="cert-tags">
+                    <span class="tag">Data Science</span>
+                    <span class="tag">Data Concepts</span>
+                  </div>
 
-          <h3 class="cert-title">
-            Introduction to Data Science
-          </h3>
+                  <span class="cert-date"> Digital Badge </span>
+                </div>
+              </div>
 
-        </div>
-
-        <a
-          href="https://www.credly.com/badges/75e79860-009f-4e1a-aedf-5c3846656e78/linked_in_profile"
-          target="_blank"
-          class="cert-link"
-        >
-          🔗
-        </a>
-
-      </div>
-
-      <p class="cert-desc">
-        Badge certification introducing data science
-        concepts, analytics workflows,
-        and data-driven methodologies.
-      </p>
-
-      <div class="cert-tags">
-        <span class="tag">Data Science</span>
-        <span class="tag">Data Concepts</span>
-      </div>
-
-      <span class="cert-date">
-        Digital Badge
-      </span>
-
-    </div>
-
-  </div>
-
-  <!-- =========================
+              <!-- =========================
        MOS EXCEL
   ========================== -->
-  <div class="cert-card">
-
-    <div class="cert-provider-side">
-      <img
-        src="images/certs-mosexc.png"
-        alt="MOS Excel"
-        class="cert-provider-logo"
-      />
-    </div>
-
-    <div class="cert-content">
-
-      <div class="cert-top-row">
-
-        <div class="cert-heading-group">
-
-          <span class="cert-provider-pill">
-            Microsoft
-          </span>
-
-          <h3 class="cert-title">
-            MOS Excel 2019 Associate
-          </h3>
-
-        </div>
-
-        <a
-          href="https://drive.google.com/file/d/1rpz4G8z33Z7ifO63Ii2TcAbvn87Bs36V/view?usp=sharing"
-          target="_blank"
-          class="cert-link"
-        >
-          🔗
-        </a>
-
-      </div>
-
-      <p class="cert-desc">
-        Certification validating proficiency in
-        Microsoft Excel, spreadsheets,
-        formulas, charts, and productivity workflows.
-      </p>
-
-      <div class="cert-tags">
-        <span class="tag">Excel</span>
-        <span class="tag">Spreadsheets</span>
-      </div>
-
-      <span class="cert-date">
-        Microsoft Office Specialist
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
-</section>
-
-      <!-- ====== EXPERIENCE SECTION ====== -->
-<section class="editor-section" id="section-experience">
-  <p class="code-comment">// Experience Timeline</p>
-
- <h2 class="section-title experience-title">
-  Experience <br>
-  <span class="accent">Timeline</span>
-</h2>
-
-  <div class="timeline-modern">
-
-   <!-- 1 -->
-<div class="timeline-row right">
-
-  <div class="timeline-empty"></div>
-
-  <div class="timeline-center">
-    <div class="timeline-dot"></div>
-  </div>
-
-  <div class="timeline-card">
-    <span class="timeline-date">2022 – Present</span>
-
-    <h3>Freelance Graphic Designer</h3>
-
-    <h4>Independent Projects & Client Work</h4>
-
-    <p>
-      Designed publication materials and digital content for organizations
-      and clients. Produced brochures, tabloids, posters, social media
-      graphics, and other creative layouts using industry-standard design
-      tools.
-    </p>
-
-    <div class="project-tech">
-      <span class="tag">Photoshop</span>
-      <span class="tag">InDesign</span>
-      <span class="tag">Lightroom</span>
-      <span class="tag">Canva</span>
-      <span class="tag">Layout Design</span>
-    </div>
-  </div>
-
-</div>
-
-    <!-- 2 -->
-<div class="timeline-row left">
-
-  <div class="timeline-card">
-    <span class="timeline-date">2025 – Present</span>
-
-    <h3>Professional Certifications</h3>
-
-    <h4>Industry Certifications</h4>
-
-    <p>
-      Currently earning industry-recognized certifications that strengthen
-      technical knowledge in information technology, databases, and
-      productivity software.
-    </p>
-
-    <div class="project-tech">
-      <span class="tag">CompTIA ITF+</span>
-      <span class="tag">Databases</span>
-      <span class="tag">Excel Associate</span>
-    </div>
-  </div>
-
-  <div class="timeline-center">
-    <div class="timeline-dot"></div>
-  </div>
-
-  <div class="timeline-empty"></div>
-
-</div>
-
-    <!-- 3 -->
-<div class="timeline-row right">
-
-  <div class="timeline-empty"></div>
-
-  <div class="timeline-center">
-    <div class="timeline-dot"></div>
-  </div>
-
-  <div class="timeline-card">
-    <span class="timeline-date">2024 – Present</span>
-
-    <h3>Hello World! 👋</h3>
-
-    <h4>
-      BS Information Technology Student
-    </h4>
-
-    <p class="timeline-school">
-      Major in Web and Mobile Applications<br>
-      National University – Clark
-    </p>
-
-    <p>
-      Pursuing a Bachelor of Science in Information Technology with a focus
-      on Web and Mobile Applications. Developing skills in frontend
-      development, database management, UI/UX design, and digital product
-      creation through academic and personal projects.
-    </p>
-
-    <div class="project-tech">
-      <span class="tag">HTML</span>
-      <span class="tag">CSS</span>
-      <span class="tag">Java</span>
-      <span class="tag">Kotlin</span>
-      <span class="tag">MySQL</span>
-    </div>
-  </div>
-
-</div>
-
-  <!-- 4 -->
-<div class="timeline-row left">
-
-  <div class="timeline-card">
-    <span class="timeline-date">2025 – 2026</span>
-
-    <h3>
-      Press Committee Member — CODE
-    </h3>
-
-    <h4>
-      Consortium of Data Enthusiasts
-    </h4>
-
-    <p>
-      Assisted in media coverage and documentation for organizational
-      events and activities. Participated in video shooting, media
-      production, and video editing to support promotional and
-      communication initiatives.
-    </p>
-
-    <div class="project-tech">
-      <span class="tag">Video Editing</span>
-      <span class="tag">Media Production</span>
-      <span class="tag">Content Creation</span>
-      <span class="tag">Communication</span>
-    </div>
-  </div>
-
-  <div class="timeline-center">
-    <div class="timeline-dot"></div>
-  </div>
-
-  <div class="timeline-empty"></div>
-
-</div>
-
-    <!-- 5 -->
-<div class="timeline-row right">
-
-  <div class="timeline-empty"></div>
-
-  <div class="timeline-center">
-    <div class="timeline-dot"></div>
-  </div>
-
-  <div class="timeline-card">
-    <span class="timeline-date">2024 – 2026</span>
-
-    <h3>
-      Layout Artist — The Nationalian Clarion
-    </h3>
-
-    <h4>
-      Official Student Publication
-    </h4>
-
-    <p>
-      Designed layouts and publication assets for student journalism and
-      organizational content. Collaborated with editors, writers, and
-      creatives to produce visually engaging publication materials and
-      communication assets.
-    </p>
-
-    <div class="project-tech">
-      <span class="tag">Publication Design</span>
-      <span class="tag">Editorial Layout</span>
-      <span class="tag">Visual Communication</span>
-    </div>
-  </div>
-
-</div>
-
-    <!-- 6 -->
-<div class="timeline-row left">
-
-  <div class="timeline-card">
-    <span class="timeline-date">2024</span>
-
-    <h3>
-      Campus Journalism & Desktop Publishing
-    </h3>
-
-    <h4>
-      Collaborative Desktop Publishing Filipino
-    </h4>
-
-    <p>
-      2nd Place — District Level<br>
-      Champion — Division Level<br>
-      Qualifier — Regional Level
-    </p>
-  </div>
-
-  <div class="timeline-center">
-    <div class="timeline-dot"></div>
-  </div>
-
-  <div class="timeline-empty"></div>
-
-</div>
-
-    <!-- 7 -->
-<div class="timeline-row right">
-
-  <div class="timeline-empty"></div>
-
-  <div class="timeline-center">
-    <div class="timeline-dot"></div>
-  </div>
-
-  <div class="timeline-card">
-    <span class="timeline-date">2024</span>
-
-    <h3>
-      Academic Achievements
-    </h3>
-
-    <p>
-      Graduated within the Upper 10% of the Batch.
-    </p>
-
-    <div class="project-tech">
-      <span class="tag">Arts</span>
-      <span class="tag">Communication Arts</span>
-      <span class="tag">Research</span>
-    </div>
-  </div>
-
-</div>
-
-    <!-- 8 -->
-<div class="timeline-row left">
-
-  <div class="timeline-card">
-    <span class="timeline-date">2022 – 2024</span>
-
-    <h3>
-      Editor-In-Chief — Laharnilad
-    </h3>
-
-    <h4>
-      Official School Publication of Pulung Santol National High School
-    </h4>
-
-    <p>
-      Led the publication team in producing journalistic and creative
-      materials for competitions and school publications while overseeing
-      editorial direction and layouts.
-    </p>
-
-    <div class="project-tech">
-      <span class="tag">Leadership</span>
-      <span class="tag">Editorial</span>
-      <span class="tag">Publication Design</span>
-    </div>
-  </div>
-
-  <div class="timeline-center">
-    <div class="timeline-dot"></div>
-  </div>
-
-  <div class="timeline-empty"></div>
-
-</div>
-    
-  </div>
-</section>
-      <!-- ====== PROJECTS SECTION ====== -->
-<section class="editor-section" id="section-projects">
-  <p class="code-comment">// Featured Projects</p>
-
-  <h2 class="section-title">
-    My <span class="accent">Projects</span>
-  </h2>
-
-  <!-- ================= FRONTEND ================= -->
-  <div class="project-category">
-    <h3 class="skill-cat-title">
-      <span class="accent">// </span>Frontend Development
-    </h3>
-
-    <div class="projects-grid">
-
-      <!-- NUSign -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Frontend</span>
-
-          <div class="project-links">
-            <a href="projects/feproj-nusign.jpg" class="project-link" target="_blank" title="Preview">
-              🔗
-            </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">NUSign</h3>
-
-        <p class="project-desc">
-          A campus-based document tracking application that monitors document progress,
-          handlers, revisions, and approval remarks in real time.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">UI/UX</span>
-        </div>
-      </article>
-
-      <!-- Kriativo -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Frontend</span>
-
-          <div class="project-links">
-            <a href="#" class="project-link" title="Current Website">
-              🔗
-            </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">Kriativo D3</h3>
-
-        <p class="project-desc">
-          A VS Code-inspired interactive portfolio showcasing development,
-          design, and data analysis projects through a developer-themed interface.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
-      </article>
-
-      <!-- Arai Ko -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Frontend</span>
-
-          <div class="project-links">
-            <a href="#" class="project-link" title="Coming Soon">
-              🔗
-            </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">Arai Ko</h3>
-
-        <p class="project-desc">
-          A minimalist and elegant portfolio crafted for makeup artist
-          Raiza Gloria, focused on visual storytelling and clean presentation.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">Portfolio</span>
-          <span class="tag">UI Design</span>
-          <span class="tag">Frontend</span>
-        </div>
-      </article>
-
-      <!-- NU Quest -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Frontend</span>
-
-          <div class="project-links">
-            <a
-              href="https://69f84df52d5c30dd98a15a54--luxury-froyo-e64278.netlify.app/?classId=a5419ccc-dc77-4e5c-b1c0-fbb823e052c2&assignmentId=12825a13-726a-4958-a9b8-8d7b346493a1&submissionId=6aa32fd7-cb0b-bfa6-2cb4-f47fda6e7766"
-              class="project-link"
-              target="_blank"
-              title="Live"
-            >
-              🔗
-            </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">NU Quest</h3>
-
-        <p class="project-desc">
-          A student enrollment interface concept for National University,
-          designed to simplify registration workflows and improve usability.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">Frontend</span>
-          <span class="tag">UX Design</span>
-          <span class="tag">Enrollment System</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ================= DATA ANALYSIS ================= -->
-  <div class="project-category" style="margin-top: 50px;">
-    <h3 class="skill-cat-title">
-      <span class="accent">// </span>Data Analysis
-    </h3>
-
-    <div class="projects-grid">
-
-      <!-- Executive Overview -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Analytics</span>
-        </div>
-
-        <h3 class="project-title">Executive Overview</h3>
-
-        <p class="project-desc">
-          A business intelligence dashboard presenting sales performance,
-          revenue trends, customer insights, and operational summaries.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">Power BI</span>
-          <span class="tag">Excel</span>
-          <span class="tag">Visualization</span>
-        </div>
-      </article>
-
-      <!-- Global DS -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Data Science</span>
-        </div>
-
-        <h3 class="project-title">Global Data Science Analysis</h3>
-
-        <p class="project-desc">
-          An exploratory data analysis project focused on identifying
-          global technology and data science industry trends through datasets
-          and visual reports.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">Python</span>
-          <span class="tag">Data Analysis</span>
-          <span class="tag">Visualization</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ================= GRAPHIC DESIGN ================= -->
-  <div class="project-category" style="margin-top: 50px;">
-    <h3 class="skill-cat-title">
-      <span class="accent">// </span>Graphic Design
-    </h3>
-
-    <div class="projects-grid">
-
-      <!-- Equipped to Excel -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Graphic Design</span>
-
-          <div class="project-links">
-            <a href="projects/gdproj-poster.png" class="project-link" target="_blank" title="View">
-              🔗
-            </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">Equipped to Excel</h3>
-
-        <p class="project-desc">
-          A digital poster highlighting how Microsoft 365 improves
-          productivity, collaboration, and learning for students.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">Photoshop</span>
-          <span class="tag">Poster Design</span>
-        </div>
-      </article>
-
-      <!-- Brochure -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Publication</span>
-
-          <div class="project-links">
-            <a href="https://drive.google.com/file/d/1eEzek7BW0SSaypZ5LyxUsjAjxu0ubOT4/view?usp=sharing"
-            class="project-link"
-            target="_blank"
-            title="View PDF">
-            🔗
-          </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">NatCourse NU Brochure</h3>
-
-        <p class="project-desc">
-          A midterm publication project showcasing National University’s
-          history, values, scholarships, programs, and student culture.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">InDesign</span>
-          <span class="tag">Publication Design</span>
-        </div>
-      </article>
-
-      <!-- Lanyard -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Merch Design</span>
-
-          <div class="project-links">
-            <a href="projects/gdproj-lanyard.png" class="project-link" target="_blank" title="View">
-              🔗
-            </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">BSIT Lanyard & Tote Bag</h3>
-
-        <p class="project-desc">
-          Winning merchandise concept designs created for the BSIT department,
-          featuring modern branding and student-centered visuals.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">Branding</span>
-          <span class="tag">Merchandise</span>
-        </div>
-      </article>
-
-      <!-- Laharnilad -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Editorial</span>
-
-          <div class="project-links">
-            <a href="projects/gdproj-laharnilad.pdf" class="project-link" target="_blank" title="View PDF">
-              🔗
-            </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">Laharnilad Snippet</h3>
-
-        <p class="project-desc">
-          Selected publication works created as Editor-in-Chief of Laharnilad,
-          focusing on editorial layout and campus journalism.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">Editorial</span>
-          <span class="tag">Layout Design</span>
-        </div>
-      </article>
-
-      <!-- Clarion -->
-      <article class="project-card">
-        <div class="project-card__header">
-          <span class="project-type">Layout Design</span>
-
-          <div class="project-links">
-            <a href="projects/gdproj-clarion.pdf" class="project-link" target="_blank" title="View PDF">
-              🔗
-            </a>
-          </div>
-        </div>
-
-        <h3 class="project-title">The Clarion Snippet</h3>
-
-        <p class="project-desc">
-          Layout and publication design works produced for The Clarion,
-          the official student publication of National University Clark.
-        </p>
-
-        <div class="project-tech">
-          <span class="tag">Publication</span>
-          <span class="tag">Layout Artist</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-      <!-- ====== CONTACT SECTION ====== -->
-      <section class="editor-section" id="section-contact">
-        <div class="contact-header">
-
+              <div class="cert-card">
+                <div class="cert-provider-side">
+                  <img
+                    src="images/certs-mosexc.png"
+                    alt="MOS Excel"
+                    class="cert-provider-logo"
+                  />
+                </div>
+
+                <div class="cert-content">
+                  <div class="cert-top-row">
+                    <div class="cert-heading-group">
+                      <span class="cert-provider-pill"> Microsoft </span>
+
+                      <h3 class="cert-title">MOS Excel 2019 Associate</h3>
+                    </div>
+
+                    <a
+                      href="https://drive.google.com/file/d/1rpz4G8z33Z7ifO63Ii2TcAbvn87Bs36V/view?usp=sharing"
+                      target="_blank"
+                      class="cert-link"
+                    >
+                      🔗
+                    </a>
+                  </div>
+
+                  <p class="cert-desc">
+                    Certification validating proficiency in Microsoft Excel,
+                    spreadsheets, formulas, charts, and productivity workflows.
+                  </p>
+
+                  <div class="cert-tags">
+                    <span class="tag">Excel</span>
+                    <span class="tag">Spreadsheets</span>
+                  </div>
+
+                  <span class="cert-date"> Microsoft Office Specialist </span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ====== EXPERIENCE SECTION ====== -->
+          <section class="editor-section" id="section-experience">
+            <p class="code-comment">// Experience Timeline</p>
+
+            <h2 class="section-title experience-title">
+              Experience <br />
+              <span class="accent">Timeline</span>
+            </h2>
+
+            <div class="timeline-modern">
+              <!-- 1 -->
+              <div class="timeline-row right">
+                <div class="timeline-empty"></div>
+
+                <div class="timeline-center">
+                  <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-card">
+                  <span class="timeline-date">2022 – Present</span>
+
+                  <h3>Freelance Graphic Designer</h3>
+
+                  <h4>Independent Projects & Client Work</h4>
+
+                  <p>
+                    Designed publication materials and digital content for
+                    organizations and clients. Produced brochures, tabloids,
+                    posters, social media graphics, and other creative layouts
+                    using industry-standard design tools.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Photoshop</span>
+                    <span class="tag">InDesign</span>
+                    <span class="tag">Lightroom</span>
+                    <span class="tag">Canva</span>
+                    <span class="tag">Layout Design</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2 -->
+              <div class="timeline-row left">
+                <div class="timeline-card">
+                  <span class="timeline-date">2025 – Present</span>
+
+                  <h3>Professional Certifications</h3>
+
+                  <h4>Industry Certifications</h4>
+
+                  <p>
+                    Currently earning industry-recognized certifications that
+                    strengthen technical knowledge in information technology,
+                    databases, and productivity software.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">CompTIA ITF+</span>
+                    <span class="tag">Databases</span>
+                    <span class="tag">Excel Associate</span>
+                  </div>
+                </div>
+
+                <div class="timeline-center">
+                  <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-empty"></div>
+              </div>
+
+              <!-- 3 -->
+              <div class="timeline-row right">
+                <div class="timeline-empty"></div>
+
+                <div class="timeline-center">
+                  <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-card">
+                  <span class="timeline-date">2024 – Present</span>
+
+                  <h3>Hello World! 👋</h3>
+
+                  <h4>BS Information Technology Student</h4>
+
+                  <p class="timeline-school">
+                    Major in Web and Mobile Applications<br />
+                    National University – Clark
+                  </p>
+
+                  <p>
+                    Pursuing a Bachelor of Science in Information Technology
+                    with a focus on Web and Mobile Applications. Developing
+                    skills in frontend development, database management, UI/UX
+                    design, and digital product creation through academic and
+                    personal projects.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">MySQL</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4 -->
+              <div class="timeline-row left">
+                <div class="timeline-card">
+                  <span class="timeline-date">2025 – 2026</span>
+
+                  <h3>Press Committee Member — CODE</h3>
+
+                  <h4>Consortium of Data Enthusiasts</h4>
+
+                  <p>
+                    Assisted in media coverage and documentation for
+                    organizational events and activities. Participated in video
+                    shooting, media production, and video editing to support
+                    promotional and communication initiatives.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Video Editing</span>
+                    <span class="tag">Media Production</span>
+                    <span class="tag">Content Creation</span>
+                    <span class="tag">Communication</span>
+                  </div>
+                </div>
+
+                <div class="timeline-center">
+                  <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-empty"></div>
+              </div>
+
+              <!-- 5 -->
+              <div class="timeline-row right">
+                <div class="timeline-empty"></div>
+
+                <div class="timeline-center">
+                  <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-card">
+                  <span class="timeline-date">2024 – 2026</span>
+
+                  <h3>Layout Artist — The Nationalian Clarion</h3>
+
+                  <h4>Official Student Publication</h4>
+
+                  <p>
+                    Designed layouts and publication assets for student
+                    journalism and organizational content. Collaborated with
+                    editors, writers, and creatives to produce visually engaging
+                    publication materials and communication assets.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Publication Design</span>
+                    <span class="tag">Editorial Layout</span>
+                    <span class="tag">Visual Communication</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6 -->
+              <div class="timeline-row left">
+                <div class="timeline-card">
+                  <span class="timeline-date">2024</span>
+
+                  <h3>Campus Journalism & Desktop Publishing</h3>
+
+                  <h4>Collaborative Desktop Publishing Filipino</h4>
+
+                  <p>
+                    2nd Place — District Level<br />
+                    Champion — Division Level<br />
+                    Qualifier — Regional Level
+                  </p>
+                </div>
+
+                <div class="timeline-center">
+                  <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-empty"></div>
+              </div>
+
+              <!-- 7 -->
+              <div class="timeline-row right">
+                <div class="timeline-empty"></div>
+
+                <div class="timeline-center">
+                  <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-card">
+                  <span class="timeline-date">2024</span>
+
+                  <h3>Academic Achievements</h3>
+
+                  <p>Graduated within the Upper 10% of the Batch.</p>
+
+                  <div class="project-tech">
+                    <span class="tag">Arts</span>
+                    <span class="tag">Communication Arts</span>
+                    <span class="tag">Research</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8 -->
+              <div class="timeline-row left">
+                <div class="timeline-card">
+                  <span class="timeline-date">2022 – 2024</span>
+
+                  <h3>Editor-In-Chief — Laharnilad</h3>
+
+                  <h4>
+                    Official School Publication of Pulung Santol National High
+                    School
+                  </h4>
+
+                  <p>
+                    Led the publication team in producing journalistic and
+                    creative materials for competitions and school publications
+                    while overseeing editorial direction and layouts.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Leadership</span>
+                    <span class="tag">Editorial</span>
+                    <span class="tag">Publication Design</span>
+                  </div>
+                </div>
+
+                <div class="timeline-center">
+                  <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-empty"></div>
+              </div>
+            </div>
+          </section>
+          <!-- ====== PROJECTS SECTION ====== -->
+          <section class="editor-section" id="section-projects">
+            <p class="code-comment">// Featured Projects</p>
+
+            <h2 class="section-title">
+              My <span class="accent">Projects</span>
+            </h2>
+
+            <!-- ================= FRONTEND ================= -->
+            <div class="project-category">
+              <h3 class="skill-cat-title">
+                <span class="accent">// </span>Frontend Development
+              </h3>
+
+              <div class="projects-grid">
+                <!-- NUSign -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Frontend</span>
+
+                    <div class="project-links">
+                      <a
+                        href="projects/feproj-nusign.jpg"
+                        class="project-link"
+                        target="_blank"
+                        title="Preview"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">NUSign</h3>
+
+                  <p class="project-desc">
+                    A campus-based document tracking application that monitors
+                    document progress, handlers, revisions, and approval remarks
+                    in real time.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">UI/UX</span>
+                  </div>
+                </article>
+
+                <!-- Kristine -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Frontend</span>
+
+                    <div class="project-links">
+                      <a href="#" class="project-link" title="Current Website">
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">Kristine</h3>
+
+                  <p class="project-desc">
+                    A VS Code-inspired interactive portfolio showcasing
+                    development, design, and data analysis projects through a
+                    developer-themed interface.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                  </div>
+                </article>
+
+                <!-- Arai Ko -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Frontend</span>
+
+                    <div class="project-links">
+                      <a href="#" class="project-link" title="Coming Soon">
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">Arai Ko</h3>
+
+                  <p class="project-desc">
+                    A minimalist and elegant portfolio crafted for makeup artist
+                    Raiza Gloria, focused on visual storytelling and clean
+                    presentation.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Portfolio</span>
+                    <span class="tag">UI Design</span>
+                    <span class="tag">Frontend</span>
+                  </div>
+                </article>
+
+                <!-- NU Quest -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Frontend</span>
+
+                    <div class="project-links">
+                      <a
+                        href="https://69f84df52d5c30dd98a15a54--luxury-froyo-e64278.netlify.app/?classId=a5419ccc-dc77-4e5c-b1c0-fbb823e052c2&assignmentId=12825a13-726a-4958-a9b8-8d7b346493a1&submissionId=6aa32fd7-cb0b-bfa6-2cb4-f47fda6e7766"
+                        class="project-link"
+                        target="_blank"
+                        title="Live"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">NU Quest</h3>
+
+                  <p class="project-desc">
+                    A student enrollment interface concept for National
+                    University, designed to simplify registration workflows and
+                    improve usability.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Frontend</span>
+                    <span class="tag">UX Design</span>
+                    <span class="tag">Enrollment System</span>
+                  </div>
+                </article>
+
+                <!-- Lyric Loop -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Frontend</span>
+
+                    <div class="project-links">
+                      <a
+                        href="https://sayitaintso.netlify.app/"
+                        class="project-link"
+                        target="_blank"
+                        title="Live Demo"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">Lyric Loop</h3>
+
+                  <p class="project-desc">
+                    A simple lyric webpage featuring the song "Say It Ain't So", built using HTML and CSS to practice webpage structure and styling.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Typography</span>
+                  </div>
+                </article>
+
+                <!-- Lumpia Lab -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Frontend</span>
+
+                    <div class="project-links">
+                      <a
+                        href="https://lumpialicious.netlify.app/"
+                        class="project-link"
+                        target="_blank"
+                        title="Live Demo"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">Lumpia Lab</h3>
+
+                  <p class="project-desc">
+                    A recipe website that presents the ingredients and step-by-step process for making homemade lumpia through a clean and organized layout.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Recipe Site</span>
+                  </div>
+                </article>
+
+                <!-- GreenGrid Calendar -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Frontend</span>
+
+                    <div class="project-links">
+                      <a
+                        href="http://kristine-calendar.netlify.app/"
+                        class="project-link"
+                        target="_blank"
+                        title="Live Demo"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">GreenGrid Calendar</h3>
+
+                  <p class="project-desc">
+                    A web-based calendar interface that organizes dates and events through a clean, structured, and easy-to-navigate monthly layout.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Calendar UI</span>
+                  </div>
+                </article>
+
+                <!-- NU Chapel Interactive Map -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Frontend</span>
+
+                    <div class="project-links">
+                      <a
+                        href="https://nuchapel.netlify.app/"
+                        class="project-link"
+                        target="_blank"
+                        title="Live Demo"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">NU Chapel Interactive Map</h3>
+
+                  <p class="project-desc">
+                    An image-mapping activity that allows users to click different areas of the NU Clark Chapel and view information about each location.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Image Mapping</span>
+                    <span class="tag">Interactive UI</span>
+                    <span class="tag">HTML</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- ================= DATA ANALYSIS ================= -->
+            <div class="project-category" style="margin-top: 50px">
+              <h3 class="skill-cat-title">
+                <span class="accent">// </span>Data Analysis
+              </h3>
+
+              <div class="projects-grid">
+                <!-- Executive Overview -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Analytics</span>
+                  </div>
+
+                  <h3 class="project-title">Executive Overview</h3>
+
+                  <p class="project-desc">
+                    A business intelligence dashboard presenting sales
+                    performance, revenue trends, customer insights, and
+                    operational summaries.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Visualization</span>
+                  </div>
+                </article>
+
+                <!-- Global DS -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Data Science</span>
+                  </div>
+
+                  <h3 class="project-title">Global Data Science Analysis</h3>
+
+                  <p class="project-desc">
+                    An exploratory data analysis project focused on identifying
+                    global technology and data science industry trends through
+                    datasets and visual reports.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Python</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Visualization</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- ================= GRAPHIC DESIGN ================= -->
+            <div class="project-category" style="margin-top: 50px">
+              <h3 class="skill-cat-title">
+                <span class="accent">// </span>Graphic Design
+              </h3>
+
+              <div class="projects-grid">
+                <!-- Equipped to Excel -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Graphic Design</span>
+
+                    <div class="project-links">
+                      <a
+                        href="projects/gdproj-poster.png"
+                        class="project-link"
+                        target="_blank"
+                        title="View"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">Equipped to Excel</h3>
+
+                  <p class="project-desc">
+                    A digital poster highlighting how Microsoft 365 improves
+                    productivity, collaboration, and learning for students.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Photoshop</span>
+                    <span class="tag">Poster Design</span>
+                  </div>
+                </article>
+
+                <!-- Brochure -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Publication</span>
+
+                    <div class="project-links">
+                      <a
+                        href="https://drive.google.com/file/d/1eEzek7BW0SSaypZ5LyxUsjAjxu0ubOT4/view?usp=sharing"
+                        class="project-link"
+                        target="_blank"
+                        title="View PDF"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">NatCourse NU Brochure</h3>
+
+                  <p class="project-desc">
+                    A midterm publication project showcasing National
+                    University’s history, values, scholarships, programs, and
+                    student culture.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">InDesign</span>
+                    <span class="tag">Publication Design</span>
+                  </div>
+                </article>
+
+                <!-- Lanyard -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Merch Design</span>
+
+                    <div class="project-links">
+                      <a
+                        href="projects/gdproj-lanyard.png"
+                        class="project-link"
+                        target="_blank"
+                        title="View"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">BSIT Lanyard & Tote Bag</h3>
+
+                  <p class="project-desc">
+                    Winning merchandise concept designs created for the BSIT
+                    department, featuring modern branding and student-centered
+                    visuals.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Branding</span>
+                    <span class="tag">Merchandise</span>
+                  </div>
+                </article>
+
+                <!-- Laharnilad -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Editorial</span>
+
+                    <div class="project-links">
+                      <a
+                        href="projects/gdproj-laharnilad.pdf"
+                        class="project-link"
+                        target="_blank"
+                        title="View PDF"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">Laharnilad Snippet</h3>
+
+                  <p class="project-desc">
+                    Selected publication works created as Editor-in-Chief of
+                    Laharnilad, focusing on editorial layout and campus
+                    journalism.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Editorial</span>
+                    <span class="tag">Layout Design</span>
+                  </div>
+                </article>
+
+                <!-- Clarion -->
+                <article class="project-card">
+                  <div class="project-card__header">
+                    <span class="project-type">Layout Design</span>
+
+                    <div class="project-links">
+                      <a
+                        href="projects/gdproj-clarion.pdf"
+                        class="project-link"
+                        target="_blank"
+                        title="View PDF"
+                      >
+                        🔗
+                      </a>
+                    </div>
+                  </div>
+
+                  <h3 class="project-title">The Clarion Snippet</h3>
+
+                  <p class="project-desc">
+                    Layout and publication design works produced for The
+                    Clarion, the official student publication of National
+                    University Clark.
+                  </p>
+
+                  <div class="project-tech">
+                    <span class="tag">Publication</span>
+                    <span class="tag">Layout Artist</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+          <!-- ====== CONTACT SECTION ====== -->
+          <section class="editor-section" id="section-contact">
+            <div class="contact-header">
               <h2 class="contact-title">
                 Get in <span class="accent">touch</span>
               </h2>
 
               <div class="contact-socials">
-
                 <!-- EMAIL -->
                 <a href="mailto:madrnrkris@gmail.com" class="contact-social">
-
-                  <img src="icons/link-email.png" alt="Email">
+                  <img src="icons/link-email.png" alt="Email" />
 
                   <div class="social-tooltip">
                     <span class="social-tooltip-title">Email</span>
@@ -1665,17 +1867,12 @@
                       madrnrkris@gmail.com
                     </small>
                   </div>
-
                 </a>
 
                 <!-- LINKEDIN -->
                 <a
-                  href="https://linkedin.com/in/krismadronero"
-                  target="_blank"
-                  class="contact-social"
-                >
-
-                  <img src="icons/link-linkedin.png" alt="LinkedIn">
+                  href="https://linkedin.com/in/krismadronero" target="_blank" class="contact-social" >
+                  <img src="icons/link-linkedin.png" alt="LinkedIn" />
 
                   <div class="social-tooltip">
                     <span class="social-tooltip-title">LinkedIn</span>
@@ -1683,17 +1880,14 @@
                       linkedin.com/in/krismadronero
                     </small>
                   </div>
-
                 </a>
 
                 <!-- GITHUB -->
                 <a
                   href="https://github.com/krisuendo"
                   target="_blank"
-                  class="contact-social"
-                >
-
-                  <img src="icons/home-github.png" alt="GitHub">
+                  class="contact-social">
+                  <img src="icons/home-github.png" alt="GitHub" />
 
                   <div class="social-tooltip">
                     <span class="social-tooltip-title">GitHub</span>
@@ -1701,17 +1895,11 @@
                       github.com/krisuendo
                     </small>
                   </div>
-
                 </a>
 
                 <!-- FACEBOOK -->
-                <a
-                  href="https://facebook.com/rikstn"
-                  target="_blank"
-                  class="contact-social"
-                >
-
-                  <img src="icons/link-facebook.png" alt="Facebook">
+                <a href="https://facebook.com/rikstn" target="_blank" class="contact-social">
+                  <img src="icons/link-facebook.png" alt="Facebook" />
 
                   <div class="social-tooltip">
                     <span class="social-tooltip-title">Facebook</span>
@@ -1719,310 +1907,264 @@
                       facebook.com/rikstn
                     </small>
                   </div>
-
                 </a>
-
               </div>
-
             </div>
 
-          <!-- Contact form -->
-          <div class="contact-form-wrapper">
-            <div class="contact-file-label">
-  <span class="contact-file-icon">&lt;/&gt;</span>
-  <span class="contact-file-name">contact/send-message.tsx</span>
-</div>
-           <div class="contact-form-modern">
+            <!-- Contact form -->
+            <div class="contact-form-wrapper">
+              <div class="contact-file-label">
+                <span class="contact-file-icon">&lt;/&gt;</span>
+                <span class="contact-file-name">contact/send-message.tsx</span>
+              </div>
+              <div class="contact-form-modern">
+                <div class="contact-form-left">
+                  <div class="form-group">
+                    <label class="form-label">
+                      Full Name <span class="accent">*</span>
+                    </label>
 
-  <div class="contact-form-left">
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="John Doe"
+                      id="contactName"
+                    />
+                  </div>
 
-    <div class="form-group">
-      <label class="form-label">
-        Full Name <span class="accent">*</span>
-      </label>
+                  <div class="form-group">
+                    <label class="form-label">
+                      Email Address <span class="accent">*</span>
+                    </label>
 
-      <input
-        type="text"
-        class="form-input"
-        placeholder="John Doe"
-        id="contactName"
-      />
-    </div>
+                    <input
+                      type="email"
+                      class="form-input"
+                      placeholder="john@example.com"
+                      id="contactEmail"
+                    />
+                  </div>
 
-    <div class="form-group">
-      <label class="form-label">
-        Email Address <span class="accent">*</span>
-      </label>
+                  <div class="form-group">
+                    <label class="form-label"> Subject </label>
 
-      <input
-        type="email"
-        class="form-input"
-        placeholder="john@example.com"
-        id="contactEmail"
-      />
-    </div>
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="Project inquiry..."
+                      id="contactSubject"
+                    />
+                  </div>
+                </div>
 
-    <div class="form-group">
-      <label class="form-label">
-        Subject
-      </label>
+                <div class="contact-form-right">
+                  <div class="form-group">
+                    <label class="form-label">
+                      Message <span class="accent">*</span>
+                    </label>
 
-      <input
-        type="text"
-        class="form-input"
-        placeholder="Project inquiry..."
-        id="contactSubject"
-      />
-    </div>
+                    <textarea
+                      class="form-input form-textarea"
+                      id="contactMessage"
+                    ></textarea>
+                  </div>
 
-  </div>
+                  <button
+                    id="sendBtn"
+                    onclick="handleSend()"
+                    class="contact-send-btn"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
 
-  <div class="contact-form-right">
+      <div class="mobile-sheet-backdrop" id="mobileSheetBackdrop"></div>
+      <!-- MOBILE FILE SHEET -->
+      <div class="mobile-file-sheet" id="mobileFileSheet">
+        <div class="mobile-file-sheet-header">Open Portfolio Files</div>
 
-    <div class="form-group">
-      <label class="form-label">
-        Message <span class="accent">*</span>
-      </label>
+        <button class="mobile-file-item" data-section="home">
+          <img src="icons/section-typescri.png" alt="" />
+          <span>home.tsx</span>
+        </button>
 
-      <textarea
-        class="form-input form-textarea"
-        id="contactMessage"
-      ></textarea>
-    </div>
+        <button class="mobile-file-item" data-section="about">
+          <img src="icons/section-javasc.jpg" alt="" />
+          <span>about.js</span>
+        </button>
 
-    <button
-      id="sendBtn"
-      onclick="handleSend()"
-      class="contact-send-btn"
-    >
-      Send Message
-    </button>
+        <button class="mobile-file-item" data-section="skills">
+          <img src="icons/section-hypertxtml.png" alt="" />
+          <span>skills.html</span>
+        </button>
+
+        <button class="mobile-file-item" data-section="certifications">
+          <img src="icons/section-hypertxtml.png" alt="" />
+          <span>certifications.html</span>
+        </button>
+
+        <button class="mobile-file-item" data-section="experience">
+          <img src="icons/section-typescri.png" alt="" />
+          <span>experience.tsx</span>
+        </button>
+
+        <button class="mobile-file-item" data-section="projects">
+          <img src="icons/section-cascss.png" alt="" />
+          <span>projects.css</span>
+        </button>
+
+        <button class="mobile-file-item" data-section="contact">
+          <img src="icons/section-cascss.png" alt="" />
+          <span>contact.css</span>
+        </button>
+      </div>
+      <!-- MOBILE ACTIVITY BAR -->
+      <nav class="mobile-activity-bar">
+        <button
+          class="mobile-activity-btn"
+          id="mobileExplorerBtn"
+          title="Explorer"
+          onclick="
+            document.getElementById('mobileFileSheet').classList.toggle('open');
+            document
+              .getElementById('mobileSheetBackdrop')
+              .classList.toggle('open');
+          "
+        >
+          <img src="icons/sidebar-folder.png" alt="Explorer" />
+        </button>
+
+        <button class="mobile-activity-btn" id="mobileSearchBtn" title="Search">
+          <img src="icons/sidebar-search.png" alt="Search" />
+        </button>
+
+        <button
+          class="mobile-activity-btn"
+          id="mobileCopilotBtn"
+          title="Copilot"
+        >
+          <img src="icons/sidebar-copilot.png" alt="Copilot" />
+        </button>
+
+        <button
+          class="mobile-activity-btn"
+          id="mobileDownloadBtn"
+          title="Resume"
+        >
+          <img src="icons/sidebar-download.png" alt="Download" />
+        </button>
+      </nav>
+
+      <!-- ====== STATUS BAR ====== -->
+      <footer class="status-bar">
+        <div class="status-bar__left">
+          <span class="status-item status-item--branch">⎇ main</span>
+          <span class="status-item">Kristine's Portfolio</span>
+        </div>
+        <div class="status-bar__right">
+          <span class="status-item" id="statusLang">TypeScript React</span>
+          <span class="status-item">UTF-8</span>
+          <span class="status-item">Prettier</span>
+          <span class="status-item">Dracula</span>
+          <span class="status-item" id="statusTime">00:00</span>
+          <span class="status-item status-item--copilot" id="statusCopilot"
+            >✦ Copilot</span
+          >
+        </div>
+      </footer>
+
+      <!-- COMMAND PALETTE -->
+      <div class="command-palette-backdrop" id="commandPaletteBackdrop">
+        <div class="command-palette" id="commandPalette">
+          <div class="command-palette-header">
+            <input
+              type="text"
+              id="commandPaletteInput"
+              class="command-palette-input"
+              placeholder="Go to file, section, skill, project..."
+            />
+
+            <button id="commandPaletteClose" class="command-palette-close">
+              Esc
+            </button>
+          </div>
+
+          <div class="command-palette-results" id="commandPaletteResults">
+            <div class="command-group">
+              <div class="command-group-title">FILES</div>
+
+              <button class="command-result">
+                <img src="icons/section-typescri.png" />
+                <span>home.tsx</span>
+              </button>
+
+              <button class="command-result">
+                <img src="icons/section-javasc.jpg" />
+                <span>about.js</span>
+              </button>
+
+              <button class="command-result">
+                <img src="icons/section-hypertxtml.png" />
+                <span>skills.html</span>
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-    </main>
-  </div>
+      <!-- ====== COPILOT PANEL ====== -->
+      <aside class="copilot-panel collapsed" id="copilotPanel">
+        <!-- HEADER -->
+        <div class="copilot-header">
+          <div class="copilot-title">
+            <span class="copilot-dot"></span>
+            Kris AI Copilot
+          </div>
 
-  <div class="mobile-sheet-backdrop" id="mobileSheetBackdrop"></div>
-  <!-- MOBILE FILE SHEET -->
-<div class="mobile-file-sheet" id="mobileFileSheet">
+          <!-- CLOSE BUTTON -->
+          <button class="copilot-close" id="copilotClose" title="Close">
+            ×
+          </button>
+        </div>
 
-  <div class="mobile-file-sheet-header">
-    Open Portfolio Files
-  </div>
+        <!-- MESSAGES -->
+        <div class="copilot-messages" id="copilotMessages">
+          <div class="ai-message">
+            Hi! I'm Kristine's AI assistant. Ask me anything about her projects,
+            skills, experience, certifications, creative works, or contact
+            details.
+          </div>
+        </div>
 
-  <button class="mobile-file-item" data-section="home">
-  <img src="icons/section-typescri.png" alt="">
-  <span>home.tsx</span>
-</button>
+        <!-- INPUT -->
+        <div class="copilot-input-area">
+          <textarea
+            id="copilotInput"
+            class="copilot-input"
+            placeholder="Ask Kristine's AI copilot..."
+            rows="1"
+          ></textarea>
 
-<button class="mobile-file-item" data-section="about">
-  <img src="icons/section-javasc.jpg" alt="">
-  <span>about.js</span>
-</button>
+          <button id="copilotSend" class="copilot-send" title="Send">
+            <img
+              src="icons/chatbox-send.png"
+              alt="Send"
+              class="copilot-send-icon"
+            />
+          </button>
+        </div>
+      </aside>
+      <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<button class="mobile-file-item" data-section="skills">
-  <img src="icons/section-hypertxtml.png" alt="">
-  <span>skills.html</span>
-</button>
-
-<button class="mobile-file-item" data-section="certifications">
-  <img src="icons/section-hypertxtml.png" alt="">
-  <span>certifications.html</span>
-</button>
-
-<button class="mobile-file-item" data-section="experience">
-  <img src="icons/section-typescri.png" alt="">
-  <span>experience.tsx</span>
-</button>
-
-<button class="mobile-file-item" data-section="projects">
-  <img src="icons/section-cascss.png" alt="">
-  <span>projects.css</span>
-</button>
-
-<button class="mobile-file-item" data-section="contact">
-  <img src="icons/section-cascss.png" alt="">
-  <span>contact.css</span>
-</button>
-
-</div>
-  <!-- MOBILE ACTIVITY BAR -->
-<nav class="mobile-activity-bar">
-
-<button
-  class="mobile-activity-btn"
-  id="mobileExplorerBtn"
-  title="Explorer"
-  onclick="
-document.getElementById('mobileFileSheet').classList.toggle('open');
-document.getElementById('mobileSheetBackdrop').classList.toggle('open');
-"
->
-  <img src="icons/sidebar-folder.png" alt="Explorer">
-</button>
-
-  <button
-    class="mobile-activity-btn"
-    id="mobileSearchBtn"
-    title="Search"
-  >
-    <img src="icons/sidebar-search.png" alt="Search">
-  </button>
-
-  <button
-    class="mobile-activity-btn"
-    id="mobileCopilotBtn"
-    title="Copilot"
-  >
-    <img src="icons/sidebar-copilot.png" alt="Copilot">
-  </button>
-
-  <button
-    class="mobile-activity-btn"
-    id="mobileDownloadBtn"
-    title="Resume"
-  >
-    <img src="icons/sidebar-download.png" alt="Download">
-  </button>
-
-</nav>
-
-  <!-- ====== STATUS BAR ====== -->
-  <footer class="status-bar">
-    <div class="status-bar__left">
-      <span class="status-item status-item--branch">⎇ main</span>
-      <span class="status-item">Kristine's Portfolio</span>
+      <script>
+        emailjs.init("DnTkmZFM91gtZvADg");
+      </script>
     </div>
-    <div class="status-bar__right">
-      <span class="status-item" id="statusLang">TypeScript React</span>
-      <span class="status-item">UTF-8</span>
-      <span class="status-item">Prettier</span>
-      <span class="status-item">Dracula</span>
-      <span class="status-item" id="statusTime">00:00</span>
-      <span class="status-item status-item--copilot" id="statusCopilot">✦ Copilot</span>
-    </div>
-  </footer>
-
-<!-- COMMAND PALETTE -->
-<div class="command-palette-backdrop" id="commandPaletteBackdrop">
-
-  <div class="command-palette" id="commandPalette">
-
-    <div class="command-palette-header">
-
-      <input
-        type="text"
-        id="commandPaletteInput"
-        class="command-palette-input"
-        placeholder="Go to file, section, skill, project..."
-      >
-
-      <button
-        id="commandPaletteClose"
-        class="command-palette-close"
-      >
-        Esc
-      </button>
-
-    </div>
-
-    <div
-      class="command-palette-results"
-      id="commandPaletteResults"
-    >
-    <div class="command-group">
-
-  <div class="command-group-title">
-    FILES
-  </div>
-
-  <button class="command-result">
-    <img src="icons/section-typescri.png">
-    <span>home.tsx</span>
-  </button>
-
-  <button class="command-result">
-    <img src="icons/section-javasc.jpg">
-    <span>about.js</span>
-  </button>
-
-  <button class="command-result">
-    <img src="icons/section-hypertxtml.png">
-    <span>skills.html</span>
-  </button>
-
-</div>
-    </div>
-
-  </div>
-
-</div>
-
-    <!-- ====== COPILOT PANEL ====== -->
-<aside class="copilot-panel collapsed" id="copilotPanel">
-
-  <!-- HEADER -->
-  <div class="copilot-header">
-
-    <div class="copilot-title">
-      <span class="copilot-dot"></span>
-      Kriativo AI
-    </div>
-
-    <!-- CLOSE BUTTON -->
-    <button
-      class="copilot-close"
-      id="copilotClose"
-      title="Close"
-    >
-      ×
-    </button>
-
-  </div>
-
-  <!-- MESSAGES -->
-  <div class="copilot-messages" id="copilotMessages">
-
-    <div class="ai-message">
-      Hi! I'm Kristine's AI assistant. Ask me anything about her projects,
-      skills, experience, certifications, creative works, or contact details.
-    </div>
-
-  </div>
-
-  <!-- INPUT -->
-  <div class="copilot-input-area">
-
-    <textarea
-      id="copilotInput"
-      class="copilot-input"
-      placeholder="Ask Kriativo AI..."
-      rows="1"
-    ></textarea>
-
-    <button
-  id="copilotSend"
-  class="copilot-send"
-  title="Send"
->
-  <img
-    src="icons/chatbox-send.png"
-    alt="Send"
-    class="copilot-send-icon"
-  >
-</button>
-
-  </div>
-
-</aside>
-  <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script>
-  emailjs.init("DnTkmZFM91gtZvADg");
-</script>
-</body>
+  </body>
 </html>

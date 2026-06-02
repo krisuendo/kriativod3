@@ -90,56 +90,38 @@ document.querySelectorAll(".tab-close").forEach((closeBtn) => {
   });
 });
 // CLOSE WHEN CLICKING OUTSIDE (MOBILE)
-const mobileSheetBackdrop =
-  document.getElementById("mobileSheetBackdrop");
+const mobileSheetBackdrop = document.getElementById("mobileSheetBackdrop");
 
-mobileSheetBackdrop?.addEventListener(
-  "click",
-  () => {
+mobileSheetBackdrop?.addEventListener("click", () => {
+  document.getElementById("mobileFileSheet")?.classList.remove("open");
 
-    document
-      .getElementById("mobileFileSheet")
-      ?.classList.remove("open");
-
-    mobileSheetBackdrop.classList.remove("open");
-
-  }
-);
+  mobileSheetBackdrop.classList.remove("open");
+});
 
 // Explorer toggle (sidebar icon)
-const explorerToggle =
-  document.getElementById("explorerToggle");
+const explorerToggle = document.getElementById("explorerToggle");
 
-const explorer =
-  document.getElementById("explorer");
+const explorer = document.getElementById("explorer");
 
-const mobileExplorerBtn =
-  document.getElementById("mobileExplorerBtn");
+const mobileExplorerBtn = document.getElementById("mobileExplorerBtn");
 
-const mobileDownloadBtn =
-  document.getElementById("mobileDownloadBtn");
+const mobileDownloadBtn = document.getElementById("mobileDownloadBtn");
 
-const mobileSearchBtn =
-  document.getElementById("mobileSearchBtn");
+const mobileSearchBtn = document.getElementById("mobileSearchBtn");
 
-const commandPaletteBackdrop =
-  document.getElementById("commandPaletteBackdrop");
+const commandPaletteBackdrop = document.getElementById(
+  "commandPaletteBackdrop",
+);
 
-const commandPaletteClose =
-  document.getElementById("commandPaletteClose");
+const commandPaletteClose = document.getElementById("commandPaletteClose");
 
-  const commandPaletteInput =
-  document.getElementById("commandPaletteInput");
+const commandPaletteInput = document.getElementById("commandPaletteInput");
 
-const commandPaletteResults =
-  document.getElementById("commandPaletteResults");
+const commandPaletteResults = document.getElementById("commandPaletteResults");
 
-  const sidebarSearchBtn =
-  document.getElementById("sidebarSearchBtn");
+const sidebarSearchBtn = document.getElementById("sidebarSearchBtn");
 
-
-function openCommandPalette(){
-
+function openCommandPalette() {
   commandPaletteBackdrop?.classList.add("open");
   selectedSearchIndex = -1;
 
@@ -148,65 +130,34 @@ function openCommandPalette(){
   renderSearchResults(searchData);
 
   commandPaletteInput?.focus();
-  
-
 }
-function closeCommandPalette(){
-
+function closeCommandPalette() {
   commandPaletteBackdrop?.classList.remove("open");
-
 }
-
 
 /* SEARCH BUTTON */
-mobileSearchBtn?.addEventListener(
-  "click",
-  openCommandPalette
-);
+mobileSearchBtn?.addEventListener("click", openCommandPalette);
 
-sidebarSearchBtn?.addEventListener(
-  "click",
-  openCommandPalette
-);
+sidebarSearchBtn?.addEventListener("click", openCommandPalette);
 
 /* ESC BUTTON */
-commandPaletteClose?.addEventListener(
-  "click",
-  closeCommandPalette
-);
+commandPaletteClose?.addEventListener("click", closeCommandPalette);
 
-document.addEventListener(
-  "keydown",
-  (event) => {
+document.addEventListener("keydown", (event) => {
+  if (event.ctrlKey && event.key.toLowerCase() === "k") {
+    event.preventDefault();
 
-    if (
-      event.ctrlKey &&
-      event.key.toLowerCase() === "k"
-    ) {
-
-      event.preventDefault();
-
-      openCommandPalette();
-
-    }
-
+    openCommandPalette();
   }
-);
-
+});
 
 /* DOWNLOAD BUTTON */
-mobileDownloadBtn?.addEventListener(
-  "click",
-  downloadResume
-);
+mobileDownloadBtn?.addEventListener("click", downloadResume);
 
 /* EXPLORER BUTTON */
-mobileExplorerBtn?.addEventListener(
-  "click",
-  () => {
-    explorerToggle?.click();
-  }
-);
+mobileExplorerBtn?.addEventListener("click", () => {
+  explorerToggle?.click();
+});
 
 explorerToggle &&
   explorerToggle.addEventListener("click", () => {
@@ -225,14 +176,10 @@ const sidebarCopilotBtn = document.getElementById("copilotToggle");
 /* STATUS BAR COPILOT BUTTON */
 const statusCopilotBtn = document.getElementById("statusCopilot");
 
-const mobileCopilotBtn =
-  document.getElementById("mobileCopilotBtn");
+const mobileCopilotBtn = document.getElementById("mobileCopilotBtn");
 
 function toggleCopilot() {
-
-  document
-    .getElementById("mobileFileSheet")
-    ?.classList.remove("open");
+  document.getElementById("mobileFileSheet")?.classList.remove("open");
 
   copilotPanel.classList.toggle("collapsed");
 }
@@ -241,10 +188,7 @@ function toggleCopilot() {
 sidebarCopilotBtn?.addEventListener("click", toggleCopilot);
 
 statusCopilotBtn?.addEventListener("click", toggleCopilot);
-mobileCopilotBtn?.addEventListener(
-  "click",
-  toggleCopilot
-);
+mobileCopilotBtn?.addEventListener("click", toggleCopilot);
 
 /* CLOSE BUTTON */
 const copilotClose = document.getElementById("copilotClose");
@@ -345,30 +289,23 @@ timelineRows.forEach((row) => {
 // ======================================================
 
 async function handleSend() {
-
   const name = document.getElementById("contactName").value.trim();
   const email = document.getElementById("contactEmail").value.trim();
   const subject = document.getElementById("contactSubject").value.trim();
   const message = document.getElementById("contactMessage").value.trim();
 
   if (!name || !email || !message) {
-showToast(
-  "Please fill in all required fields.",
-  "error"
-);    return;
+    showToast("Please fill in all required fields.", "error");
+    return;
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-if (!emailPattern.test(email)) {
+  if (!emailPattern.test(email)) {
+    showToast("Please enter a valid email address.", "error");
 
-  showToast(
-    "Please enter a valid email address.",
-    "error"
-  );
-
-  return;
-}
+    return;
+  }
 
   const sendBtn = document.getElementById("sendBtn");
 
@@ -376,42 +313,27 @@ if (!emailPattern.test(email)) {
   sendBtn.textContent = "Sending...";
 
   try {
+    await emailjs.send("service_8bx1n6c", "template_e2pqjb3", {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+    });
 
-    await emailjs.send(
-      "service_8bx1n6c",
-      "template_e2pqjb3",
-      {
-        name: name,
-        email: email,
-        subject: subject,
-        message: message
-      }
-    );
-
-showToast(
-  "Message sent successfully!",
-  "success"
-);
+    showToast("Message sent successfully!", "success");
     document.getElementById("contactName").value = "";
     document.getElementById("contactEmail").value = "";
     document.getElementById("contactSubject").value = "";
     document.getElementById("contactMessage").value = "";
-
   } catch (error) {
-
     console.error(error);
 
-showToast(
-  "Failed to send message.",
-  "error"
-);
+    showToast("Failed to send message.", "error");
   }
 
   sendBtn.disabled = false;
   sendBtn.textContent = "Send Message";
 }
-
-
 
 // ======================================================
 // 5. TOAST NOTIFICATIONS
@@ -542,87 +464,72 @@ document
   .getElementById("downloadResumeHero")
   ?.addEventListener("click", downloadResume);
 
-  /*CONTENT INDEX FOR COMMAND PALETTE SEARCH*/
-  function buildContentIndex() {
+/*CONTENT INDEX FOR COMMAND PALETTE SEARCH*/
+function buildContentIndex() {
+  const sections = document.querySelectorAll(".editor-section");
 
-  const sections =
-    document.querySelectorAll(".editor-section");
-
-  return [...sections].map(section => ({
-
+  return [...sections].map((section) => ({
     id: section.id,
 
     section: section.id.replace("section-", ""),
 
-    text: section.innerText.toLowerCase()
-
+    text: section.innerText.toLowerCase(),
   }));
-
 }
 
-const contentIndex =
-  buildContentIndex();
+const contentIndex = buildContentIndex();
 
-
-  /*SEARCH DATA*/
-  const searchData = [
-
+/*SEARCH DATA*/
+const searchData = [
   /* FILES */
 
   {
     category: "FILES",
     title: "home.tsx",
     section: "home",
-      icon: "icons/section-typescri.png"
-
+    icon: "icons/section-typescri.png",
   },
 
   {
     category: "FILES",
     title: "about.js",
     section: "about",
-      icon: "icons/section-javasc.jpg"
-
+    icon: "icons/section-javasc.jpg",
   },
 
   {
     category: "FILES",
     title: "skills.html",
     section: "skills",
-    icon: "icons/section-hypertxtml.png"
-
+    icon: "icons/section-hypertxtml.png",
   },
 
   {
     category: "FILES",
     title: "certifications.html",
     section: "certifications",
-      icon: "icons/section-hypertxtml.png"
-
+    icon: "icons/section-hypertxtml.png",
   },
 
   {
     category: "FILES",
     title: "experience.tsx",
     section: "experience",
-      icon: "icons/section-typescri.png"
-
+    icon: "icons/section-typescri.png",
   },
 
   {
     category: "FILES",
     title: "projects.css",
     section: "projects",
-    icon: "icons/section-cascss.png"
-
+    icon: "icons/section-cascss.png",
   },
 
   {
     category: "FILES",
     title: "contact.css",
     section: "contact",
-    icon: "icons/section-cascss.png"
-
+    icon: "icons/section-cascss.png",
   },
 
   /* SKILLS */
@@ -630,25 +537,25 @@ const contentIndex =
   {
     category: "SKILLS",
     title: "HTML",
-    section: "skills"
+    section: "skills",
   },
 
   {
     category: "SKILLS",
     title: "CSS",
-    section: "skills"
+    section: "skills",
   },
 
   {
     category: "SKILLS",
     title: "JavaScript",
-    section: "skills"
+    section: "skills",
   },
 
   {
     category: "SKILLS",
     title: "React",
-    section: "skills"
+    section: "skills",
   },
 
   /* PROJECTS */
@@ -656,306 +563,207 @@ const contentIndex =
   {
     category: "PROJECTS",
     title: "Portfolio Website",
-    section: "projects"
+    section: "projects",
   },
 
   {
-  category: "HOME",
-  title: "Web Development",
-  description: "Frontend and Mobile Development",
-  section: "home",
-  keywords: [
-    "frontend",
-    "developer",
-    "web",
-    "mobile",
-    "react"
-  ]
-},
+    category: "HOME",
+    title: "Web Development",
+    description: "Frontend and Mobile Development",
+    section: "home",
+    keywords: ["frontend", "developer", "web", "mobile", "react"],
+  },
 
-{
-  category: "HOME",
-  title: "Data Analytics",
-  description: "Transforming Data Into Insights",
-  section: "home",
-  keywords: [
-    "data",
-    "analytics",
-    "insights",
-    "visualization"
-  ]
-},
+  {
+    category: "HOME",
+    title: "Data Analytics",
+    description: "Transforming Data Into Insights",
+    section: "home",
+    keywords: ["data", "analytics", "insights", "visualization"],
+  },
 
-{
-  category: "PROJECTS",
-  title: "Portfolio Website",
-  description: "Personal Portfolio Project",
-  section: "projects",
-  keywords: [
-    "portfolio",
-    "website",
-    "frontend",
-    "react"
-  ]
-},
+  {
+    category: "PROJECTS",
+    title: "Portfolio Website",
+    description: "Personal Portfolio Project",
+    section: "projects",
+    keywords: ["portfolio", "website", "frontend", "react"],
+  },
 
-{
-  category: "SKILLS",
-  title: "React",
-  description: "Frontend Development Skill",
-  section: "skills",
-  keywords: [
-    "react",
-    "frontend",
-    "javascript",
-    "web development"
-  ]
-}
-
-/* =========================================
+  {
+    category: "SKILLS",
+    title: "React",
+    description: "Frontend Development Skill",
+    section: "skills",
+    keywords: ["react", "frontend", "javascript", "web development"],
+  },
+  /* =========================================
    EXPERIENCE
 ========================================= */
 
-,{
-  category: "EXPERIENCE",
-  title: "Frontend Development",
-  description: "Building Responsive Web Applications",
-  section: "experience",
-  keywords: [
-    "frontend",
-    "react",
-    "javascript",
-    "web development",
-    "responsive",
-    "ui"
-  ]
-},
+  {
+    category: "EXPERIENCE",
+    title: "Frontend Development",
+    description: "Building Responsive Web Applications",
+    section: "experience",
+    keywords: [
+      "frontend",
+      "react",
+      "javascript",
+      "web development",
+      "responsive",
+      "ui",
+    ],
+  },
 
-{
-  category: "EXPERIENCE",
-  title: "UI/UX Design",
-  description: "Designing User-Centered Interfaces",
-  section: "experience",
-  keywords: [
-    "ui",
-    "ux",
-    "figma",
-    "wireframe",
-    "prototype",
-    "design"
-  ]
-},
+  {
+    category: "EXPERIENCE",
+    title: "UI/UX Design",
+    description: "Designing User-Centered Interfaces",
+    section: "experience",
+    keywords: ["ui", "ux", "figma", "wireframe", "prototype", "design"],
+  },
 
-{
-  category: "EXPERIENCE",
-  title: "Data Analytics",
-  description: "Transforming Data Into Insights",
-  section: "experience",
-  keywords: [
-    "data",
-    "analytics",
-    "dashboard",
-    "visualization",
-    "reporting",
-    "insights"
-  ]
-},
+  {
+    category: "EXPERIENCE",
+    title: "Data Analytics",
+    description: "Transforming Data Into Insights",
+    section: "experience",
+    keywords: [
+      "data",
+      "analytics",
+      "dashboard",
+      "visualization",
+      "reporting",
+      "insights",
+    ],
+  },
 
-/* =========================================
+  /* =========================================
    CERTIFICATIONS
 ========================================= */
 
-{
-  category: "CERTIFICATIONS",
-  title: "Professional Certifications",
-  description: "Industry-Recognized Credentials",
-  section: "certifications",
-  keywords: [
-    "certificate",
-    "certification",
-    "credential",
-    "achievement",
-    "course"
-  ]
-},
+  {
+    category: "CERTIFICATIONS",
+    title: "Professional Certifications",
+    description: "Industry-Recognized Credentials",
+    section: "certifications",
+    keywords: [
+      "certificate",
+      "certification",
+      "credential",
+      "achievement",
+      "course",
+    ],
+  },
 
-{
-  category: "CERTIFICATIONS",
-  title: "Data Analytics Certifications",
-  description: "Data Analysis and Visualization",
-  section: "certifications",
-  keywords: [
-    "analytics",
-    "data",
-    "tableau",
-    "dashboard",
-    "visualization"
-  ]
-},
+  {
+    category: "CERTIFICATIONS",
+    title: "Data Analytics Certifications",
+    description: "Data Analysis and Visualization",
+    section: "certifications",
+    keywords: ["analytics", "data", "tableau", "dashboard", "visualization"],
+  },
 
-{
-  category: "CERTIFICATIONS",
-  title: "Web Development Certifications",
-  description: "Frontend and Web Technologies",
-  section: "certifications",
-  keywords: [
-    "frontend",
-    "html",
-    "css",
-    "javascript",
-    "web development"
-  ]
-},
+  {
+    category: "CERTIFICATIONS",
+    title: "Web Development Certifications",
+    description: "Frontend and Web Technologies",
+    section: "certifications",
+    keywords: ["frontend", "html", "css", "javascript", "web development"],
+  },
 
-/* =========================================
+  /* =========================================
    PROJECTS
 ========================================= */
 
-{
-  category: "PROJECTS",
-  title: "Portfolio Website",
-  description: "VS Code Inspired Portfolio",
-  section: "projects",
-  keywords: [
-    "portfolio",
-    "website",
-    "frontend",
-    "react",
-    "design"
-  ]
-},
+  {
+    category: "PROJECTS",
+    title: "Portfolio Website",
+    description: "VS Code Inspired Portfolio",
+    section: "projects",
+    keywords: ["portfolio", "website", "frontend", "react", "design"],
+  },
 
-{
-  category: "PROJECTS",
-  title: "Data Analytics Projects",
-  description: "Dashboards and Reports",
-  section: "projects",
-  keywords: [
-    "data",
-    "dashboard",
-    "analytics",
-    "visualization",
-    "tableau"
-  ]
-},
+  {
+    category: "PROJECTS",
+    title: "Data Analytics Projects",
+    description: "Dashboards and Reports",
+    section: "projects",
+    keywords: ["data", "dashboard", "analytics", "visualization", "tableau"],
+  },
 
-{
-  category: "PROJECTS",
-  title: "Web Development Projects",
-  description: "Interactive Applications",
-  section: "projects",
-  keywords: [
-    "web",
-    "frontend",
-    "html",
-    "css",
-    "javascript"
-  ]
-},
+  {
+    category: "PROJECTS",
+    title: "Web Development Projects",
+    description: "Interactive Applications",
+    section: "projects",
+    keywords: ["web", "frontend", "html", "css", "javascript"],
+  },
 
-/* =========================================
+  /* =========================================
    CONTACT
 ========================================= */
 
-{
-  category: "CONTACT",
-  title: "Get In Touch",
-  description: "Send a Message",
-  section: "contact",
-  keywords: [
-    "contact",
-    "email",
-    "message",
-    "reach out",
-    "hire"
-  ]
-},
+  {
+    category: "CONTACT",
+    title: "Get In Touch",
+    description: "Send a Message",
+    section: "contact",
+    keywords: ["contact", "email", "message", "reach out", "hire"],
+  },
 
-{
-  category: "CONTACT",
-  title: "LinkedIn",
-  description: "Professional Networking",
-  section: "contact",
-  keywords: [
-    "linkedin",
-    "profile",
-    "network",
-    "professional"
-  ]
-},
+  {
+    category: "CONTACT",
+    title: "LinkedIn",
+    description: "Professional Networking",
+    section: "contact",
+    keywords: ["linkedin", "profile", "network", "professional"],
+  },
 
-{
-  category: "CONTACT",
-  title: "GitHub",
-  description: "Source Code and Projects",
-  section: "contact",
-  keywords: [
-    "github",
-    "repository",
-    "code",
-    "projects"
-  ]
-},
+  {
+    category: "CONTACT",
+    title: "GitHub",
+    description: "Source Code and Projects",
+    section: "contact",
+    keywords: ["github", "repository", "code", "projects"],
+  },
 
-/* =========================================
+  /* =========================================
    ADDITIONAL SKILLS
 ========================================= */
 
-{
-  category: "SKILLS",
-  title: "Python",
-  description: "Programming Language",
-  section: "skills",
-  keywords: [
-    "python",
-    "programming",
-    "data analysis",
-    "automation"
-  ]
-},
+  {
+    category: "SKILLS",
+    title: "Python",
+    description: "Programming Language",
+    section: "skills",
+    keywords: ["python", "programming", "data analysis", "automation"],
+  },
 
-{
-  category: "SKILLS",
-  title: "SQL",
-  description: "Database Query Language",
-  section: "skills",
-  keywords: [
-    "sql",
-    "database",
-    "queries",
-    "mysql"
-  ]
-},
+  {
+    category: "SKILLS",
+    title: "SQL",
+    description: "Database Query Language",
+    section: "skills",
+    keywords: ["sql", "database", "queries", "mysql"],
+  },
 
-{
-  category: "SKILLS",
-  title: "Figma",
-  description: "UI/UX Design Tool",
-  section: "skills",
-  keywords: [
-    "figma",
-    "design",
-    "prototype",
-    "wireframe",
-    "ui",
-    "ux"
-  ]
-},
+  {
+    category: "SKILLS",
+    title: "Figma",
+    description: "UI/UX Design Tool",
+    section: "skills",
+    keywords: ["figma", "design", "prototype", "wireframe", "ui", "ux"],
+  },
 
-{
-  category: "SKILLS",
-  title: "Data Analytics",
-  description: "Analysis and Visualization",
-  section: "skills",
-  keywords: [
-    "data",
-    "analytics",
-    "dashboard",
-    "visualization",
-    "insights"
-  ]
-}
-
+  {
+    category: "SKILLS",
+    title: "Data Analytics",
+    description: "Analysis and Visualization",
+    section: "skills",
+    keywords: ["data", "analytics", "dashboard", "visualization", "insights"],
+  },
 ];
 
 let selectedSearchIndex = -1;
@@ -973,7 +781,21 @@ function scrollToSearchMatch(sectionName, searchTerm) {
   const elements =
     section.querySelectorAll("*");
 
- const match =
+  const exactMatch =
+    [...elements].find((el) => {
+
+      const text =
+        el.textContent
+          ?.trim()
+          .toLowerCase();
+
+      return (
+        text === searchTerm.toLowerCase()
+      );
+
+    });
+
+  const partialMatch =
   [...elements].find((el) => {
 
     const text =
@@ -981,11 +803,19 @@ function scrollToSearchMatch(sectionName, searchTerm) {
         ?.trim()
         .toLowerCase();
 
+    if (!text) return false;
+
     return (
-      text === searchTerm.toLowerCase()
+      text.includes(
+        searchTerm.toLowerCase()
+      ) &&
+      text.length < 300
     );
 
   });
+
+  const match =
+    exactMatch || partialMatch;
 
   if (!match) return;
 
@@ -997,13 +827,11 @@ function scrollToSearchMatch(sectionName, searchTerm) {
 }
 
 function renderSearchResults(results) {
-
   if (!commandPaletteResults) return;
 
   commandPaletteResults.innerHTML = "";
 
   if (results.length === 0) {
-
     commandPaletteResults.innerHTML = `
       <div class="command-group">
         <div class="command-group-title">
@@ -1018,17 +846,14 @@ function renderSearchResults(results) {
   const grouped = {};
 
   results.forEach((item) => {
-
     if (!grouped[item.category]) {
       grouped[item.category] = [];
     }
 
     grouped[item.category].push(item);
-
   });
 
   Object.keys(grouped).forEach((category) => {
-
     const group = document.createElement("div");
 
     group.className = "command-group";
@@ -1040,18 +865,14 @@ function renderSearchResults(results) {
     `;
 
     grouped[category].forEach((item) => {
-const currentIndex =
-  document.querySelectorAll(
-    ".command-result"
-  ).length;
-      const button =
-        document.createElement("button");
+      const currentIndex = document.querySelectorAll(".command-result").length;
+      const button = document.createElement("button");
 
       button.className = "command-result";
       button.dataset.index =
         document.querySelectorAll(".command-result").length;
-        
-     button.innerHTML = `
+
+      button.innerHTML = `
 
   ${
     item.icon
@@ -1085,232 +906,139 @@ const currentIndex =
 
 `;
 
-     button.addEventListener("click", () => {
+      button.addEventListener("click", () => {
+        navigateTo(item.section);
 
-  navigateTo(item.section);
+        closeCommandPalette();
 
-  closeCommandPalette();
-
-  if (item.searchTerm) {
-
-    setTimeout(() => {
-
-      scrollToSearchMatch(
-        item.section,
-        item.searchTerm
-      );
-
-    }, 300);
-
-  }
-
-});
+        if (item.searchTerm) {
+          setTimeout(() => {
+            scrollToSearchMatch(item.section, item.searchTerm);
+          }, 300);
+        }
+      });
 
       group.appendChild(button);
-
     });
 
     commandPaletteResults.appendChild(group);
-
   });
-
 }
 
 function updateSearchSelection() {
-
-  const results =
-    document.querySelectorAll(
-      ".command-result"
-    );
+  const results = document.querySelectorAll(".command-result");
 
   results.forEach((result) => {
     result.classList.remove("active");
   });
 
-  if (
-    selectedSearchIndex >= 0 &&
-    selectedSearchIndex < results.length
-  ) {
+  if (selectedSearchIndex >= 0 && selectedSearchIndex < results.length) {
+    results[selectedSearchIndex].classList.add("active");
 
-    results[
-      selectedSearchIndex
-    ].classList.add("active");
-
-    results[
-      selectedSearchIndex
-    ].scrollIntoView({
-      block: "nearest"
+    results[selectedSearchIndex].scrollIntoView({
+      block: "nearest",
     });
-
   }
-
 }
 
-commandPaletteInput?.addEventListener(
-  "input",
-  () => {
+commandPaletteInput?.addEventListener("input", () => {
+  const query = commandPaletteInput.value.trim().toLowerCase();
 
-    const query =
-      commandPaletteInput.value
-        .trim()
-        .toLowerCase();
+  if (!query) {
+    renderSearchResults(searchData);
 
-    if (!query) {
+    return;
+  }
 
-      renderSearchResults(searchData);
+  const searchDataMatches = searchData.filter((item) => {
+    const titleMatch = item.title.toLowerCase().includes(query);
 
-      return;
-
-    }
-
-    const searchDataMatches =
-  searchData.filter((item) => {
-
-    const titleMatch =
-      item.title
-        .toLowerCase()
-        .includes(query);
-
-    const keywordMatch =
-      item.keywords?.some((keyword) =>
-        keyword
-          .toLowerCase()
-          .includes(query)
-      );
+    const keywordMatch = item.keywords?.some((keyword) =>
+      keyword.toLowerCase().includes(query),
+    );
 
     return titleMatch || keywordMatch;
-
   });
 
-const contentMatches =
-  contentIndex
-    .filter((section) =>
-      section.text.includes(query)
-    )
+  const contentMatches = contentIndex
+    .filter((section) => section.text.includes(query))
     .map((section) => ({
-
       category: "CONTENT",
 
-      title:
-        section.section.charAt(0).toUpperCase() +
-        section.section.slice(1),
+      title: section.section.charAt(0).toUpperCase() + section.section.slice(1),
 
-      description:
-        `Found "${query}" in ${section.section}`,
+      description: `Found "${query}" in ${section.section}`,
 
       section: section.section,
 
-      searchTerm: query
-
+      searchTerm: query,
     }));
 
-    const filtered = [
+  const filtered = [...searchDataMatches, ...contentMatches];
 
-  ...searchDataMatches,
+  renderSearchResults(filtered);
+});
 
-  ...contentMatches
+commandPaletteInput?.addEventListener("keydown", (event) => {
+  const results = document.querySelectorAll(".command-result");
 
-];
+  if (!results.length) return;
 
-    renderSearchResults(filtered);
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
 
+    selectedSearchIndex++;
+
+    if (selectedSearchIndex >= results.length) {
+      selectedSearchIndex = 0;
+    }
+
+    updateSearchSelection();
   }
-);
 
-commandPaletteInput?.addEventListener(
-  "keydown",
-  (event) => {
+  if (event.key === "ArrowUp") {
+    event.preventDefault();
 
-    const results =
-      document.querySelectorAll(
-        ".command-result"
-      );
+    selectedSearchIndex--;
 
-    if (!results.length) return;
-
-    if (event.key === "ArrowDown") {
-
-      event.preventDefault();
-
-      selectedSearchIndex++;
-
-      if (
-        selectedSearchIndex >= results.length
-      ) {
-        selectedSearchIndex = 0;
-      }
-
-      updateSearchSelection();
+    if (selectedSearchIndex < 0) {
+      selectedSearchIndex = results.length - 1;
     }
 
-    if (event.key === "ArrowUp") {
-
-      event.preventDefault();
-
-      selectedSearchIndex--;
-
-      if (
-        selectedSearchIndex < 0
-      ) {
-        selectedSearchIndex =
-          results.length - 1;
-      }
-
-      updateSearchSelection();
-    }
-
-    if (event.key === "Enter") {
-
-      event.preventDefault();
-
-      if (
-        selectedSearchIndex >= 0
-      ) {
-
-        results[
-          selectedSearchIndex
-        ].click();
-
-      }
-
-    }
-
-    if (event.key === "Escape") {
-
-      closeCommandPalette();
-
-    }
-
+    updateSearchSelection();
   }
-);
+
+  if (event.key === "Enter") {
+    event.preventDefault();
+
+    if (selectedSearchIndex >= 0) {
+      results[selectedSearchIndex].click();
+    }
+  }
+
+  if (event.key === "Escape") {
+    closeCommandPalette();
+  }
+});
 /* =========================================
    MOBILE FILE SHEET
 ========================================= */
 
-const mobileFileItems =
-  document.querySelectorAll(".mobile-file-item");
+const mobileFileItems = document.querySelectorAll(".mobile-file-item");
 
-const mobileFileSheet =
-  document.getElementById("mobileFileSheet");
+const mobileFileSheet = document.getElementById("mobileFileSheet");
 
 mobileFileItems.forEach((item) => {
-
   item.addEventListener("click", () => {
-
     const section = item.dataset.section;
 
     navigateTo(section);
 
     mobileFileSheet?.classList.remove("open");
 
-    document
-  .getElementById("mobileSheetBackdrop")
-  ?.classList.remove("open");
-
+    document.getElementById("mobileSheetBackdrop")?.classList.remove("open");
   });
-
 });
-
 
 navigateTo("home");
 
