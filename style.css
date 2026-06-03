@@ -74,7 +74,6 @@ button {
   font-family: var(--font-code);
 }
 
-
 /* =========================================
    TOP MACOS BAR
 ========================================= */
@@ -1034,6 +1033,7 @@ button {
 .btn--primary img {
   filter: brightness(0) invert(1);
 }
+
 .btn--primary:hover {
   background: var(--accent);
   box-shadow: 0 0 18px 4px var(--accent-glow);
@@ -4060,6 +4060,12 @@ ABOUT SECTION
   padding: 4px 10px;
   border-radius: 6px;
 }
+/* README icon as blue ONLY inside Command Palette */
+.command-palette img[src*="simpleicons.org/markdown"] {
+  filter: brightness(0) saturate(100%)
+    invert(52%) sepia(93%) saturate(1772%)
+    hue-rotate(202deg) brightness(101%) contrast(101%);
+}
 
 .command-palette-results {
   max-height: 400px;
@@ -4247,7 +4253,6 @@ ABOUT SECTION
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 #loading-inner {
@@ -4501,7 +4506,6 @@ body.light-mode #loading-line {
   color: #374151;
 }
 
-
 /* ========================================
    HOME LIGHT MODE FIXES
 ======================================== */
@@ -4699,11 +4703,11 @@ body.light-mode .soft-skill-desc {
 }
 
 body.light-mode .section-title {
-  color: #ba7af6 ;
+  color: #ba7af6;
 }
 
 body.light-mode .soft-skill-title-card {
-  color: #ba7af6 
+  color: #ba7af6;
 }
 
 /* ========================================
@@ -4833,10 +4837,8 @@ body.light-mode .contact-social:hover {
 /* Icons */
 body.light-mode .contact-social img {
   opacity: 1;
-  filter: brightness(0) saturate(100%)
-          invert(39%) sepia(97%)
-          saturate(1250%) hue-rotate(245deg)
-          brightness(98%) contrast(97%);
+  filter: brightness(0) saturate(100%) invert(39%) sepia(97%) saturate(1250%)
+    hue-rotate(245deg) brightness(98%) contrast(97%);
 }
 
 /* Email / LinkedIn / GitHub / Facebook title */
@@ -4982,11 +4984,7 @@ body.light-mode .ai-message {
 /* USER messages
    (works if JS creates .user-message) */
 body.light-mode .user-message {
-  background: linear-gradient(
-    135deg,
-    #7c3aed,
-    #b57af5
-  );
+  background: linear-gradient(135deg, #7c3aed, #b57af5);
 
   color: #ffffff;
   border-radius: 12px;
@@ -5013,7 +5011,6 @@ body.light-mode .copilot-input::placeholder {
 body.light-mode .copilot-send {
   background: #7c3aed;
   border: 1px solid #7c3aed;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5029,10 +5026,8 @@ body.light-mode .copilot-send:hover {
 body.light-mode .copilot-send-icon {
   background: transparent !important;
   box-shadow: none !important;
-
   width: 18px;
   height: 18px;
-
   filter: brightness(0) invert(1);
 }
 
@@ -5062,12 +5057,9 @@ body.light-mode .copilot-close:hover {
 body.light-mode .copilot-send {
   background: #8b5cf6 !important;
   border: 1px solid #8b5cf6 !important;
-
   width: 44px;
   height: 44px;
-
   border-radius: 8px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5082,9 +5074,7 @@ body.light-mode .copilot-send:hover {
 body.light-mode .copilot-send-icon {
   width: 18px;
   height: 18px;
-
   background: transparent !important;
   box-shadow: none !important;
-
   filter: brightness(0) invert(1);
 }

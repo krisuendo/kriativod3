@@ -41,9 +41,9 @@
   }
 
   // Dismiss loading screen
- function dismissLoader() {
-  screen.remove();
-}
+  function dismissLoader() {
+    screen.remove();
+  }
 
   // Start typing after a tiny delay so the Lottie has a frame to render
   setTimeout(typeNext, 300);
@@ -52,10 +52,8 @@
   setTimeout(dismissLoader, 8000);
 })();
 
-
 //    SECTION NAVIGATION
 //    Syncs: tabs, tree items, breadcrumb, section display
-
 
 const fileNames = {
   readme: { file: "README.md", lang: "Markdown" },
@@ -157,7 +155,6 @@ document.querySelectorAll(".tree-item[data-section]").forEach((item) => {
   });
 });
 
-
 // ======================================================
 // TAB CLOSE FUNCTIONALITY
 // ======================================================
@@ -178,7 +175,7 @@ document.querySelectorAll(".tab-close").forEach((closeBtn) => {
 
     // Get visible tabs BEFORE closing
     const visibleTabs = [...document.querySelectorAll(".tab")].filter(
-      (t) => t.style.display !== "none"
+      (t) => t.style.display !== "none",
     );
 
     const closedIndex = visibleTabs.indexOf(tab);
@@ -190,8 +187,7 @@ document.querySelectorAll(".tab-close").forEach((closeBtn) => {
       const remainingTabs = visibleTabs.filter((t) => t !== tab);
 
       if (remainingTabs.length > 0) {
-        const previousTab =
-          remainingTabs[Math.max(0, closedIndex - 1)];
+        const previousTab = remainingTabs[Math.max(0, closedIndex - 1)];
 
         navigateTo(previousTab.dataset.section);
       } else {
@@ -1287,4 +1283,3 @@ copilotInput.addEventListener("keydown", (e) => {
     sendCopilotMessage();
   }
 });
-
