@@ -1031,6 +1031,9 @@ button {
   color: #fff;
   box-shadow: 0 0 0 0 var(--accent-glow);
 }
+.btn--primary img {
+  filter: brightness(0) invert(1);
+}
 .btn--primary:hover {
   background: var(--accent);
   box-shadow: 0 0 18px 4px var(--accent-glow);
@@ -4498,6 +4501,10 @@ body.light-mode #loading-line {
   color: #374151;
 }
 
+
+/* ========================================
+   HOME LIGHT MODE FIXES
+======================================== */
 body.light-mode .editor-preview-header {
   background: #f8fafc;
   color: #1f2937;
@@ -4532,6 +4539,9 @@ body.light-mode .str {
 
 body.light-mode .hero-intro {
   color: #4b5563;
+}
+body.light-mode .hero-heading {
+  color: #7c3aed;
 }
 
 body.light-mode .code-keyword {

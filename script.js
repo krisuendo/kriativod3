@@ -157,6 +157,7 @@ document.querySelectorAll(".tree-item[data-section]").forEach((item) => {
   });
 });
 
+
 // ======================================================
 // TAB CLOSE FUNCTIONALITY
 // ======================================================
@@ -164,26 +165,35 @@ document.querySelectorAll(".tree-item[data-section]").forEach((item) => {
 document.querySelectorAll(".tab-close").forEach((closeBtn) => {
   closeBtn.addEventListener("click", (e) => {
     e.stopPropagation();
+
     const tab = closeBtn.closest(".tab");
     if (!tab) return;
+
     // Prevent permanent tabs from closing
     if (tab.classList.contains("tab--permanent")) {
       return;
     }
+
     const wasActive = tab.classList.contains("active");
+
+    // Get visible tabs BEFORE closing
+    const visibleTabs = [...document.querySelectorAll(".tab")].filter(
+      (t) => t.style.display !== "none"
+    );
+
+    const closedIndex = visibleTabs.indexOf(tab);
 
     // Hide tab
     tab.style.display = "none";
 
-    // If active tab was closed,
-    // switch to first visible tab
     if (wasActive) {
-      const firstVisibleTab = document.querySelector(
-        '.tab:not([style*="display: none"])',
-      );
+      const remainingTabs = visibleTabs.filter((t) => t !== tab);
 
-      if (firstVisibleTab) {
-        navigateTo(firstVisibleTab.dataset.section);
+      if (remainingTabs.length > 0) {
+        const previousTab =
+          remainingTabs[Math.max(0, closedIndex - 1)];
+
+        navigateTo(previousTab.dataset.section);
       } else {
         updateEmptyEditorState();
       }
@@ -192,6 +202,7 @@ document.querySelectorAll(".tab-close").forEach((closeBtn) => {
     }
   });
 });
+
 // CLOSE WHEN CLICKING OUTSIDE (MOBILE)
 const mobileSheetBackdrop = document.getElementById("mobileSheetBackdrop");
 
@@ -1183,7 +1194,7 @@ const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme === "light") {
   document.body.classList.add("light-mode");
-  themeIcon.src = "icons/sun.png";
+  themeIcon.src = "icons/sidebar-sun.png";
 }
 
 themeToggle?.addEventListener("click", () => {
