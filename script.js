@@ -1173,6 +1173,33 @@ if (chatBtn) {
   });
 }
 
+// ======================================================
+// THEME TOGGLE
+// ======================================================
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+  document.body.classList.add("light-mode");
+  themeIcon.src = "icons/sun.png";
+}
+
+themeToggle?.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  const isLight = document.body.classList.contains("light-mode");
+
+  if (isLight) {
+    themeIcon.src = "icons/sidebar-sun.png";
+    localStorage.setItem("theme", "light");
+  } else {
+    themeIcon.src = "icons/sidebar-moon.png";
+    localStorage.setItem("theme", "dark");
+  }
+});
+
 /* =========================================
    COPILOT AI CHAT
 ========================================= */
@@ -1249,3 +1276,4 @@ copilotInput.addEventListener("keydown", (e) => {
     sendCopilotMessage();
   }
 });
+

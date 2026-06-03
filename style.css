@@ -74,6 +74,7 @@ button {
   font-family: var(--font-code);
 }
 
+
 /* =========================================
    TOP MACOS BAR
 ========================================= */
@@ -4291,4 +4292,789 @@ ABOUT SECTION
   50% {
     opacity: 0;
   }
+}
+
+/* ======================================================
+   LIGHT MODE OVERRIDES
+   ====================================================== */
+
+body.light-mode {
+  --bg-base: #f5f7fb;
+  --bg-sidebar: #eef1f6;
+  --bg-explorer: #ffffff;
+  --bg-tab-active: #ffffff;
+  --bg-tab-inactive: #e8edf5;
+  --bg-titlebar: #e8edf5;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+
+  --text-primary: #1f2937;
+  --text-secondary: #5b6472;
+  --text-comment: #6b7280;
+
+  --border: #d9dee8;
+  --border-active: #7c3aed;
+
+  --accent-glow: rgba(124, 58, 237, 0.08);
+}
+
+/* ---------- TITLE BAR ---------- */
+
+body.light-mode .title-bar {
+  background: #e8edf5;
+  border-bottom: 1px solid #d9dee8;
+}
+
+body.light-mode .title-bar__title {
+  color: #1f2937;
+}
+
+/* ---------- MENU BAR ---------- */
+
+body.light-mode .menu-bar {
+  background: #f3f5f8;
+  border-bottom: 1px solid #d9dee8;
+}
+
+body.light-mode .menu-bar__items span,
+body.light-mode .title-bar__menu span {
+  color: #374151;
+}
+
+body.light-mode .menu-bar__items span:hover,
+body.light-mode .title-bar__menu span:hover {
+  background: rgba(124, 58, 237, 0.08);
+  color: #111827;
+}
+
+/* ---------- EDITOR TABS ---------- */
+
+body.light-mode .editor-tabs {
+  background: #e8edf5;
+  border-color: #d9dee8;
+}
+
+body.light-mode .tab {
+  background: #e8edf5;
+  color: #4b5563;
+}
+
+body.light-mode .tab.active {
+  background: #ffffff;
+  color: #111827;
+}
+
+/* ---------- EXPLORER ---------- */
+
+body.light-mode .explorer {
+  background: #ffffff;
+  border-right: 1px solid #d9dee8;
+}
+
+body.light-mode .explorer__header {
+  color: #374151;
+}
+
+body.light-mode .tree-item {
+  color: #374151;
+}
+
+body.light-mode .tree-item:hover {
+  background: rgba(124, 58, 237, 0.06);
+}
+
+/* ---------- SIDEBAR ---------- */
+
+body.light-mode .sidebar-icons {
+  background: #eef1f6;
+  border-right: 1px solid #d9dee8;
+}
+
+/* ---------- ICONS ---------- */
+
+body.light-mode .sidebar-icon img,
+body.light-mode .copilot-header img,
+body.light-mode .search-toolbar img {
+  filter: brightness(0) saturate(100%) opacity(0.8);
+}
+
+/* ---------- SEARCH ---------- */
+
+body.light-mode .search-panel,
+body.light-mode .search-results,
+body.light-mode .search-toolbar {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+body.light-mode input,
+body.light-mode textarea {
+  background: #ffffff;
+  color: #1f2937;
+  border-color: #d9dee8;
+}
+
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+  color: #6b7280;
+}
+
+/* ---------- CHATBOT ---------- */
+
+body.light-mode .copilot-panel,
+body.light-mode .chat-panel,
+body.light-mode .chat-container {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+body.light-mode .chat-message {
+  color: #1f2937;
+}
+
+body.light-mode .chat-input {
+  background: #ffffff;
+  border-color: #d9dee8;
+}
+
+/* ---------- CARDS ---------- */
+
+body.light-mode .project-card,
+body.light-mode .skill-card,
+body.light-mode .cert-card,
+body.light-mode .experience-card,
+body.light-mode .contact-card {
+  background: #ffffff;
+  border: 1px solid #d9dee8;
+}
+
+/* ---------- CODE BLOCKS ---------- */
+
+body.light-mode pre,
+body.light-mode code {
+  background: #f3f5f8;
+  color: #1f2937;
+}
+
+/* ---------- STATUS BAR ---------- */
+
+body.light-mode .status-bar {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+/* ---------- SCROLLBARS ---------- */
+
+body.light-mode *::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+body.light-mode *::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+/* ---------- LINKS ---------- */
+
+body.light-mode a {
+  color: #7c3aed;
+}
+
+/* ---------- SELECTION ---------- */
+
+body.light-mode ::selection {
+  background: rgba(124, 58, 237, 0.2);
+}
+
+/* ---------- LOADING ---------- */
+body.light-mode #loading-terminal {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #1f2937;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode #loading-line {
+  color: #374151;
+}
+
+body.light-mode .editor-preview-header {
+  background: #f8fafc;
+  color: #1f2937;
+  border-bottom: 1px solid #d9dee8;
+}
+body.light-mode .editor-preview {
+  border: 1px solid #d8b4fe;
+  box-shadow: none;
+}
+
+body.light-mode .editor-preview-header img {
+  filter: none;
+}
+body.light-mode .editor-preview pre {
+  color: #1f2937;
+}
+body.light-mode .kw {
+  color: #7c3aed;
+}
+
+body.light-mode .var {
+  color: #1f2937;
+}
+
+body.light-mode .prop {
+  color: #0284c7;
+}
+
+body.light-mode .str {
+  color: #16a34a;
+}
+
+body.light-mode .hero-intro {
+  color: #4b5563;
+}
+
+body.light-mode .code-keyword {
+  color: #2563eb;
+}
+
+body.light-mode .code-function {
+  color: #d97706;
+}
+
+body.light-mode .code-string {
+  color: #16a34a;
+}
+
+body.light-mode img[src*="sidebar-download"] {
+  filter: brightness(0) saturate(100%);
+}
+
+body.light-mode .hero-link img {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.75;
+}
+
+body.light-mode .btn--primary .btn-icon {
+  filter: brightness(0) invert(1);
+}
+
+body.light-mode .hero-tag {
+  background: #ede9fe;
+  border: 1px solid #c4b5fd;
+  color: #7c3aed;
+}
+
+/* ========================================
+   README LIGHT MODE FIXES
+======================================== */
+
+body.light-mode .markdown-file {
+  color: #374151;
+}
+
+body.light-mode .markdown-file p,
+body.light-mode .markdown-file li,
+body.light-mode .markdown-file ol,
+body.light-mode .markdown-file ul,
+body.light-mode .markdown-file blockquote {
+  color: #4b5563;
+}
+
+body.light-mode .markdown-file strong {
+  color: #111827;
+}
+
+body.light-mode .markdown-file h1 {
+  color: #111827;
+}
+
+body.light-mode .markdown-file h2,
+body.light-mode .markdown-file h3 {
+  color: #60a5fa;
+}
+
+body.light-mode .markdown-file code {
+  color: #1f2937;
+  background: #eef2ff;
+}
+
+body.light-mode .markdown-file pre {
+  background: #f8fafc;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+}
+
+body.light-mode hr {
+  border: 0;
+  border-top: 1px solid #d1d5db;
+  opacity: 1;
+}
+
+body.light-mode .markdown-file blockquote {
+  border-left: 4px solid #60a5fa;
+  color: #4b5563;
+}
+body.light-mode .readme-link {
+  color: #16a34a;
+}
+
+body.light-mode .readme-link:hover {
+  color: #15803d;
+}
+
+/* ========================================
+   ABOUT SECTION LIGHT MODE FIXES
+======================================== */
+body.light-mode .about-paragraphs p {
+  color: #4b5563;
+  opacity: 1;
+}
+body.light-mode .about-heading span {
+  color: #a855f7;
+}
+
+body.light-mode .about-heading {
+  color: #a855f7;
+}
+body.light-mode .about-projects-btn,
+body.light-mode .about-chat-btn {
+  color: #7c3aed;
+}
+body.light-mode .about-divider {
+  background: #d8b4fe;
+}
+body.light-mode .about-paragraphs strong {
+  color: #111827;
+  opacity: 1;
+}
+
+body.light-mode .photo-tab-text {
+  color: #7c3aed;
+  opacity: 1;
+}
+body.light-mode .photo-frame {
+  border: 1px solid #c084fc;
+}
+body.light-mode .about-photo {
+  box-shadow: none;
+}
+body.light-mode .about-photo:hover {
+  box-shadow: none;
+}
+
+/* ========================================
+   SKILLS LIGHT MODE FIXES
+======================================== */
+body.light-mode .skill-text {
+  color: #4b5563;
+  opacity: 1;
+}
+body.light-mode .skill-pill {
+  background: #f8fafc;
+  border: 1px solid #d8b4fe;
+}
+body.light-mode .skills-group {
+  border: 1px solid #ddd6fe;
+  background: #ffffff;
+}
+
+body.light-mode .skills-group:hover {
+  border: 1px solid #9333ea;
+}
+
+body.light-mode .soft-skill-desc {
+  color: #72767c;
+  opacity: 1;
+}
+
+body.light-mode .section-title {
+  color: #ba7af6 ;
+}
+
+body.light-mode .soft-skill-title-card {
+  color: #ba7af6 
+}
+
+/* ========================================
+   CERTIFICATES LIGHT MODE FIXES
+======================================== */
+body.light-mode .cert-title {
+  color: #111827;
+}
+
+body.light-mode .cert-desc {
+  color: #4b5563;
+}
+
+body.light-mode .cert-provider-pill {
+  background: #f3e8ff;
+  color: #9333ea;
+  border: 1px solid #d8b4fe;
+}
+
+body.light-mode .tag {
+  background: #fffed8;
+  color: #cbad01;
+  border: 1px solid #c4b700;
+}
+
+body.light-mode .cert-date {
+  color: #b491ef;
+}
+
+body.light-mode .cert-link {
+  color: #7c3aed;
+  opacity: 1;
+}
+
+body.light-mode .cert-card {
+  border: 1px solid #ddd6fe;
+}
+
+/* ========================================
+   EXPERIENCE LIGHT MODE FIXES
+======================================== */
+
+/* Timeline cards */
+body.light-mode .timeline-card {
+  background: #ffffff;
+  border: 1px solid #ddd6fe;
+}
+
+/* Timeline vertical line */
+body.light-mode .timeline-modern::before {
+  background: #d8b4fe;
+}
+
+/* Timeline dots */
+body.light-mode .timeline-dot {
+  background: #a855f7;
+  box-shadow: none;
+}
+
+/* Dates */
+body.light-mode .timeline-date {
+  color: #a855f7;
+}
+
+/* Main title */
+body.light-mode .experience-title,
+body.light-mode .experience-title .accent {
+  color: #b972fb;
+}
+
+/* Card title */
+body.light-mode .timeline-card h3 {
+  color: #111827;
+}
+
+/* Card subtitle */
+body.light-mode .timeline-card h4 {
+  color: #c45cd4c8;
+}
+
+/* Paragraphs */
+body.light-mode .timeline-card p {
+  color: #4b5563;
+  opacity: 1;
+}
+
+/* School text */
+body.light-mode .timeline-school {
+  color: #6b7280;
+}
+
+/* Technology tags */
+body.light-mode .timeline-tags .tag {
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #d8b4fe;
+}
+
+/* Hover state */
+body.light-mode .timeline-tags .tag:hover {
+  background: #ede9fe;
+  border-color: #c4b5fd;
+}
+
+/* Remove any unwanted glow */
+body.light-mode .timeline-card:hover {
+  box-shadow: none;
+}
+
+/* ========================================
+   CONTACTS LIGHT MODE FIXES
+======================================== */
+
+/* Email + social buttons */
+body.light-mode .contact-social {
+  background: #ffffff;
+  border: 1px solid #d8b4fe;
+}
+
+/* Hover */
+body.light-mode .contact-social:hover {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+  box-shadow: none;
+}
+
+/* Icons */
+body.light-mode .contact-social img {
+  opacity: 1;
+  filter: brightness(0) saturate(100%)
+          invert(39%) sepia(97%)
+          saturate(1250%) hue-rotate(245deg)
+          brightness(98%) contrast(97%);
+}
+
+/* Email / LinkedIn / GitHub / Facebook title */
+body.light-mode .social-tooltip-title {
+  color: #7c3aed;
+}
+
+/* URL / email value */
+body.light-mode .social-tooltip-url {
+  color: #4b5563;
+}
+
+/* Contact file label */
+body.light-mode .contact-file-label {
+  color: #7c3aed;
+}
+
+/* </> icon */
+body.light-mode .contact-file-icon {
+  color: #7c3aed;
+}
+
+/* contact/send-message.tsx */
+body.light-mode .contact-file-name {
+  color: #6b7280;
+}
+
+body.light-mode .contact-form-wrapper {
+  background: #ffffff;
+  border: 1px solid #ddd6fe;
+}
+
+body.light-mode .form-input {
+  background: #fcfcfc;
+  border: 1px solid #d1d5db;
+}
+
+/* ========================================
+   PROJECTS LIGHT MODE FIXES
+======================================== */
+
+body.light-mode .project-card:hover {
+  transform: translateY(-4px);
+  border-color: #a855f7;
+  box-shadow: none;
+}
+
+/* =========================================
+   COMMAND PALETTE LIGHT MODE FIXES
+========================================= */
+
+body.light-mode .command-palette {
+  background: #ffffff;
+  border: 1px solid #d9dee8;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .command-palette-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+body.light-mode .command-palette-input {
+  background: #ffffff;
+  color: #374151;
+  border: none;
+}
+
+body.light-mode .command-palette-input::placeholder {
+  color: #6b7280;
+}
+
+body.light-mode .command-palette-close {
+  background: #f8fafc;
+  border: 1px solid #d9dee8;
+  color: #374151;
+}
+
+body.light-mode .command-palette-close:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+body.light-mode .command-palette-results {
+  background: #ffffff;
+}
+
+body.light-mode .command-group-title {
+  color: #a855f7;
+  opacity: 1;
+}
+
+body.light-mode .command-result {
+  color: #374151;
+  background: transparent;
+}
+
+body.light-mode .command-result span {
+  color: #374151;
+}
+
+body.light-mode .command-result:hover {
+  background: rgba(168, 85, 247, 0.08);
+}
+
+body.light-mode .command-result.active {
+  background: rgba(168, 85, 247, 0.12);
+  border-left: 2px solid #a855f7;
+}
+
+body.light-mode .command-result img {
+  opacity: 1;
+}
+
+body.light-mode .command-palette-results::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+body.light-mode .command-palette-results::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+/* =========================================
+   COPILOT CHAT - LIGHT MODE
+========================================= */
+
+/* Keep panel glow */
+body.light-mode .copilot-panel {
+  background: #ffffff;
+  color: #374151;
+}
+
+/* AI messages (restore gray bubble) */
+body.light-mode .ai-message {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+/* USER messages
+   (works if JS creates .user-message) */
+body.light-mode .user-message {
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #b57af5
+  );
+
+  color: #ffffff;
+  border-radius: 12px;
+}
+
+/* Make EVERYTHING inside user bubble white */
+body.light-mode .user-message,
+body.light-mode .user-message * {
+  color: #ffffff !important;
+}
+
+/* Input */
+body.light-mode .copilot-input {
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+body.light-mode .copilot-input::placeholder {
+  color: #6b7280;
+}
+
+/* SEND BUTTON */
+body.light-mode .copilot-send {
+  background: #7c3aed;
+  border: 1px solid #7c3aed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover */
+body.light-mode .copilot-send:hover {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+/* Remove purple square behind icon */
+body.light-mode .copilot-send-icon {
+  background: transparent !important;
+  box-shadow: none !important;
+
+  width: 18px;
+  height: 18px;
+
+  filter: brightness(0) invert(1);
+}
+
+/* Copilot Header */
+body.light-mode .copilot-header {
+  border-bottom: 1px solid #d9dee8;
+}
+
+body.light-mode .copilot-title {
+  color: #1f2937 !important;
+  font-weight: 700;
+}
+
+body.light-mode .copilot-dot {
+  background: #a855f7;
+}
+
+body.light-mode .copilot-close {
+  color: #94a3b8;
+}
+
+body.light-mode .copilot-close:hover {
+  color: #7c3aed;
+}
+
+/* Send Button */
+body.light-mode .copilot-send {
+  background: #8b5cf6 !important;
+  border: 1px solid #8b5cf6 !important;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.light-mode .copilot-send:hover {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+}
+
+/* Send icon */
+body.light-mode .copilot-send-icon {
+  width: 18px;
+  height: 18px;
+
+  background: transparent !important;
+  box-shadow: none !important;
+
+  filter: brightness(0) invert(1);
 }
