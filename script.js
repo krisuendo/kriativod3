@@ -1126,7 +1126,11 @@ const mobileFileSheet = document.getElementById("mobileFileSheet");
 
 mobileFileItems.forEach((item) => {
   item.addEventListener("click", () => {
-    const tab = document.querySelector(`.tab[data-section="${section}"]`);
+    const section = item.dataset.section;
+
+    const tab = document.querySelector(
+      `.tab[data-section="${section}"]`,
+    );
 
     if (tab) {
       tab.style.display = "flex";

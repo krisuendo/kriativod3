@@ -1,13 +1,11 @@
 export default async function handler(req, res) {
-
   if (req.method !== "POST") {
     return res.status(405).json({
-      error: "Method not allowed"
+      error: "Method not allowed",
     });
   }
 
   try {
-
     const { message } = req.body;
 
     const response = await fetch(
@@ -17,11 +15,11 @@ export default async function handler(req, res) {
 
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
+          Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
         },
 
         body: JSON.stringify({
-         model: "meta-llama/llama-4-scout-17b-16e-instruct",
+          model: "meta-llama/llama-4-scout-17b-16e-instruct",
 
           messages: [
             {
@@ -37,39 +35,35 @@ Kristine is:
 - data analytics enthusiast
 
 Be friendly, professional, and concise.
-              `
+              `,
             },
 
             {
               role: "user",
-              content: message
-            }
+              content: message,
+            },
           ],
 
           temperature: 0.7,
-          max_tokens: 300
-        })
-      }
+          max_tokens: 300,
+        }),
+      },
     );
 
     const data = await response.json();
 
     console.log(data);
 
-    const reply =
-      data?.choices?.[0]?.message?.content ||
-      "No response.";
+    const reply = data?.choices?.[0]?.message?.content || "No response.";
 
     res.status(200).json({
-      reply
+      reply,
     });
-
   } catch (error) {
-
     console.error(error);
 
     res.status(500).json({
-      reply: "Something went wrong."
+      reply: "Something went wrong.",
     });
   }
 }
