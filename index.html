@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kriativo D3 | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@dotlottie/player-component@latest/dist/dotlottie-player.js"
+    ></script>
 
     <!-- Fira Code for monospace code feel, Syne for headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,16 +23,15 @@
     />
   </head>
   <body>
-
     <!-- ====== LOADING SCREEN ====== -->
     <div id="loading-screen">
       <div id="loading-inner">
         <dotlottie-player
           id="lottie-player"
-          src="cloud_loading.lottie"
+          src="files/cloud_loading.lottie"
           autoplay
           loop
-          style="width: 180px; height: 180px;"
+          style="width: 180px; height: 180px"
         ></dotlottie-player>
         <div id="loading-terminal">
           <span id="loading-line"></span><span class="loading-cursor">█</span>
@@ -47,7 +49,7 @@
       <div class="title-bar__title">kriativo d3 : portfolio</div>
     </div>
 
-      <!-- ====== MENU BAR ====== -->
+    <!-- ====== MENU BAR ====== -->
     <!-- Visual-only top menu (File/Edit/View/etc.). Real navigation is handled via tabs/tree + script.js. -->
     <div class="menu-bar">
       <!-- (Menu items are handled visually; navigation is done by sidebar/tabs via JS) -->
@@ -55,7 +57,6 @@
       <!-- Top menu bar (visual only) to mimic a VS Code / desktop-editor feel -->
       <!-- Note: These spans are decorative (no real menu actions). -->
       <div class="menu-bar__items">
-
         <span>File</span>
         <span>Edit</span>
         <span>View</span>
@@ -118,6 +119,15 @@
       <nav class="explorer" id="explorer">
         <div class="explorer__header">PORTFOLIO</div>
         <ul class="explorer__tree">
+          <li class="tree-item" data-section="readme">
+            <span class="tree-icon tree-icon--markdown">
+              <img
+                src="https://cdn.simpleicons.org/markdown"
+                alt="javascript icon"
+              />
+            </span>
+            README.md
+          </li>
           <li class="tree-item active" data-section="home">
             <span class="tree-icon">
               <img src="icons/section-typescri.png" alt="typescript icon" />
@@ -178,6 +188,15 @@
       <div class="editor-layout">
         <!-- ====== EDITOR TABS ====== -->
         <div class="editor-tabs" id="editorTabs">
+          <button class="tab" data-section="readme">
+            <img
+              src="https://cdn.simpleicons.org/markdown"
+              alt="markdown icon"
+              class="tab-icon tab-icon--markdown"
+            />
+            README.md
+            <span class="tab-close">×</span>
+          </button>
           <button class="tab active" data-section="home">
             <img
               src="icons/section-typescri.png"
@@ -249,6 +268,291 @@
             kriativod3 &rsaquo; src &rsaquo;
             <span id="breadcrumbFile">home.tsx</span>
           </div>
+
+          <!-- ====== EMPTY STATE SECTION ====== -->
+          <div id="empty-editor-state" class="empty-editor-state">
+            <img
+              src="icons/skill-vscode.png"
+              alt="VS Code"
+              class="empty-editor-logo"
+            />
+
+            <h2>Welcome</h2>
+
+            <p>Open a file from the Explorer to get started.</p>
+          </div>
+
+          <!-- ====== README SECTION ====== -->
+
+          <section id="section-readme" class="editor-section">
+            <div class="markdown-file">
+              <h1>Kristine Madronero</h1>
+
+              <p class="readme-role">
+                Frontend Developer · Graphic Designer · Data Analyst
+              </p>
+
+              <hr />
+
+              <h2>Welcome</h2>
+
+              <p>Thank you for visiting my portfolio.</p>
+
+              <p>
+                This workspace is designed to resemble a Visual Studio Code
+                environment, allowing you to explore my background, skills,
+                certifications, projects, and experience through individual
+                files in the Explorer panel.
+              </p>
+
+              <hr />
+
+              <h2>Executive Summary</h2>
+
+              <p>
+                I'm an Information Technology student specializing in Web and
+                Mobile Applications with interests in frontend development, user
+                experience design, and data analytics.
+              </p>
+
+              <p>
+                My goal is to create digital solutions that balance
+                functionality, usability, and data-driven decision making.
+              </p>
+
+              <hr />
+
+              <h2>What You'll Find Here</h2>
+
+              <p>
+                Use the file tree on the left to navigate through each section.
+              </p>
+
+              <h3>Workspace Structure</h3>
+
+              <pre><code>
+          README.md              → Portfolio guide and overview
+          home.tsx               → Introduction and personal profile
+          about.js               → Background and career objectives
+          skills.html            → Technical and professional skills
+          certifications.html    → Certifications and achievements
+          experience.tsx         → Areas of expertise and experience
+          projects.css           → Project showcase
+          contact.css            → Contact information</code></pre>
+
+              <hr />
+
+              <h2>About</h2>
+
+              <p>
+                Learn more about my background, interests, goals, and
+                professional journey.
+              </p>
+
+              <button class="readme-link" onclick="navigateTo('about')">
+                [ Navigate to about.js ]
+              </button>
+
+              <hr />
+
+              <h2>Skills</h2>
+
+              <p>
+                Explore my technical competencies across development, design,
+                and analytics.
+              </p>
+
+              <p><strong>Highlighted skills include:</strong></p>
+
+              <ul>
+                <li>-- HTML</li>
+                <li>-- CSS</li>
+                <li>-- JavaScript</li>
+                <li>-- SQL</li>
+                <li>-- Tableau</li>
+                <li>-- Figma</li>
+              </ul>
+
+              <button class="readme-link" onclick="navigateTo('skills')">
+                [ Navigate to skills.html ]
+              </button>
+
+              <hr />
+
+              <h2>Certifications</h2>
+
+              <p>
+                View selected industry-recognized certifications and continuous
+                learning achievements.
+              </p>
+
+              <p><strong>Featured certifications:</strong></p>
+
+              <ul>
+                <li>--&gt; CompTIA ITF+</li>
+                <li>--&gt; Excel Associate</li>
+                <li>--&gt; Database Fundamentals</li>
+              </ul>
+
+              <button
+                class="readme-link"
+                onclick="navigateTo('certifications')"
+              >
+                [ Navigate to certifications.html ]
+              </button>
+
+              <hr />
+
+              <h2>Experience</h2>
+
+              <p>
+                Explore the areas where I apply my knowledge and continue
+                developing expertise.
+              </p>
+
+              <p><strong>Highlighted areas:</strong></p>
+
+              <ul>
+                <li>--&gt; Frontend Development</li>
+                <li>--&gt; UI/UX Design</li>
+                <li>--&gt; Data Analytics</li>
+              </ul>
+
+              <button class="readme-link" onclick="navigateTo('experience')">
+                [ Navigate to experience.tsx ]
+              </button>
+
+              <hr />
+
+              <h2>Featured Projects</h2>
+
+              <p>Selected highlights from my portfolio:</p>
+
+              <h3>VS Code Inspired Portfolio</h3>
+
+              <p>
+                --&gt; A portfolio experience designed around the Visual Studio
+                Code workspace.
+              </p>
+
+              <h3>Web Development Projects</h3>
+
+              <p>
+                --&gt; Web activities and projects focused on usability and
+                performance.
+              </p>
+
+              <h3>Graphic Design Projects</h3>
+
+              <p>--&gt; Snippets of my projects as a graphic designer.</p>
+
+              <button class="readme-link" onclick="navigateTo('projects')">
+                [ Navigate to projects.css ]
+              </button>
+
+              <hr />
+
+              <h2>Current Focus</h2>
+
+              <p>Currently expanding my expertise in:</p>
+
+              <ul>
+                <li>--&gt; Modern Frontend Development</li>
+                <li>--&gt; React Ecosystem</li>
+                <li>--&gt; UI/UX Design Systems</li>
+                <li>--&gt; Data Visualization</li>
+                <li>--&gt; Production-Ready Applications</li>
+              </ul>
+
+              <hr />
+
+              <h2>Interactive Features</h2>
+
+              <h3>Explorer Navigation</h3>
+
+              <p>
+                --&gt; Browse portfolio sections through the file tree structure
+                located in the Explorer panel.
+              </p>
+
+              <h3>Command Palette Search</h3>
+
+              <p>
+                --&gt; Quickly locate content, skills, projects, certifications,
+                and portfolio sections through the integrated search experience
+                inspired by modern developer tools.
+              </p>
+
+              <h3>AI Portfolio Assistant</h3>
+
+              <p>
+                --&gt; n integrated AI-powered assistant is available through
+                the Copilot panel.
+              </p>
+
+              <p>The assistant can answer questions regarding:</p>
+
+              <ul>
+                <li>--&gt; Background and Education</li>
+                <li>--&gt; Technical Skills</li>
+                <li>--&gt; Certifications</li>
+                <li>--&gt; Projects</li>
+                <li>--&gt; Experience</li>
+                <li>--&gt; Career Interests</li>
+                <li>--&gt; Internship Availability</li>
+              </ul>
+
+              <p>
+                This allows visitors to interact with the portfolio
+                conversationally instead of manually searching through every
+                section.
+              </p>
+
+              <hr />
+
+              <h2>Getting Started</h2>
+
+              <p>
+                If this is your first time visiting the workspace, consider
+                exploring the following files:
+              </p>
+
+              <ol>
+                <li><strong>home.tsx</strong> — Introduction</li>
+                <li><strong>skills.html</strong> — Technical capabilities</li>
+                <li><strong>projects.css</strong> — Featured work</li>
+                <li><strong>experience.tsx</strong> — Areas of expertise</li>
+                <li><strong>contact.css</strong> — Ways to connect</li>
+              </ol>
+
+              <p>
+                Or open the Copilot panel and ask a question to learn more about
+                my work and experience.
+              </p>
+
+              <hr />
+
+              <h2>Availability</h2>
+
+              <p>
+                Open to internships, collaborative projects, and opportunities
+                related to:
+              </p>
+
+              <ul>
+                <li>--&gt; Frontend Development</li>
+                <li>--&gt; Graphic Design</li>
+                <li>--&gt; Data Analytics</li>
+              </ul>
+
+              <hr />
+
+              <blockquote>
+                Thank you for visiting my portfolio. I hope you enjoy exploring
+                it as much as I enjoyed building it.
+              </blockquote>
+            </div>
+          </section>
 
           <!-- ====== HOME SECTION ====== -->
           <section class="editor-section active" id="section-home">
@@ -349,9 +653,9 @@
               <!-- LEFT CONTENT -->
               <div class="about-left">
                 <h2 class="about-heading">
-                  Developer.
-                  <span>Designer.</span><br />
+                  <span>Developer. Designer.</span><br />
                   <span>Data Analyst.</span>
+                  &lt;d3&gt;
                 </h2>
 
                 <div class="about-divider"></div>
@@ -423,8 +727,8 @@
             <h2 class="section-title">
               Hard <span class="accent">Skills</span>
             </h2>
-              <!-- Visual grouping of skills into categories (Frontend/Backend/etc.) -->
-              <p class="code-comment">// Skills &amp; Technologies</p>
+            <!-- Visual grouping of skills into categories (Frontend/Backend/etc.) -->
+            <p class="code-comment">// Skills &amp; Technologies</p>
 
             <div class="skills-categories">
               <!-- Skills stacked by domain (frontend/backend/tools/design/AI) -->
@@ -730,7 +1034,6 @@
             <h2 class="section-title soft-skills-title">
               Soft <span class="accent">Skills</span>
             </h2>
-
 
             <p class="code-comment-soft">
               // Personal & Professional Strengths
@@ -1518,7 +1821,11 @@
                     <span class="project-type">Frontend</span>
 
                     <div class="project-links">
-                      <a href="https://raizalhyn-os.netlify.app/" class="project-link" title="Rai's OS">
+                      <a
+                        href="https://raizalhyn-os.netlify.app/"
+                        class="project-link"
+                        title="Rai's OS"
+                      >
                         🔗
                       </a>
                     </div>
@@ -2133,9 +2440,9 @@
         </div>
       </footer>
 
-          <!-- COMMAND PALETTE (UI search modal)
+      <!-- COMMAND PALETTE (UI search modal)
                script.js controls: open/close (backdrop + ESC) + result rendering + keyboard selection. -->
-          <div class="command-palette-backdrop" id="commandPaletteBackdrop">
+      <div class="command-palette-backdrop" id="commandPaletteBackdrop">
         <div class="command-palette" id="commandPalette">
           <div class="command-palette-header">
             <input

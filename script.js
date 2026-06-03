@@ -4,15 +4,15 @@
 
 (function () {
   const screen = document.getElementById("loading-screen");
-  const line   = document.getElementById("loading-line");
+  const line = document.getElementById("loading-line");
 
   const bootLines = [
-    "initializing portfolio...",
-    "loading assets...",
-    "compiling stylesheets...",
-    "mounting components...",
-    "starting dev server...",
-    "ready.",
+    "  initializing portfolio...",
+    "  loading assets...",
+    "  compiling stylesheets...",
+    "  mounting components...",
+    "  starting dev server...",
+    "  ready.",
   ];
 
   let lineIdx = 0;
@@ -40,10 +40,10 @@
     }
   }
 
-  function dismissLoader() {
-    screen.classList.add("hidden");
-    screen.addEventListener("transitionend", () => screen.remove(), { once: true });
-  }
+  // Dismiss loading screen
+ function dismissLoader() {
+  screen.remove();
+}
 
   // Start typing after a tiny delay so the Lottie has a frame to render
   setTimeout(typeNext, 300);
@@ -52,12 +52,13 @@
   setTimeout(dismissLoader, 8000);
 })();
 
-// ======================================================
-// 1. SECTION NAVIGATION
+
+//    SECTION NAVIGATION
 //    Syncs: tabs, tree items, breadcrumb, section display
-// ======================================================
+
 
 const fileNames = {
+  readme: { file: "README.md", lang: "Markdown" },
   home: { file: "home.tsx", lang: "TypeScript React" },
   about: { file: "project.js", lang: "JavaScript" },
   skills: { file: "skills.html", lang: "HTML" },
@@ -101,6 +102,39 @@ function navigateTo(section) {
   // Scroll editor to top on switch
   const editor = document.getElementById("editorMain");
   if (editor) editor.scrollTo({ top: 0, behavior: "smooth" });
+
+  updateEmptyEditorState();
+}
+
+// Update empty editor state
+function updateEmptyEditorState() {
+  const visibleTabs = [...document.querySelectorAll(".tab")].filter(
+    (tab) => tab.style.display !== "none",
+  );
+
+  const emptyState = document.getElementById("empty-editor-state");
+
+  if (!emptyState) return;
+
+  if (visibleTabs.length === 0) {
+    document.querySelectorAll(".editor-section").forEach((section) => {
+      section.classList.remove("active");
+    });
+
+    const breadcrumb = document.querySelector(".breadcrumb");
+    if (breadcrumb) {
+      breadcrumb.style.display = "none";
+    }
+
+    emptyState.style.display = "flex";
+  } else {
+    const breadcrumb = document.querySelector(".breadcrumb");
+    if (breadcrumb) {
+      breadcrumb.style.display = "";
+    }
+
+    emptyState.style.display = "none";
+  }
 }
 
 // Wire up tabs
@@ -110,7 +144,17 @@ document.querySelectorAll(".tab").forEach((tab) => {
 
 // Wire up tree items
 document.querySelectorAll(".tree-item[data-section]").forEach((item) => {
-  item.addEventListener("click", () => navigateTo(item.dataset.section));
+  item.addEventListener("click", () => {
+    const section = item.dataset.section;
+
+    const tab = document.querySelector(`.tab[data-section="${section}"]`);
+
+    if (tab) {
+      tab.style.display = "flex";
+    }
+
+    navigateTo(section);
+  });
 });
 
 // ======================================================
@@ -137,9 +181,14 @@ document.querySelectorAll(".tab-close").forEach((closeBtn) => {
       const firstVisibleTab = document.querySelector(
         '.tab:not([style*="display: none"])',
       );
+
       if (firstVisibleTab) {
         navigateTo(firstVisibleTab.dataset.section);
+      } else {
+        updateEmptyEditorState();
       }
+    } else {
+      updateEmptyEditorState();
     }
   });
 });
@@ -536,7 +585,12 @@ const contentIndex = buildContentIndex();
 /*SEARCH DATA*/
 const searchData = [
   /* FILES */
-
+  {
+    category: "FILES",
+    title: "README.md",
+    section: "readme",
+    icon: "https://cdn.simpleicons.org/markdown",
+  },
   {
     category: "FILES",
     title: "home.tsx",
@@ -931,10 +985,17 @@ function renderSearchResults(results) {
     }
 
   </div>
-
-`;
+  `;
 
       button.addEventListener("click", () => {
+        const tab = document.querySelector(
+          `.tab[data-section="${item.section}"]`,
+        );
+
+        if (tab) {
+          tab.style.display = "flex";
+        }
+
         navigateTo(item.section);
 
         closeCommandPalette();
@@ -1058,7 +1119,11 @@ const mobileFileSheet = document.getElementById("mobileFileSheet");
 
 mobileFileItems.forEach((item) => {
   item.addEventListener("click", () => {
-    const section = item.dataset.section;
+    const tab = document.querySelector(`.tab[data-section="${section}"]`);
+
+    if (tab) {
+      tab.style.display = "flex";
+    }
 
     navigateTo(section);
 
@@ -1067,8 +1132,22 @@ mobileFileItems.forEach((item) => {
   });
 });
 
-// Open mobile file sheet
+// =========================================
+// INITIAL OPEN TABS
+// =========================================
+
+// Hide all tabs except README and Home
+document.querySelectorAll(".tab").forEach((tab) => {
+  const section = tab.dataset.section;
+
+  if (section !== "home" && section !== "readme") {
+    tab.style.display = "none";
+  }
+});
+
+// Open Home by default
 navigateTo("home");
+updateEmptyEditorState();
 
 // Send message to backend and get response
 async function sendMessage(message) {
@@ -1148,8 +1227,8 @@ async function sendCopilotMessage() {
     const data = await response.json();
 
     // UPDATE AI RESPONSE
-    aiDiv.innerHTML = marked.parse(data.reply || "No response.");  
-    } catch (error) {
+    aiDiv.innerHTML = marked.parse(data.reply || "No response.");
+  } catch (error) {
     aiDiv.textContent = "Something went wrong.";
 
     console.error(error);
