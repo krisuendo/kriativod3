@@ -3998,3 +3998,64 @@ ABOUT SECTION
     pointer-events: auto;
   }
 }
+
+/* ---- LOADING SCREEN ---- */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#loading-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+#loading-terminal {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--text-string);
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  min-width: 320px;
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0 0 24px rgba(192, 132, 252, 0.08);
+}
+
+#loading-terminal::before {
+  content: "> ";
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.loading-cursor {
+  color: var(--accent);
+  animation: blink 0.75s step-end infinite;
+  line-height: 1;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

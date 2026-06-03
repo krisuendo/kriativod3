@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kriativo D3 | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
 
     <!-- Fira Code for monospace code feel, Syne for headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,6 +20,23 @@
     />
   </head>
   <body>
+
+    <!-- ====== LOADING SCREEN ====== -->
+    <div id="loading-screen">
+      <div id="loading-inner">
+        <dotlottie-player
+          id="lottie-player"
+          src="cloud_loading.lottie"
+          autoplay
+          loop
+          style="width: 180px; height: 180px;"
+        ></dotlottie-player>
+        <div id="loading-terminal">
+          <span id="loading-line"></span><span class="loading-cursor">█</span>
+        </div>
+      </div>
+    </div>
+
     <!-- ====== TITLE BAR ====== -->
     <div class="title-bar">
       <div class="title-bar__traffic-lights">

@@ -1,4 +1,58 @@
 // ======================================================
+// 0. LOADING SCREEN
+// ======================================================
+
+(function () {
+  const screen = document.getElementById("loading-screen");
+  const line   = document.getElementById("loading-line");
+
+  const bootLines = [
+    "initializing portfolio...",
+    "loading assets...",
+    "compiling stylesheets...",
+    "mounting components...",
+    "starting dev server...",
+    "ready.",
+  ];
+
+  let lineIdx = 0;
+  let charIdx = 0;
+  let typeTimer = null;
+
+  function typeNext() {
+    const current = bootLines[lineIdx];
+
+    if (charIdx <= current.length) {
+      line.textContent = current.slice(0, charIdx);
+      charIdx++;
+      typeTimer = setTimeout(typeNext, 38);
+    } else {
+      // Pause at end of line, then move to next
+      charIdx = 0;
+      lineIdx++;
+
+      if (lineIdx < bootLines.length) {
+        typeTimer = setTimeout(typeNext, 420);
+      } else {
+        // All lines done — hide loading screen
+        setTimeout(dismissLoader, 500);
+      }
+    }
+  }
+
+  function dismissLoader() {
+    screen.classList.add("hidden");
+    screen.addEventListener("transitionend", () => screen.remove(), { once: true });
+  }
+
+  // Start typing after a tiny delay so the Lottie has a frame to render
+  setTimeout(typeNext, 300);
+
+  // Safety net: force-dismiss after 8 s no matter what
+  setTimeout(dismissLoader, 8000);
+})();
+
+// ======================================================
 // 1. SECTION NAVIGATION
 //    Syncs: tabs, tree items, breadcrumb, section display
 // ======================================================
