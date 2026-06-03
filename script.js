@@ -994,12 +994,12 @@ commandPaletteInput?.addEventListener("keydown", (event) => {
     closeCommandPalette();
   }
 });
+
 /* =========================================
    MOBILE FILE SHEET
 ========================================= */
 
 const mobileFileItems = document.querySelectorAll(".mobile-file-item");
-
 const mobileFileSheet = document.getElementById("mobileFileSheet");
 
 mobileFileItems.forEach((item) => {
@@ -1009,14 +1009,14 @@ mobileFileItems.forEach((item) => {
     navigateTo(section);
 
     mobileFileSheet?.classList.remove("open");
-
     document.getElementById("mobileSheetBackdrop")?.classList.remove("open");
   });
 });
 
+// Open mobile file sheet
 navigateTo("home");
 
-//=========API
+// Send message to backend and get response
 async function sendMessage(message) {
   const response = await fetch("/api/chat", {
     method: "POST",
@@ -1029,7 +1029,6 @@ async function sendMessage(message) {
   });
 
   const data = await response.json();
-
   return data.reply;
 }
 
@@ -1044,33 +1043,27 @@ if (chatBtn) {
 /* =========================================
    COPILOT AI CHAT
 ========================================= */
-
+// ELEMENTS
 const copilotMessages = document.getElementById("copilotMessages");
-
 const copilotInput = document.getElementById("copilotInput");
 
+// AUTO-RESIZE INPUT
 function autoResizeCopilotInput() {
   copilotInput.style.height = "auto";
-
   copilotInput.style.height = copilotInput.scrollHeight + "px";
 }
-
 copilotInput.addEventListener("input", autoResizeCopilotInput);
-
 const copilotSend = document.getElementById("copilotSend");
 
+// SEND MESSAGE
 async function sendCopilotMessage() {
   const message = copilotInput.value.trim();
-
   if (!message) return;
 
   // USER MESSAGE
   const userDiv = document.createElement("div");
-
   userDiv.className = "user-message";
-
   userDiv.textContent = message;
-
   copilotMessages.appendChild(userDiv);
 
   // CLEAR INPUT
@@ -1080,7 +1073,7 @@ async function sendCopilotMessage() {
   // AI LOADING
   const aiDiv = document.createElement("div");
   aiDiv.className = "ai-message";
-// Placeholder text while waiting for response
+  // Placeholder text while waiting for response
   aiDiv.textContent = "Thinking...";
   copilotMessages.appendChild(aiDiv);
 
@@ -1099,6 +1092,7 @@ async function sendCopilotMessage() {
     });
 
     const data = await response.json();
+
     // UPDATE AI RESPONSE
     aiDiv.textContent = data.reply || "No response.";
   } catch (error) {

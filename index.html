@@ -29,9 +29,15 @@
       <div class="title-bar__title">kriativo d3 : portfolio</div>
     </div>
 
-    <!-- ====== MENU BAR ====== -->
+      <!-- ====== MENU BAR ====== -->
+    <!-- Visual-only top menu (File/Edit/View/etc.). Real navigation is handled via tabs/tree + script.js. -->
     <div class="menu-bar">
+      <!-- (Menu items are handled visually; navigation is done by sidebar/tabs via JS) -->
+
+      <!-- Top menu bar (visual only) to mimic a VS Code / desktop-editor feel -->
+      <!-- Note: These spans are decorative (no real menu actions). -->
       <div class="menu-bar__items">
+
         <span>File</span>
         <span>Edit</span>
         <span>View</span>
@@ -44,6 +50,7 @@
     </div>
 
     <!-- ====== MAIN WORKSPACE ====== -->
+
     <div class="workspace">
       <!-- LEFT SIDEBAR ICONS -->
       <aside class="sidebar-icons">
@@ -148,7 +155,8 @@
         </ul>
       </nav>
 
-      <!-- RIGHT SIDE EDITOR LAYOUT -->
+      <!-- RIGHT SIDE EDITOR LAYOUT
+           Tabs + editor sections are switched/visibility-toggled by script.js (active/ids). -->
       <div class="editor-layout">
         <!-- ====== EDITOR TABS ====== -->
         <div class="editor-tabs" id="editorTabs">
@@ -218,7 +226,7 @@
 
         <!-- EDITOR AREA -->
         <main class="editor" id="editorMain">
-          <!-- BREADCRUMB -->
+          <!-- BREADCRUMB (section/file indicator updated by script.js) -->
           <div class="breadcrumb" id="breadcrumb">
             kriativod3 &rsaquo; src &rsaquo;
             <span id="breadcrumbFile">home.tsx</span>
@@ -279,7 +287,7 @@
                     home.tsx
                   </div>
 
-                  <!--Intentional Indentation break for <pre> tag-->
+                  <!-- Intentional indentation break for <pre> so syntax-highlight spans render correctly -->
                   <pre>
     <span class="kw">const</span> <span class="var">kristine</span> = {
     <span class="prop">name</span>: <span class="str">"Kristine Madronero"</span>,
@@ -391,15 +399,17 @@
             </div>
           </section>
 
-          <!-- ====== SKILLS SECTION ====== -->
+          <!-- ====== SKILLS SECTION ======
+               Static content describing skills; layout/styling handled by CSS (script.js mainly animates skill bars if present). -->
           <section class="editor-section" id="section-skills">
             <h2 class="section-title">
               Hard <span class="accent">Skills</span>
             </h2>
-            <p class="code-comment">// Skills &amp; Technologies</p>
+              <!-- Visual grouping of skills into categories (Frontend/Backend/etc.) -->
+              <p class="code-comment">// Skills &amp; Technologies</p>
 
             <div class="skills-categories">
-              <!-- FRONTEND DEVELOPMENT -->
+              <!-- Skills stacked by domain (frontend/backend/tools/design/AI) -->
               <div class="skills-stack">
                 <!-- FRONTEND -->
                 <div class="skills-group">
@@ -698,9 +708,11 @@
                 </div>
               </div>
             </div>
+            <!-- Soft skills section: personal strengths shown as cards (non-interactive, descriptive content). -->
             <h2 class="section-title soft-skills-title">
               Soft <span class="accent">Skills</span>
             </h2>
+
 
             <p class="code-comment-soft">
               // Personal & Professional Strengths
@@ -1482,22 +1494,22 @@
                   </div>
                 </article>
 
-                <!-- Arai Ko -->
+                <!-- Raiza Lhyn -->
                 <article class="project-card">
                   <div class="project-card__header">
                     <span class="project-type">Frontend</span>
 
                     <div class="project-links">
-                      <a href="#" class="project-link" title="Coming Soon">
+                      <a href="https://raizalhyn-os.netlify.app/" class="project-link" title="Rai's OS">
                         🔗
                       </a>
                     </div>
                   </div>
 
-                  <h3 class="project-title">Arai Ko</h3>
+                  <h3 class="project-title">RaiOS</h3>
 
                   <p class="project-desc">
-                    Client portfolio website for Raiza Gloria
+                    OS inspired portfolio website for Raiza Lhyn Gloria
                   </p>
 
                   <div class="project-tech">
@@ -2007,7 +2019,8 @@
       </div>
 
       <div class="mobile-sheet-backdrop" id="mobileSheetBackdrop"></div>
-      <!-- MOBILE FILE SHEET -->
+      <!-- MOBILE FILE SHEET
+           Visible on smaller screens; script.js drives navigation when tapping a file. -->
       <div class="mobile-file-sheet" id="mobileFileSheet">
         <div class="mobile-file-sheet-header">Open Portfolio Files</div>
 
@@ -2083,7 +2096,8 @@
         </button>
       </nav>
 
-      <!-- ====== STATUS BAR ====== -->
+      <!-- ====== STATUS BAR
+           Footer UI updated by script.js (time/language/Copilot indicator). -->
       <footer class="status-bar">
         <div class="status-bar__left">
           <span class="status-item status-item--branch">⎇ main</span>
@@ -2101,8 +2115,9 @@
         </div>
       </footer>
 
-      <!-- COMMAND PALETTE -->
-      <div class="command-palette-backdrop" id="commandPaletteBackdrop">
+          <!-- COMMAND PALETTE (UI search modal)
+               script.js controls: open/close (backdrop + ESC) + result rendering + keyboard selection. -->
+          <div class="command-palette-backdrop" id="commandPaletteBackdrop">
         <div class="command-palette" id="commandPalette">
           <div class="command-palette-header">
             <input
@@ -2140,7 +2155,8 @@
         </div>
       </div>
 
-      <!-- ====== COPILOT PANEL ====== -->
+      <!-- ====== COPILOT PANEL (Chat UI) ======
+           Collapsible assistant panel; script.js appends messages + sends to /api/chat. -->
       <aside class="copilot-panel collapsed" id="copilotPanel">
         <!-- HEADER -->
         <div class="copilot-header">
