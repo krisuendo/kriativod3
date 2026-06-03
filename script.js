@@ -1148,8 +1148,8 @@ async function sendCopilotMessage() {
     const data = await response.json();
 
     // UPDATE AI RESPONSE
-    aiDiv.textContent = data.reply || "No response.";
-  } catch (error) {
+    aiDiv.innerHTML = marked.parse(data.reply || "No response.");  
+    } catch (error) {
     aiDiv.textContent = "Something went wrong.";
 
     console.error(error);

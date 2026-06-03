@@ -3319,6 +3319,30 @@ ABOUT SECTION
   overflow-wrap: anywhere;
   overflow: hidden;
 }
+
+.ai-message p {
+  margin: 0 0 0.75rem;
+}
+
+.ai-message p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-message ul,
+.ai-message ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.ai-message strong {
+  font-weight: 700;
+}
+
+.ai-message code {
+  background: rgba(255,255,255,0.08);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
 /* USER */
 .user-message {
   flex-shrink: 0;
