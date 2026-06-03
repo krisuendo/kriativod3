@@ -4963,6 +4963,29 @@ body.light-mode .command-palette-results::-webkit-scrollbar-thumb {
 }
 
 /* =========================================
+   MOBILE ACTIVITY BAR - LIGHT MODE
+========================================= */
+
+.light-mode .mobile-activity-bar {
+  background: #ffffff;
+  border-top: 1px solid #d1d5db;
+}
+
+.light-mode .mobile-activity-btn {
+  color: #374254;
+}
+
+.light-mode .mobile-activity-btn img {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.65;
+}
+
+.light-mode .mobile-file-sheet {
+  background: #ffffff;
+  border-top: 1px solid #d1d5db;
+}
+
+/* =========================================
    COPILOT CHAT - LIGHT MODE
 ========================================= */
 

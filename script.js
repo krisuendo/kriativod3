@@ -1190,11 +1190,15 @@ if (chatBtn) {
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
 
+const mobileThemeToggle = document.getElementById("mobileThemeToggle");
+const mobileThemeIcon = document.getElementById("mobileThemeIcon");
+
 const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme === "light") {
   document.body.classList.add("light-mode");
   themeIcon.src = "icons/sidebar-sun.png";
+  mobileThemeIcon.src = "icons/sidebar-sun.png";
 }
 
 themeToggle?.addEventListener("click", () => {
@@ -1204,11 +1208,19 @@ themeToggle?.addEventListener("click", () => {
 
   if (isLight) {
     themeIcon.src = "icons/sidebar-sun.png";
+    mobileThemeIcon.src = "icons/sidebar-sun.png";
+
     localStorage.setItem("theme", "light");
   } else {
     themeIcon.src = "icons/sidebar-moon.png";
+    mobileThemeIcon.src = "icons/sidebar-moon.png";
+
     localStorage.setItem("theme", "dark");
   }
+});
+
+mobileThemeToggle?.addEventListener("click", () => {
+  themeToggle?.click();
 });
 
 /* =========================================
