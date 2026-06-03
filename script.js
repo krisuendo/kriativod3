@@ -770,60 +770,34 @@ let selectedSearchIndex = -1;
 
 //AUTOSCROLL TO MATCHING SEARCH RESULT
 function scrollToSearchMatch(sectionName, searchTerm) {
-
-  const section =
-    document.getElementById(
-      "section-" + sectionName
-    );
+  const section = document.getElementById("section-" + sectionName);
 
   if (!section) return;
 
-  const elements =
-    section.querySelectorAll("*");
+  const elements = section.querySelectorAll("*");
 
-  const exactMatch =
-    [...elements].find((el) => {
+  const exactMatch = [...elements].find((el) => {
+    const text = el.textContent?.trim().toLowerCase();
 
-      const text =
-        el.textContent
-          ?.trim()
-          .toLowerCase();
+    return text === searchTerm.toLowerCase();
+  });
 
-      return (
-        text === searchTerm.toLowerCase()
-      );
-
-    });
-
-  const partialMatch =
-  [...elements].find((el) => {
-
-    const text =
-      el.textContent
-        ?.trim()
-        .toLowerCase();
+  const partialMatch = [...elements].find((el) => {
+    const text = el.textContent?.trim().toLowerCase();
 
     if (!text) return false;
 
-    return (
-      text.includes(
-        searchTerm.toLowerCase()
-      ) &&
-      text.length < 300
-    );
-
+    return text.includes(searchTerm.toLowerCase()) && text.length < 300;
   });
 
-  const match =
-    exactMatch || partialMatch;
+  const match = exactMatch || partialMatch;
 
   if (!match) return;
 
   match.scrollIntoView({
     behavior: "smooth",
-    block: "center"
+    block: "center",
   });
-
 }
 
 function renderSearchResults(results) {
@@ -1103,18 +1077,14 @@ async function sendCopilotMessage() {
   copilotInput.value = "";
   copilotInput.style.height = "42px";
 
-  // AUTO SCROLL
-  copilotMessages.scrollTop = copilotMessages.scrollHeight;
-
   // AI LOADING
   const aiDiv = document.createElement("div");
-
   aiDiv.className = "ai-message";
-
+// Placeholder text while waiting for response
   aiDiv.textContent = "Thinking...";
-
   copilotMessages.appendChild(aiDiv);
 
+  // FETCH AI RESPONSE
   try {
     const response = await fetch("/api/chat", {
       method: "POST",
@@ -1129,7 +1099,7 @@ async function sendCopilotMessage() {
     });
 
     const data = await response.json();
-
+    // UPDATE AI RESPONSE
     aiDiv.textContent = data.reply || "No response.";
   } catch (error) {
     aiDiv.textContent = "Something went wrong.";
